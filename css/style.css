@@ -187,22 +187,6 @@ li {
   background: url('loading.gif') no-repeat center center;
 }
 
-table {
-  border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-#print {
-  font-size: 10px;
-}
-
-#printButton {
-  text-align: center;
-}
-
 .center {
   text-align: center;
 }
@@ -267,13 +251,5 @@ table, th, td {
 
   #packingSlip {
     display: inline;
-  }
-
-  #print {
-    font-size: 10px;
-  }
-
-  .packingSlips {
-    page-break-before: always;
   }
 }

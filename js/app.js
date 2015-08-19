@@ -47,9 +47,8 @@
     // Grabs all data required and proceeds with a print preview
     self.printPreview = function(app) {
       console.log(app);
-      var spreadsheetArray = [];
 
-      buildPackingSlips(spreadsheetArray);
+      buildPackingSlips(app);
     };
   });
 })();
