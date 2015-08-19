@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Packing Slip Generator</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <script src="https://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script src="bower_components/jquery-2.1.4.min/jquery-2.1.4.min.js"></script>
+    <script src="js/onLoad.js"></script>
+    <script src="js/buildTable.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="appCtrl as app" class="container">
+    <div id="loading"></div>
+
+    <h1 class="no-print title col-12"><img class="no-print logo"src="images/logo.png"> Packing Slip Generator</h1>
+
+    <div class="no-print">
+      <nav>
+        <ul>
+          <li>
+            <span ng-click="app.showList()" class="btn">Select branch</span>
+            <ul class="shopList" ng-show="app.viewList">
+              <li ng-repeat="shop in app.shops" ng-click="app.listClick(shop)" class="btnShops">{{shop.name}}</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <form id="orderForm" ng-submit="app.printPreview(app)">
+          <h2>Selected Branch:</h2>
+          <h3>{{app.selectedBranch.name}}</h3>
+          <span ng-repeat="item in app.items" class="row item">
+            <strong class="col-12">{{item.description}}:</strong>
+            <input ng-model="item.ordered" type="number" value="0" step="0.01" min="0" class="col-7">
+            <label class="col-4">{{item.orderAs}}</label>
+            <br>
+          </span>
+          <input class="saveOrderBtn btn" type="submit" value="Print"/>
+        </form>
+      </div>
+      <h3 ng-show="app.selectedBranch.selected">Saved orders for {{app.selectedBranch.name}}</h3>
+      <div ng-show="app.selectedBranch.selected" id="loadedOrders">
+      </div>
+    </div>
+  </body>
+</html>

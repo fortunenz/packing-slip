@@ -1,0 +1,281 @@
+/*define the widths of divs*/
+.container {
+  margin: auto auto auto auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+html {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  position: relative;
+  top: -15px;
+  font-family: 'Lora', serif;
+  font-size: 160%;
+}
+
+h2, h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.logo {
+  position: relative;
+  top: 18px;
+  height: 50px;
+  width: 50px;
+}
+
+.chooseShopHeader {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.checkboxes {
+  margin-top: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.load {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul:hover {
+  cursor: pointer;
+}
+
+li {
+  margin-top: 5px;
+}
+
+.item {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.saveOrderBtn {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.btn {
+  background: #a6a6a6;
+  background-image: -webkit-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: -moz-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: -ms-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: -o-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: linear-gradient(to bottom, #a6a6a6, #4a4a4a);
+  -webkit-border-radius: 29;
+  -moz-border-radius: 29;
+  border-radius: 29px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 5px 20px 6px 20px;
+  text-decoration: none;
+  outline:none;
+}
+
+.btn:hover {
+  background: #c2c2c2;
+  background-image: -webkit-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: -moz-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: -ms-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: -o-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: linear-gradient(to bottom, #c2c2c2, #a6a6a6);
+  text-decoration: none;
+}
+
+.btnShops {
+  background: #a6a6a6;
+  background-image: -webkit-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: -moz-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: -ms-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: -o-linear-gradient(top, #a6a6a6, #4a4a4a);
+  background-image: linear-gradient(to bottom, #a6a6a6, #4a4a4a);
+  -webkit-border-radius: 29;
+  -moz-border-radius: 29;
+  border-radius: 29px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 5px 20px 6px 20px;
+  text-decoration: none;
+  outline:none;
+}
+
+.btnShops:hover {
+  background: #c2c2c2;
+  background-image: -webkit-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: -moz-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: -ms-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: -o-linear-gradient(top, #c2c2c2, #a6a6a6);
+  background-image: linear-gradient(to bottom, #c2c2c2, #a6a6a6);
+  text-decoration: none;
+}
+
+#loading {
+  position: fixed;
+  width: 95%;
+  height: 100%;
+  background: url('loading.gif') no-repeat center center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+#print {
+  font-size: 10px;
+}
+
+#printButton {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Packing slip stylving */
+#packingSlip {
+  display: none;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.packingName {
+  text-align: right;
+}
+
+.packingTitle {
+  position: relative;
+  top: -15px;
+  font-family: 'Lora', serif;
+  font-size: 160%;
+}
+
+.packingRow {
+  margin-bottom: 25px;
+}
+
+.packingP {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.packingTable {
+  width: 100%;
+}
+
+.packingSign {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 1000px) {
+  .shopList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .btnShops {
+    margin-right: 5px;
+    width: 40%;
+  }
+
+  .checkboxes {
+    position: relative;
+    left: 20px;
+    width: 25%;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  #packingSlip {
+    display: inline;
+  }
+
+  #print {
+    font-size: 10px;
+  }
+
+  .packingSlips {
+    page-break-before: always;
+  }
+}
