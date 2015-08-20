@@ -248,7 +248,48 @@ var model =
         {
             "name": "Taiping Trading",
             "show": false,
-            "array": []
+            "array": [
+                {
+                    "name": "Taiping Trading (Warehouse)",
+                    "short": "tpWarehouse",
+                    "acc": "027",
+                    "address": "11 Industry Road, Mt Wellington",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (City Shop)",
+                    "short": "tpCityShop",
+                    "acc": "011",
+                    "address": "105 Beach Road, Auckland City",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (City Veggie)",
+                    "short": "tpCityVege",
+                    "acc": "279",
+                    "address": "105 Beach Road, Auckland City",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (City Fish)",
+                    "short": "tpCityFish",
+                    "acc": "278",
+                    "address": "105 Beach Road, Auckland City",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (City BBQ)",
+                    "short": "tpCityBBQ",
+                    "acc": "280",
+                    "address": "105 Beach Road, Auckland City",
+                    "city": "Auckland",
+                    "clicked": false
+                }
+            ]
         },
         {
             "name": "Other",
