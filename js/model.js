@@ -546,7 +546,7 @@ var model =
         },
         {
             "code": "FW003",
-            "description": "Fruit World roll bag (300x450mm) 3kg",
+            "description": "Fruit World roll bag (300x450mm) 3.0kg",
             "unit": "Roll",
             "packaging": "4 rolls/ctn",
             "orderAs": "ctn",
@@ -554,7 +554,15 @@ var model =
         },
         {
             "code": "ROLL05",
-            "description": "Roll bag (300x450mm) 3kg",
+            "description": "Roll bag (300x450mm) 3.0kg",
+            "unit": "Roll",
+            "packaging": "4 rolls/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "ROLL04",
+            "description": "Roll bag (250x125x475mm) 5.0kg",
             "unit": "Roll",
             "packaging": "4 rolls/ctn",
             "orderAs": "ctn",
@@ -892,14 +900,6 @@ var model =
             "unit": "1000",
             "quantity": 1000,
             "packaging": "1,000 pcs/ctn",
-            "orderAs": "ctn",
-            "ordered": 0
-        },
-        {
-            "code": "ROLL04",
-            "description": "Roll bag (250x125x475mm) 5.0kg",
-            "unit": "Roll",
-            "packaging": "4 rolls/ctn",
             "orderAs": "ctn",
             "ordered": 0
         },
