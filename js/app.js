@@ -10,8 +10,7 @@
       short: "",
       acc: "",
       address: "",
-      city: "",
-      selected: false
+      city: ""
     };
     self.customers = model.customers;
     self.items = model.items;
@@ -36,12 +35,24 @@
       self.selectedBranch.acc = data.acc;
       self.selectedBranch.address = data.address;
       self.selectedBranch.city = data.city;
-      self.selectedBranch.selected = true;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
     };
 
     // Grabs all data required and proceeds with a print preview
-    self.printPreview = function(app) {buildPackingSlips(app);
+    self.printPreview = function(app) {
+      // Prevents the user from creating packing slips if there are no
+      // customer or items selected
+      var total = 0;
+      for (i = 0, len = self.items.length; i < len; i++) {
+        total += self.items[i].ordered;
+      }
+      if (self.selectedBranch.name == "") {
+        alert("Please select a customer before you print");
+      } else if (total === 0) {
+        alert("Your customers order cannot have no items");
+      } else {
+        buildPackingSlips(app);
+      }
     };
   });
 })();
