@@ -1,5 +1,5 @@
 // Builds the packing slip
-var buildPackingSlips = function(spreadsheetArray) {
+var buildPackingSlips = function(itemList) {
   $("#packingSlip").empty();
   var packingSlip;
   var orderNum;
@@ -35,13 +35,13 @@ var buildPackingSlips = function(spreadsheetArray) {
       packingSlip += '<div class="row packingRow"><div class="col-8">';
       packingSlip += '<p class="packingP">Deliver to:</p>';
       packingSlip += '<p class="packingP"><strong>';
-      packingSlip += spreadsheetArray.selectedBranch.name;
+      packingSlip += itemList.selectedBranch.name;
       packingSlip += '</strong></p>';
       packingSlip += '<p class="packingP">';
-      packingSlip += spreadsheetArray.selectedBranch.address;
+      packingSlip += itemList.selectedBranch.address;
       packingSlip += '</p>';
       packingSlip += '<p class="packingP">';
-      packingSlip += spreadsheetArray.selectedBranch.city;
+      packingSlip += itemList.selectedBranch.city;
       packingSlip += '</p></div>';
       // Right side date + packing slip number
       packingSlip += '<div class="col-4">';
@@ -49,7 +49,7 @@ var buildPackingSlips = function(spreadsheetArray) {
       packingSlip += orderNum;
       packingSlip += '</p>';
       packingSlip += '<p class="packingP">Account no.: ';
-      packingSlip += spreadsheetArray.selectedBranch.acc;
+      packingSlip += itemList.selectedBranch.acc;
       packingSlip += '</p>';
       packingSlip += '<p class="packingP">Date: ' + new Date().toJSON().slice(0,10) + '</p>';
       packingSlip += '</div></div>';
@@ -57,10 +57,10 @@ var buildPackingSlips = function(spreadsheetArray) {
       var table = '';
 
       table += '<table class="packingTable"><tr><th>Code</th><th>Description</th><th>Packaging</th><th>Quantity</th><th>Carton</th></tr>';
-      //table += buildPackingRow(spreadsheetArray);
+      table += buildPackingRow(itemList);
       table += '</table>';
 
-      //packingSlip += table;
+      packingSlip += table;
       // Name and signature
       packingSlip += '<div class="packingSign">';
       packingSlip += '<p>Name: _________________________________</p>';
@@ -81,78 +81,77 @@ var buildPackingSlips = function(spreadsheetArray) {
   });
 };
 
-var buildPackingRow = function(spreadsheetArray) {
+var buildPackingRow = function(itemList) {
   var table = "";
-  var items = model.items;
   var quantity = 0;
 
-  for (k = 0; k < items.length; k++) {
-    if (items[k].code in spreadsheetArray.attributes) {
-      if (spreadsheetArray.attributes[items[k].code] > 0) {
-        table += '<tr><td>';
-        table += items[k].code;
-        table += '</td>';
-        table += '<td>'
-        table += items[k].description;
-        table += '</td>'
-        table += '<td>'
-        table += items[k].packaging;
-        table += '</td>'
-        table += '<td>'
+  for (i = 0; i < itemList.items.length; i++) {
+    var tempItem = itemList.items[i];
+    if (tempItem.ordered > 0) {
+      table += '<tr><td>';
+      table += tempItem.code;
+      table += '</td>';
+      table += '<td>';
+      table += tempItem.description;
+      table += '</td>';
+      table += '<td>';
+      table += tempItem.packaging;
+      table += '</td>';
 
-        // Calculation for displaying correct quantities
-        if (items[k].unit == "1000") {
-          quantity =  spreadsheetArray.attributes[items[k].code] * items[k].quantity;
-          table += quantity + " pcs";
-        } else if (items[k].packaging.includes("4 rolls/ctn") && items[k].description.includes("bag")) {
-          table += (spreadsheetArray.attributes[items[k].code] * 4) + " roll";
-        } else {
-          table += spreadsheetArray.attributes[items[k].code] + " " + items[k].orderAs;
-        }
+      table += '<td>';
 
-        table += '</td>'
-        table += '<td>'
-
-        // Calculation for displaying correct carton values
-
-        // Calculation for gloves
-        if (items[k].code.includes("GLOVE") && spreadsheetArray.attributes[items[k].code]%10 !== 0) {
-          if (spreadsheetArray.attributes[items[k].code] < 10) {
-            table += (spreadsheetArray.attributes[items[k].code] % 10)+ " boxes";
-          } else {
-            table += ((spreadsheetArray.attributes[items[k].code]/10)-((spreadsheetArray.attributes[items[k].code]%10)/10)) + " ctn + " + (spreadsheetArray.attributes[items[k].code] % 10)+ " boxes";
-          }
-        } else if (items[k].unit == "box") {
-          table += (spreadsheetArray.attributes[items[k].code] / 10) + " ctn";
-        // Calculation for bag seal tape 9mmx66m
-        } else if (items[k].code.includes("SEAL09")) {
-          if (spreadsheetArray.attributes[items[k].code]%48 == 0) {
-            table += (spreadsheetArray.attributes[items[k].code] / 48) + " ctn";
-          } else {
-            if (spreadsheetArray.attributes[items[k].code] < 48) {
-              table += spreadsheetArray.attributes[items[k].code] + " rolls";
-            } else {
-              table += ((spreadsheetArray.attributes[items[k].code]/48)-((spreadsheetArray.attributes[items[k].code]%48)/48)) + " ctn + " + (spreadsheetArray.attributes[items[k].code] % 48)+ " rolls";
-            }
-          }
-        // Calculation for bag seal tape 12mmx66m
-        } else if (items[k].code.includes("SEAL12")) {
-          if (spreadsheetArray.attributes[items[k].code]%36 == 0) {
-            table += (spreadsheetArray.attributes[items[k].code] / 36) + " ctn";
-          } else {
-            if (spreadsheetArray.attributes[items[k].code] < 36) {
-              table += spreadsheetArray.attributes[items[k].code] + " rolls";
-            } else {
-              table += ((spreadsheetArray.attributes[items[k].code]/36)-((spreadsheetArray.attributes[items[k].code]%36)/36)) + " ctn + " + (spreadsheetArray.attributes[items[k].code] % 36)+ " rolls";
-            }
-          }
-        } else {
-          table += spreadsheetArray.attributes[items[k].code] + ' ' + items[k].orderAs;
-        }
-
-        table += '</td>';
-        table += '</tr>';
+      // Calculation for displaying correct quantities
+      if (tempItem.unit == "1000") {
+        quantity =  tempItem.ordered * tempItem.quantity;
+        table += quantity + " pcs";
+      } else if (tempItem.packaging.includes("4 rolls/ctn") && tempItem.description.includes("bag")) {
+        table += (tempItem.ordered * 4) + " roll";
+      } else {
+        table += tempItem.ordered + " " + tempItem.orderAs;
       }
+
+      table += '</td>';
+      table += '<td>';
+
+      // Calculation for displaying correct carton values
+
+      // Calculation for gloves
+      if (tempItem.code.includes("GLOVE") && tempItem.ordered%10 !== 0) {
+        if (tempItem.ordered < 10) {
+          table += (tempItem.ordered % 10)+ " boxes";
+        } else {
+          table += ((tempItem.ordered/10)-((tempItem.ordered%10)/10)) + " ctn + " + (tempItem.ordered % 10)+ " boxes";
+        }
+      } else if (tempItem.unit == "box") {
+        table += (tempItem.ordered / 10) + " ctn";
+      // Calculation for bag seal tape 9mmx66m
+      } else if (tempItem.code.includes("SEAL09")) {
+        if (tempItem.ordered%48 === 0) {
+          table += (tempItem.ordered / 48) + " ctn";
+        } else {
+          if (tempItem.ordered < 48) {
+            table += tempItem.ordered + " rolls";
+          } else {
+            table += ((tempItem.ordered/48)-((tempItem.ordered%48)/48)) + " ctn + " + (tempItem.ordered % 48)+ " rolls";
+          }
+        }
+      // Calculation for bag seal tape 12mmx66m
+      } else if (tempItem.code.includes("SEAL12")) {
+        if (tempItem.ordered%36 === 0) {
+          table += (tempItem.ordered / 36) + " ctn";
+        } else {
+          if (tempItem.ordered < 36) {
+            table += tempItem.ordered + " rolls";
+          } else {
+            table += ((tempItem.ordered/36)-((tempItem.ordered%36)/36)) + " ctn + " + (tempItem.ordered % 36)+ " rolls";
+          }
+        }
+      } else {
+        table += tempItem.ordered + ' ' + tempItem.orderAs;
+      }
+
+      table += '</td>';
+      table += '</tr>';
     }
   }
 

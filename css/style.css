@@ -180,6 +180,14 @@ li {
   text-decoration: none;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
 #loading {
   position: fixed;
   width: 95%;
