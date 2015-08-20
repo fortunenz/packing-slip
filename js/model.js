@@ -258,8 +258,8 @@ var model =
     ],
     "items": [
         {
-            "code": "FW001",
-            "description": "Fruit World singlet bag (Large)",
+            "code": "SINGP_L",
+            "description": "Printed singlet bag (Large)",
             "unit": "1000",
             "quantity": 2000,
             "packaging": "2,000 pcs/ctn",
@@ -267,11 +267,20 @@ var model =
             "ordered": 0
         },
         {
-            "code": "FW002",
-            "description": "Fruit World singlet bag (Small)",
+            "code": "SINGP_S",
+            "description": "Printed singlet bag (Small)",
             "unit": "1000",
             "quantity": 4000,
             "packaging": "4,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGN_L",
+            "description": "Natural singlet bag (Large)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
             "orderAs": "ctn",
             "ordered": 0
         },
@@ -281,6 +290,15 @@ var model =
             "unit": "1000",
             "quantity": 3000,
             "packaging": "3,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGN_S",
+            "description": "Natural singlet bag (Small)",
+            "unit": "1000",
+            "quantity": 4000,
+            "packaging": "4,000 pcs/ctn",
             "orderAs": "ctn",
             "ordered": 0
         },
