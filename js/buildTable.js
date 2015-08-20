@@ -68,6 +68,9 @@ var buildPackingSlips = function(itemList) {
 
       $("#packingSlip").append(packingSlip);
 
+      packingSlip += '<div class="break"></div>'
+      $("#packingSlip").prepend(packingSlip);
+
       results.set("orderNumber", orderNum);
       results.save();
 

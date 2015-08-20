@@ -261,4 +261,8 @@ table, th, td {
   #packingSlip {
     display: inline;
   }
+
+  .break {
+    page-break-after: always;
+  }
 }
