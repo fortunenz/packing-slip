@@ -5,10 +5,6 @@
 
   app.controller("appCtrl", function($scope, $compile) {
     var self = this;
-    self.viewOrder = {
-      id: "Print",
-      bool: true
-    };
     self.selectedBranch = {
       name: "",
       short: "",
@@ -17,19 +13,13 @@
       city: "",
       selected: false
     };
-    self.viewList = false;
-    self.printableShop = [];
-    self.spreadsheetArray = [];
-    self.shops = model.shops;
+    self.customers = model.customers;
     self.items = model.items;
 
     // Displays the list of shops that can be accessed
-    self.showList = function() {
-      if (self.viewList === false) {
-        self.viewList = true;
-      } else {
-        self.viewList = false;
-      }
+    self.showList = function(customer) {
+      console.log(customer);
+      
     };
 
     // Loads all the saved data from previous orders

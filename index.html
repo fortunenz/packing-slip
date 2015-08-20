@@ -24,17 +24,17 @@
     <div class="no-print">
       <nav>
         <ul>
-          <li>
-            <span ng-click="app.showList()" class="btn">Select branch</span>
-            <ul class="shopList" ng-show="app.viewList">
-              <li ng-repeat="shop in app.shops" ng-click="app.listClick(shop)" class="btnShops">{{shop.name}}</li>
+          <li ng-repeat="customerList in app.customers">
+            <span ng-click="app.showList(customerList)" class="btn">{{customerList.name}}</span>
+            <ul class="shopList" ng-show="customerList.show">
+              <li ng-repeat="branch in app.customerList.array" ng-click="app.listClick(branch)" class="btnShops">{{branch.name}}</li>
             </ul>
           </li>
         </ul>
       </nav>
       <div>
         <form id="orderForm" ng-submit="app.printPreview(app)">
-          <h2>Selected Branch:</h2>
+          <h2>Customer:</h2>
           <h3>{{app.selectedBranch.name}}</h3>
           <span ng-repeat="item in app.items" class="row item">
             <strong class="col-12">{{item.description}}:</strong>
@@ -44,9 +44,6 @@
           </span>
           <input class="saveOrderBtn btn" type="submit" value="Print"/>
         </form>
-      </div>
-      <h3 ng-show="app.selectedBranch.selected">Saved orders for {{app.selectedBranch.name}}</h3>
-      <div ng-show="app.selectedBranch.selected" id="loadedOrders">
       </div>
     </div>
     <div id="packingSlip">
