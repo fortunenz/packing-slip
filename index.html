@@ -27,7 +27,7 @@
           <li ng-repeat="customerList in app.customers">
             <span ng-click="app.showList(customerList)" class="btn">{{customerList.name}}</span>
             <ul class="shopList" ng-show="customerList.show">
-              <li ng-repeat="branch in app.customerList.array" ng-click="app.listClick(branch)" class="btnShops">{{branch.name}}</li>
+              <li ng-repeat="branch in customerList.array" ng-click="app.listClick(branch)" class="btnShops">{{branch.name}}</li>
             </ul>
           </li>
         </ul>

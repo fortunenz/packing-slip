@@ -18,14 +18,19 @@
 
     // Displays the list of shops that can be accessed
     self.showList = function(customer) {
-      console.log(customer);
-      
+      if (customer.show === false) {
+        customer.show = true;
+      } else {
+        customer.show = false;
+      }
     };
 
     // Loads all the saved data from previous orders
     // of a branch
     self.listClick = function(data) {
-      self.showList();
+      for (i = 0, len = self.customers.length; i < len; i++) {
+        self.customers[i].show = false;
+      }
       self.selectedBranch.name = data.name;
       self.selectedBranch.short = data.short;
       self.selectedBranch.acc = data.acc;
@@ -35,10 +40,7 @@
     };
 
     // Grabs all data required and proceeds with a print preview
-    self.printPreview = function(app) {
-      console.log(app);
-
-      buildPackingSlips(app);
+    self.printPreview = function(app) {buildPackingSlips(app);
     };
   });
 })();
