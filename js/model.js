@@ -250,10 +250,34 @@ var model =
             "show": false,
             "array": [
                 {
-                    "name": "Taiping Trading (Warehouse)",
-                    "short": "tpWarehouse",
-                    "acc": "027",
-                    "address": "11 Industry Road, Mt Wellington",
+                    "name": "Taiping Trading (Albany Shop)",
+                    "short": "tpAlbaShop",
+                    "acc": "536",
+                    "address": "92 Rosedale Road, Albany",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Albany Veggie)",
+                    "short": "tpAlbaVege",
+                    "acc": "537",
+                    "address": "92 Rosedale Road, Albany",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Albany Fish)",
+                    "short": "tpAlbaFish",
+                    "acc": "538",
+                    "address": "92 Rosedale Road, Albany",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Albany BBQ)",
+                    "short": "tpAlbaBBQ",
+                    "acc": "541",
+                    "address": "92 Rosedale Road, Albany",
                     "city": "Auckland",
                     "clicked": false
                 },
@@ -286,6 +310,174 @@ var model =
                     "short": "tpCityBBQ",
                     "acc": "280",
                     "address": "105 Beach Road, Auckland City",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Flatbush)",
+                    "short": "tpFlatbush",
+                    "acc": "268",
+                    "address": "16 Bishop Dunn Place, East Tamaki",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Glenfield)",
+                    "short": "tpGlenfield",
+                    "acc": "359",
+                    "address": "25 Porana Road, Glenfield",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Howick Shop)",
+                    "short": "tpHwckShop",
+                    "acc": "014",
+                    "address": "8 Gooch Place, Howick",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Howick Veggie)",
+                    "short": "tpHwckVege",
+                    "acc": "201",
+                    "address": "8 Gooch Place, Howick",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Howick Fish)",
+                    "short": "tpHwckFish",
+                    "acc": "200",
+                    "address": "8 Gooch Place, Howick",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Howick Meat)",
+                    "short": "tpHwckMeat",
+                    "acc": "202",
+                    "address": "8 Gooch Place, Howick",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Mt Roskill Shop)",
+                    "short": "tpMtRoskShop",
+                    "acc": "378",
+                    "address": "911 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Mt Roskill Veggie)",
+                    "short": "tpMtRoskVege",
+                    "acc": "379",
+                    "address": "911 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Mt Roskill Fish)",
+                    "short": "tpMtRoskFish",
+                    "acc": "380",
+                    "address": "911 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Mt Roskill Meat)",
+                    "short": "tpMtRoskMeat",
+                    "acc": "381",
+                    "address": "911 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Mt Roskill Bakery)",
+                    "short": "tpMtRoskBake",
+                    "acc": "382",
+                    "address": "911 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Mt Roskill BBQ)",
+                    "short": "tpMtRoskBBQ",
+                    "acc": "383",
+                    "address": "911 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (New Lynn Shop)",
+                    "short": "tpNyShop",
+                    "acc": "367",
+                    "address": "3037 Great North Road, New Lynn",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (New Lynn Veggie)",
+                    "short": "tpNyVege",
+                    "acc": "368",
+                    "address": "3037 Great North Road, New Lynn",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (New Lynn Fish)",
+                    "short": "tpNyFish",
+                    "acc": "369",
+                    "address": "3037 Great North Road, New Lynn",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (New Lynn BBQ)",
+                    "short": "tpNyBBQ",
+                    "acc": "370",
+                    "address": "3037 Great North Road, New Lynn",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Northcote Shop)",
+                    "short": "tpNCShop",
+                    "acc": "013",
+                    "address": "35 Pearn Crescent, Northcote",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Northcote Veggie)",
+                    "short": "tpNCVege",
+                    "acc": "285",
+                    "address": "35 Pearn Crescent, Northcote",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Warehouse)",
+                    "short": "tpWarehouse",
+                    "acc": "027",
+                    "address": "11 Industry Road, Mt Wellington",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Jadan Supermarket (Shop)",
+                    "short": "jadanShop",
+                    "acc": "543",
+                    "address": "974 Dominion Road, Mt Roskill",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Jadan Supermarket (Veggie)",
+                    "short": "jadanVege",
+                    "acc": "546",
+                    "address": "974 Dominion Road, Mt Roskill",
                     "city": "Auckland",
                     "clicked": false
                 }

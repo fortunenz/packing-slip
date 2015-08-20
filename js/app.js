@@ -37,6 +37,7 @@
       self.selectedBranch.address = data.address;
       self.selectedBranch.city = data.city;
       self.selectedBranch.selected = true;
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
     };
 
     // Grabs all data required and proceeds with a print preview
