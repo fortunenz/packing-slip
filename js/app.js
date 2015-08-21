@@ -12,8 +12,26 @@
       address: "",
       city: ""
     };
+    self.searchBox = "";
+    self.displayedItems = model.items;
     self.customers = model.customers;
     self.items = model.items;
+
+    // Loops through items in list and if it matches what's in the search bar
+    // it will display the item
+    self.search = function() {
+      console.log(self.searchBox);
+      if (self.searchBox == " ") {
+        self.displayedItems = model.items;
+      } else {
+        self.displayedItems = [];
+        for (i = 0, len = self.items.length; i < len; i++) {
+          if (self.items[i].description.toLowerCase().includes(self.searchBox.toLowerCase())) {
+            self.displayedItems.push(self.items[i]);
+          }
+        }
+      }
+    };
 
     // Displays the list of shops that can be accessed
     self.showList = function(customer) {
@@ -46,7 +64,7 @@
       for (i = 0, len = self.items.length; i < len; i++) {
         total += self.items[i].ordered;
       }
-      if (self.selectedBranch.name == "") {
+      if (self.selectedBranch.name === "") {
         alert("Please select a customer before you print");
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
