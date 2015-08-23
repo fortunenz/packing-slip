@@ -13,6 +13,7 @@
       city: ""
     };
     self.searchBox = "";
+    self.backOrder = false;
     self.displayedItems = model.items;
     self.customers = model.customers;
     self.items = model.items;
@@ -69,7 +70,7 @@
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
       } else {
-        buildPackingSlips(app);
+        buildPackingSlips(app, $scope);
       }
     };
   });

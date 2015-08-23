@@ -1,5 +1,5 @@
 // Builds the packing slip
-var buildPackingSlips = function(itemList) {
+var buildPackingSlips = function(itemList, scope) {
   $("#packingSlip").empty();
   var packingSlip;
   var orderNum;
@@ -53,6 +53,12 @@ var buildPackingSlips = function(itemList) {
       packingSlip += '</p>';
       packingSlip += '<p class="packingP">Date: ' + new Date().toJSON().slice(0,10) + '</p>';
       packingSlip += '</div></div>';
+
+      // If the order is for a backorder
+      if (itemList.backOrder === true) {
+        packingSlip += '<div class="center"><strong>Backorder</strong></div>';
+      }
+
       // Item details with table
       var table = '';
 
@@ -75,6 +81,20 @@ var buildPackingSlips = function(itemList) {
       results.save();
 
       window.print();
+
+      itemList.selectedBranch.name = "";
+      itemList.selectedBranch.short = "";
+      itemList.selectedBranch.acc = "";
+      itemList.selectedBranch.address = "";
+      itemList.selectedBranch.city = "";
+      itemList.selectedBranch.selected = false;
+      $("#orderForm")[0].reset();
+      for (i = 0, len = itemList.items.length; i < len; i++) {
+        itemList.items[i].ordered = 0;
+      }
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+      scope.$apply();
     },
     error: function(object, error) {
       // The object was not retrieved successfully.
