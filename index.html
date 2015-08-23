@@ -33,9 +33,9 @@
           </li>
         </ul>
       </nav>
-      <div>
+      <div class="center">
         Backorder: <input ng-model="app.backOrder" type="checkbox">
-        Order number: <input ng-model="app.orderNo" onclick="this.select()">
+        <strong>|</strong> Order number: <input ng-model="app.orderNo" onclick="this.select()">
       </div>
       <div>
         <form id="orderForm" ng-submit="app.printPreview(app)">
