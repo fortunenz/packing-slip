@@ -51,6 +51,9 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += '<p class="packingP">Account no.: ';
       packingSlip += itemList.selectedBranch.acc;
       packingSlip += '</p>';
+      packingSlip += '<p class="packingP">Order no.: ';
+      packingSlip += itemList.orderNo;
+      packingSlip += '</p>';
       packingSlip += '<p class="packingP">Date: ' + new Date().toJSON().slice(0,10) + '</p>';
       packingSlip += '</div></div>';
 
@@ -82,18 +85,22 @@ var buildPackingSlips = function(itemList, scope) {
 
       window.print();
 
+      // Resets the order form
       itemList.selectedBranch.name = "";
       itemList.selectedBranch.short = "";
       itemList.selectedBranch.acc = "";
       itemList.selectedBranch.address = "";
       itemList.selectedBranch.city = "";
       itemList.selectedBranch.selected = false;
+      itemList.backOrder = false;
+      itemList.orderNo = "";
       $("#orderForm")[0].reset();
       for (i = 0, len = itemList.items.length; i < len; i++) {
         itemList.items[i].ordered = 0;
       }
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
+      // Applies the change to the view
       scope.$apply();
     },
     error: function(object, error) {

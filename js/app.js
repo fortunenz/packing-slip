@@ -14,6 +14,7 @@
     };
     self.searchBox = "";
     self.backOrder = false;
+    self.orderNo = "";
     self.displayedItems = model.items;
     self.customers = model.customers;
     self.items = model.items;
