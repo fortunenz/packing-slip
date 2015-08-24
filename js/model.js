@@ -501,7 +501,15 @@ var model =
             "name": "Out of Auckland",
             "show": false,
             "array": [
-                {
+              {
+                    "name": "Bidvest Foodservice New Plymouth",
+                    "short": "bidvestNp",
+                    "acc": "507",
+                    "address": "31 Centennial Drive, Moturoa",
+                    "city": "New Plymouth",
+                    "clicked": false
+              },
+              {
                     "name": "RNC Enterprises Ltd",
                     "short": "rnc",
                     "acc": "267",
