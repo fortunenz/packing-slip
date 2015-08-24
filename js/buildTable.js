@@ -72,7 +72,7 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += table;
       // Name and signature
       packingSlip += '<div class="packingSign">';
-      packingSlip += '<p>Name: _________________________________</p>';
+      packingSlip += '<p>Name: _________________________________</p><br>';
       packingSlip += '<p>Signature: _____________________________</p></div>';
 
       $("#packingSlip").append(packingSlip);
