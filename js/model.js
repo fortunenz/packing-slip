@@ -619,6 +619,15 @@ var model =
             "ordered": 0
         },
         {
+            "code": "PRB03NZ",
+            "description": "Produce bag (200x300mm) 1.0kg NZ Made",
+            "unit": "1000",
+            "quantity": 5000,
+            "packaging": "5,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
             "code": "PRB04",
             "description": "Produce bag (225x375mm) 1.5kg",
             "unit": "1000",
@@ -628,8 +637,26 @@ var model =
             "ordered": 0
         },
         {
+            "code": "PRB04NZ",
+            "description": "Produce bag (225x375mm) 1.5kg NZ Made",
+            "unit": "1000",
+            "quantity": 3500,
+            "packaging": "3,500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
             "code": "PRB05",
             "description": "Produce bag (250x425mm) 2.0kg",
+            "unit": "1000",
+            "quantity": 3000,
+            "packaging": "3,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PRB05NZ",
+            "description": "Produce bag (250x425mm) 2.0kg NZ Made",
             "unit": "1000",
             "quantity": 3000,
             "packaging": "3,000 pcs/ctn",
