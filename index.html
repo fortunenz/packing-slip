@@ -23,8 +23,7 @@
 
     <div class="no-print">
       <nav>
-        <ul>
-          <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
+        <ul class="center">
           <li ng-repeat="customerList in app.customers">
             <span ng-click="app.showList(customerList)" class="btn">{{customerList.name}}</span>
             <ul class="shopList" ng-show="customerList.show">
@@ -36,6 +35,8 @@
       <div class="center">
         Backorder: <input ng-model="app.backOrder" type="checkbox">
         <strong>|</strong> Order number: <input ng-model="app.orderNo" onclick="this.select()">
+        <br>
+        <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
       </div>
       <div>
         <form id="orderForm" ng-submit="app.printPreview(app)">
