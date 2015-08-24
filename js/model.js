@@ -488,10 +488,10 @@ var model =
             "show": false,
             "array": [
                 {
-                    "name": "Taiping Trading (Albany Shop)",
-                    "short": "tpAlbaShop",
-                    "acc": "536",
-                    "address": "92 Rosedale Road, Albany",
+                    "name": "Nicolas Trading",
+                    "short": "nicoTrading",
+                    "acc": "308",
+                    "address": "C1/50 Keeling Road, Henderson",
                     "city": "Auckland",
                     "clicked": false
                 }
@@ -1082,14 +1082,6 @@ var model =
             "ordered": 0
         },
         {
-            "code": "CHB02",
-            "description": "Checkout paper bag (Medium)",
-            "unit": "Ctn",
-            "packaging": "250 pcs/ctn",
-            "orderAs": "ctn",
-            "ordered": 0
-        },
-        {
             "code": "JAR",
             "description": "Plastic jar with lid",
             "unit": "Set",
@@ -1103,6 +1095,344 @@ var model =
             "unit": "Ctn",
             "packaging": "500 pcs/ctn",
             "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN01",
+            "description": "Brown paper bag #1",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN02",
+            "description": "Brown paper bag #2",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN03",
+            "description": "Brown paper bag #3",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN04",
+            "description": "Brown paper bag #4",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN05",
+            "description": "Brown paper bag #5",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN06",
+            "description": "Brown paper bag #6",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN07",
+            "description": "Brown paper bag #7",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN08",
+            "description": "Brown paper bag #8",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN09",
+            "description": "Brown paper bag #9",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN10",
+            "description": "Brown paper bag #10",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN11",
+            "description": "Brown paper bag #11",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BROWN12",
+            "description": "Brown paper bag #12",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF00",
+            "description": "Confectionery paper bag #0",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF01",
+            "description": "Confectionery paper bag #1",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF02",
+            "description": "Confectionery paper bag #2",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF03",
+            "description": "Confectionery paper bag #3",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF04",
+            "description": "Confectionery paper bag #4",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF05",
+            "description": "Confectionery paper bag #5",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CONF06",
+            "description": "Confectionery paper bag #6",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "GP01",
+            "description": "Greaseproof paper bag #1",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "GP02",
+            "description": "Greaseproof paper bag #2",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "GP03",
+            "description": "Greaseproof paper bag #3",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "GP04",
+            "description": "Greaseproof paper bag #4",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "STL01",
+            "description": "Satchel greaseproof paper bag #1",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "STL02",
+            "description": "Satchel greaseproof paper bag #2",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BOT01",
+            "description": "Brown bottle paper bag #1",
+            "unit": "Pack",
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BOT02",
+            "description": "Brown bottle paper bag #2",
+            "unit": "Pack",
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "FRENCH01",
+            "description": "French stick paper bag",
+            "unit": "Pack",
+            "packaging": "500 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "CHB01",
+            "description": "Checkout paper bag (Small)",
+            "unit": "Ctn",
+            "packaging": "250 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "CHB02",
+            "description": "Checkout paper bag (Medium)",
+            "unit": "Ctn",
+            "packaging": "250 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "CHB03",
+            "description": "Checkout paper bag (Large)",
+            "unit": "Ctn",
+            "packaging": "250 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SOS01",
+            "description": "SOS block bottom paper bag #1",
+            "unit": "Ctn",
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SOS02",
+            "description": "SOS block bottom paper bag #2",
+            "unit": "Ctn",
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SOS03",
+            "description": "SOS block bottom paper bag #3",
+            "unit": "Ctn",
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SOS04",
+            "description": "SOS block bottom paper bag #4",
+            "unit": "Ctn",
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SOS05",
+            "description": "SOS block bottom paper bag #5",
+            "unit": "Ctn",
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SOS06",
+            "description": "SOS block bottom paper bag #6",
+            "unit": "Ctn",
+            "packaging": "250 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "FOIL",
+            "description": "Foil bag white (183x52x345mm)",
+            "unit": "Pack",
+            "packaging": "250 pcs/pkt",
+            "orderAs": "pkt",
+            "ordered": 0
+        },
+        {
+            "code": "BGR01",
+            "description": "Printed burger bag (160x55x230mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1000 pcs/pkt",
+            "orderAs": "pkt",
             "ordered": 0
         }
     ]
