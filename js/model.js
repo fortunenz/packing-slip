@@ -567,11 +567,47 @@ var model =
             "ordered": 0
         },
         {
+            "code": "SINGN_T",
+            "description": "Natural singlet bag (Tiny)",
+            "unit": "1000",
+            "quantity": 5000,
+            "packaging": "5,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SING_L",
+            "description": "White singlet bag (Large)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
             "code": "SING_M",
             "description": "White singlet bag (Medium)",
             "unit": "1000",
             "quantity": 3000,
             "packaging": "3,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SING_S",
+            "description": "White singlet bag (Small)",
+            "unit": "1000",
+            "quantity": 4000,
+            "packaging": "4,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SING_T",
+            "description": "White singlet bag (Tiny)",
+            "unit": "1000",
+            "quantity": 5000,
+            "packaging": "5,000 pcs/ctn",
             "orderAs": "ctn",
             "ordered": 0
         },

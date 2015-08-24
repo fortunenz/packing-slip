@@ -28,7 +28,7 @@
       } else {
         self.displayedItems = [];
         for (i = 0, len = self.items.length; i < len; i++) {
-          if (self.items[i].description.toLowerCase().includes(self.searchBox.toLowerCase())) {
+          if (self.items[i].description.toLowerCase().includes(self.searchBox.toLowerCase()) || self.items[i].code.toLowerCase().includes(self.searchBox.toLowerCase())) {
             self.displayedItems.push(self.items[i]);
           }
         }
