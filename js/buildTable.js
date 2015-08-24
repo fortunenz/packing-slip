@@ -94,6 +94,7 @@ var buildPackingSlips = function(itemList, scope) {
       itemList.selectedBranch.selected = false;
       itemList.backOrder = false;
       itemList.orderNo = "";
+      itemList.searchBox = "";
       $("#orderForm")[0].reset();
       for (i = 0, len = itemList.items.length; i < len; i++) {
         itemList.items[i].ordered = 0;
