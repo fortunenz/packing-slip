@@ -45,7 +45,11 @@
           <span ng-repeat="item in app.displayedItems" class="row item">
             <strong class="col-12">{{item.description}}:</strong>
             <input ng-model="item.ordered" type="number" value="0" step="0.01" min="0" class="col-7" onclick="this.select()">
-            <label class="col-4">{{item.orderAs}}</label>
+            <label class="col-4">
+              {{item.orderAs}}
+              <button type="button" ng-click="item.ordered = item.ordered+1">+</button>
+              <button type="button" ng-click="item.ordered = item.ordered-1">-</button>
+            </label>
             <br>
           </span>
           <input class="saveOrderBtn btn" type="submit" value="Print"/>
