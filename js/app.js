@@ -15,6 +15,7 @@
     self.searchBox = "";
     self.backOrder = false;
     self.orderNo = "";
+    self.date = new Date();
     self.displayedItems = model.items;
     self.customers = model.customers;
     self.items = model.items;
@@ -22,7 +23,6 @@
     // Loops through items in list and if it matches what's in the search bar
     // it will display the item
     self.search = function() {
-      console.log(self.searchBox);
       if (self.searchBox == " ") {
         self.displayedItems = model.items;
       } else {

@@ -4,6 +4,10 @@ var buildPackingSlips = function(itemList, scope) {
   var packingSlip;
   var orderNum;
 
+  // Formats date
+  var tokens = itemList.date.toString().split(" ");
+  var date = tokens[2] + " " + tokens[1] + " " + tokens[3];
+
   var OrderNumber = Parse.Object.extend("OrderNumber");
   var queryOrderNumber = new Parse.Query(OrderNumber);
   queryOrderNumber.exists("orderNumber");
@@ -54,7 +58,7 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += '<p class="packingP">Order no.: ';
       packingSlip += itemList.orderNo;
       packingSlip += '</p>';
-      packingSlip += '<p class="packingP">Date: ' + new Date().toJSON().slice(0,10) + '</p>';
+      packingSlip += '<p class="packingP">Date: ' + date + '</p>';
       packingSlip += '</div></div>';
 
       // If the order is for a backorder

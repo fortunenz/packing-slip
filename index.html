@@ -34,7 +34,9 @@
       </nav>
       <div class="center">
         Backorder: <input ng-model="app.backOrder" type="checkbox">
-        <strong>|</strong> Order number: <input ng-model="app.orderNo" onclick="this.select()">
+        <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
+        <br>
+        Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
         <br>
         <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
       </div>
