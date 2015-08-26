@@ -69,11 +69,10 @@
           }
         } else {
           if (temp > -1) {
-            self.checkoutItems.pop(temp);
+            self.checkoutItems.splice(temp, 1);
           }
         }
       }
-      console.log(self.checkoutItems);
     };
 
     // Grabs all data required and proceeds with a print preview
