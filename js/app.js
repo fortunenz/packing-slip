@@ -17,6 +17,7 @@
     self.orderNo = "";
     self.date = new Date();
     self.displayedItems = model.items;
+    self.checkoutItems = [];
     self.customers = model.customers;
     self.items = model.items;
 
@@ -56,6 +57,23 @@
       self.selectedBranch.address = data.address;
       self.selectedBranch.city = data.city;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
+    };
+
+    self.checkoutList = function() {
+      var temp;
+      for (i = 0, len = self.items.length; i < len; i++) {
+        temp = $.inArray(self.items[i], self.checkoutItems);
+        if (self.items[i].ordered > 0) {
+          if (temp === -1) {
+            self.checkoutItems.push(self.items[i]);
+          }
+        } else {
+          if (temp > -1) {
+            self.checkoutItems.pop(temp);
+          }
+        }
+      }
+      console.log(self.checkoutItems);
     };
 
     // Grabs all data required and proceeds with a print preview

@@ -200,6 +200,10 @@ table, th, td {
   text-align: center;
 }
 
+.checkout {
+  display: none;
+}
+
 /* Packing slip stylving */
 #packingSlip {
   display: none;
@@ -250,6 +254,20 @@ table, th, td {
     position: relative;
     left: 20px;
     width: 25%;
+  }
+
+  .checkout {
+    display: inline;
+    width: 20%;
+  }
+
+  #orderForm {
+    width: 80%;
+  }
+
+  .item {
+    position: relative;
+    left: 25%;
   }
 }
 
