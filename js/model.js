@@ -488,6 +488,14 @@ var model =
             "show": false,
             "array": [
                 {
+                    "name": "ABC Packaging",
+                    "short": "abcPack",
+                    "acc": "213",
+                    "address": "11 Moa Street, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Nicolas Trading",
                     "short": "nicoTrading",
                     "acc": "308",
