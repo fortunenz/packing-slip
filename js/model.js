@@ -504,6 +504,54 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Cuisine Market",
+                    "short": "cuisineMart",
+                    "acc": "154",
+                    "address": "182 Marua Road, Ellerslie",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Davidson Plastics",
+                    "short": "davidsonPlastic",
+                    "acc": "131",
+                    "address": "51 Druces Road, Wiri",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Fresh Choice Mangere Bridge (Shop)",
+                    "short": "freshChoiceManShop",
+                    "acc": "053",
+                    "address": "40 Coronation Road, Mangere Bridge",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Fresh Choice Mangere Bridge (Veggie)",
+                    "short": "freshChoiceManVege",
+                    "acc": "053",
+                    "address": "40 Coronation Road, Mangere Bridge",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Supervalue Otahuhu (Shop)",
+                    "short": "supervalueOtaShop",
+                    "acc": "324",
+                    "address": "29 Hall Avenue, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "GBK Exports",
+                    "short": "gbk",
+                    "acc": "123",
+                    "address": "12A Dalgety Drive, Manurewa",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Glorypac Marketing",
                     "short": "glorypac",
                     "acc": "255",
@@ -640,6 +688,69 @@ var model =
             "unit": "1000",
             "quantity": 5000,
             "packaging": "5,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGBD_L",
+            "description": "Biodegradable singlet bag (Large)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGBD_M",
+            "description": "Biodegradable singlet bag (Medium)",
+            "unit": "1000",
+            "quantity": 3000,
+            "packaging": "3,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGBD_S",
+            "description": "Biodegradable singlet bag (Small)",
+            "unit": "1000",
+            "quantity": 4000,
+            "packaging": "4,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGB_L",
+            "description": "Black singlet bag (Large)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGB_M",
+            "description": "Black singlet bag (Medium)",
+            "unit": "1000",
+            "quantity": 3000,
+            "packaging": "3,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGB_S",
+            "description": "Black singlet bag (Small)",
+            "unit": "1000",
+            "quantity": 4000,
+            "packaging": "4,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SINGBL_L",
+            "description": "Blue singlet bag (Large)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
             "orderAs": "ctn",
             "ordered": 0
         },
