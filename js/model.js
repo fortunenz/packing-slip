@@ -504,6 +504,14 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Comag Agencies",
+                    "short": "comag",
+                    "acc": "300",
+                    "address": "174 Marua Road, Ellerslie",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Cuisine Market",
                     "short": "cuisineMart",
                     "acc": "154",
