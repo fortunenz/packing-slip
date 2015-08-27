@@ -103,6 +103,7 @@ var buildPackingSlips = function(itemList, scope) {
       for (i = 0, len = itemList.items.length; i < len; i++) {
         itemList.items[i].ordered = 0;
       }
+      itemList.checkoutItems = [];
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
       // Applies the change to the view
@@ -135,8 +136,10 @@ var buildPackingRow = function(itemList) {
 
       table += '<td>';
 
-      // Calculation for displaying correct quantities
-      if (tempItem.unit == "1000") {
+      // Logic for displaying correct quantities
+      if (tempItem.code.includes("RE")) {
+        table += tempItem.ordered + " " + tempItem.orderAs;
+      } else if (tempItem.unit == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
         table += quantity + " pcs";
       } else if (tempItem.packaging.includes("4 rolls/ctn") && tempItem.description.includes("bag")) {
@@ -148,9 +151,9 @@ var buildPackingRow = function(itemList) {
       table += '</td>';
       table += '<td>';
 
-      // Calculation for displaying correct carton values
+      // Logic for displaying correct carton values
 
-      // Calculation for gloves
+      // Logic for gloves
       if (tempItem.code.includes("GLOVE") && tempItem.ordered%10 !== 0) {
         if (tempItem.ordered < 10) {
           table += (tempItem.ordered % 10)+ " boxes";
@@ -159,7 +162,7 @@ var buildPackingRow = function(itemList) {
         }
       } else if (tempItem.unit == "box") {
         table += (tempItem.ordered / 10) + " ctn";
-      // Calculation for bag seal tape 9mmx66m
+      // Logic for bag seal tape 9mmx66m
       } else if (tempItem.code.includes("SEAL09")) {
         if (tempItem.ordered%48 === 0) {
           table += (tempItem.ordered / 48) + " ctn";
@@ -170,7 +173,7 @@ var buildPackingRow = function(itemList) {
             table += ((tempItem.ordered/48)-((tempItem.ordered%48)/48)) + " ctn + " + (tempItem.ordered % 48)+ " rolls";
           }
         }
-      // Calculation for bag seal tape 12mmx66m
+      // Logic for bag seal tape 12mmx66m
       } else if (tempItem.code.includes("SEAL12")) {
         if (tempItem.ordered%36 === 0) {
           table += (tempItem.ordered / 36) + " ctn";
@@ -181,8 +184,19 @@ var buildPackingRow = function(itemList) {
             table += ((tempItem.ordered/36)-((tempItem.ordered%36)/36)) + " ctn + " + (tempItem.ordered % 36)+ " rolls";
           }
         }
+      // Logic for resealable bags
+      } else if (tempItem.code.includes("RE")) {
+        if (tempItem.ordered < tempItem.quantity) {
+          table += tempItem.ordered + " pcs";
+        } else {
+          if (tempItem.ordered%tempItem.quantity === 0) {
+            table += (tempItem.ordered / tempItem.quantity) + " ctn";
+          } else {
+            table += ((tempItem.ordered/tempItem.quantity)-((tempItem.ordered%tempItem.quantity)/tempItem.quantity)) + " ctn + " + (tempItem.ordered % tempItem.quantity)+ " pcs";
+          }
+        }
       } else {
-        table += tempItem.ordered + ' ' + tempItem.orderAs;
+        table += tempItem.ordered + " " + tempItem.orderAs;
       }
 
       table += '</td>';
