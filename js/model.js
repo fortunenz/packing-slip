@@ -488,10 +488,34 @@ var model =
             "show": false,
             "array": [
                 {
+                    "name": "A1 Safety and Packaging",
+                    "short": "a1Safe",
+                    "acc": "514",
+                    "address": "20 Moa Street, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "ABC Packaging",
                     "short": "abcPack",
                     "acc": "213",
                     "address": "11 Moa Street, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Glorypac Marketing",
+                    "short": "glorypac",
+                    "acc": "255",
+                    "address": "Unit E, 6 Carr Road, Three Kings",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Jatma Holdings",
+                    "short": "jatma",
+                    "acc": "104",
+                    "address": "139 Vincent Street, Auckland City",
                     "city": "Auckland",
                     "clicked": false
                 },
