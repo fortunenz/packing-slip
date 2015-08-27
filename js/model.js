@@ -652,6 +652,30 @@ var model =
             "ordered": 0
         },
         {
+            "code": "ROLL01",
+            "description": "Roll bag (200x300mm) 1.0kg",
+            "unit": "Roll",
+            "packaging": "4 rolls/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "ROLL02",
+            "description": "Roll bag (260x360mm) 2.0kg",
+            "unit": "Roll",
+            "packaging": "4 rolls/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "ROLL03",
+            "description": "Roll bag (200x100x450mm) 3.0kg",
+            "unit": "Roll",
+            "packaging": "4 rolls/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
             "code": "ROLL05",
             "description": "Roll bag (300x450mm) 3.0kg",
             "unit": "Roll",
@@ -793,8 +817,16 @@ var model =
             "ordered": 0
         },
         {
-            "code": "FWM",
-            "description": "Foodwrap (Medium)",
+            "code": "FW330",
+            "description": "Foodwrap (330mm x 600m)",
+            "unit": "Roll",
+            "packaging": "6 rolls/ctn",
+            "orderAs": "roll",
+            "ordered": 0
+        },
+        {
+            "code": "FW375",
+            "description": "Foodwrap (375mm x 1200m)",
             "unit": "Roll",
             "packaging": "2 rolls/ctn",
             "orderAs": "roll",
