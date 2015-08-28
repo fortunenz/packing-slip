@@ -504,6 +504,22 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Bidvest Foodservice Auckland",
+                    "short": "bidvestAu",
+                    "acc": "327",
+                    "address": "12 Vermissimo Drive, Mangere",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Bidvest Imports Auckland",
+                    "short": "bidvestAuImport",
+                    "acc": "522",
+                    "address": "7 Armstrong Way, Albany",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Comag Agencies",
                     "short": "comag",
                     "acc": "300",
@@ -590,11 +606,35 @@ var model =
             "show": false,
             "array": [
               {
+                    "name": "Bidvest Foodservice Hamilton",
+                    "short": "bidvestHm",
+                    "acc": "503",
+                    "address": "7 Mainstreet Place, Te Rapa Straights",
+                    "city": "Hamilton",
+                    "clicked": false
+              },
+              {
                     "name": "Bidvest Foodservice New Plymouth",
                     "short": "bidvestNp",
                     "acc": "507",
                     "address": "31 Centennial Drive, Moturoa",
                     "city": "New Plymouth",
+                    "clicked": false
+              },
+              {
+                    "name": "Bidvest Foodservice Wellington",
+                    "short": "bidvestWe",
+                    "acc": "238",
+                    "address": "9-11 Matiu Close, Porirua",
+                    "city": "Wellington",
+                    "clicked": false
+              },
+              {
+                    "name": "Bidvest Foodservice Whangarei",
+                    "short": "bidvestWh",
+                    "acc": "504",
+                    "address": "3-9 Rewerewa Road",
+                    "city": "Whangarei",
                     "clicked": false
               },
               {
