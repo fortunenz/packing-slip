@@ -1947,6 +1947,60 @@ var model =
             "packaging": "1000 pcs/pkt",
             "orderAs": "pkt",
             "ordered": 0
+        },
+        {
+            "code": "FORK",
+            "description": "Plastic fork",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SPOON",
+            "description": "Plastic spoon",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "Knife",
+            "description": "Plastic knife",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SP1050B",
+            "description": "Plastic bowl (1050ml)",
+            "unit": "1000",
+            "quantity": 400,
+            "packaging": "400 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SP1000L",
+            "description": "Plastic lid for bowl (1000ml)",
+            "unit": "1000",
+            "quantity": 400,
+            "packaging": "400 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SP1050",
+            "description": "Plastic bowl + lid (1050ml)",
+            "unit": "1000",
+            "quantity": 400,
+            "packaging": "400 sets/ctn+ctn",
+            "orderAs": "ctn+ctn",
+            "ordered": 0
         }
     ]
 }
