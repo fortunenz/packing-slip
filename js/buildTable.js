@@ -141,7 +141,12 @@ var buildPackingRow = function(itemList) {
         table += tempItem.ordered + " " + tempItem.orderAs;
       } else if (tempItem.unit == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
-        table += quantity + " pcs";
+
+        if (tempItem.orderAs == "ctn+ctn") {
+          table += quantity + " sets";
+        } else {
+          table += quantity + " pcs";
+        }
       } else if (tempItem.packaging.includes("4 rolls/ctn") && tempItem.description.includes("bag")) {
         table += (tempItem.ordered * 4) + " roll";
       } else {
