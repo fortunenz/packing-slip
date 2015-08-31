@@ -203,6 +203,9 @@ var buildPackingRow = function(itemList) {
             table += ((tempItem.ordered/tempItem.quantity)-((tempItem.ordered%tempItem.quantity)/tempItem.quantity)) + " ctn + " + (tempItem.ordered % tempItem.quantity)+ " pcs";
           }
         }
+      } else if (tempItem.orderAs == "1000") {
+        quantity =  tempItem.ordered * tempItem.quantity;
+        table += quantity + " pcs";
       } else {
         table += tempItem.ordered + " " + tempItem.orderAs;
       }
