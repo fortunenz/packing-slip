@@ -838,6 +838,14 @@ var model =
                     "address": "Unit F, 11 Andromeda Crescent, East Tamaki",
                     "city": "Auckland",
                     "clicked": false
+                },
+                {
+                    "name": "Waysoft",
+                    "short": "waysoft",
+                    "acc": "102",
+                    "address": "66A Carbine Road, Mt Wellington",
+                    "city": "Auckland",
+                    "clicked": false
                 }
             ]
         },
@@ -2367,6 +2375,24 @@ var model =
         "description": "Plastic box T3628 (500 grams)",
         "unit": "Ctn",
         "packaging": "220 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+      },
+      {
+        "code": "CL001",
+        "description": "Carton Liner (430x280x400mm)",
+        "unit": "1000",
+        "quantity": 2000,
+        "packaging": "2,000 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+      },
+      {
+        "code": "CL002",
+        "description": "Carton Liner (600x400x700mm)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
         "orderAs": "ctn",
         "ordered": 0
       },
