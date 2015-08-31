@@ -204,6 +204,12 @@ table, th, td {
   display: none;
 }
 
+.backToTop {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
 /* Packing slip stylving */
 #packingSlip {
   display: none;

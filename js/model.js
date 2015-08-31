@@ -2338,6 +2338,38 @@ var model =
             "orderAs": "box",
             "ordered": 0
         },
+      {
+        "code": "T2551",
+        "description": "Plastic box T2551",
+        "unit": "Ctn",
+        "packaging": "200 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+      },
+      {
+        "code": "T3617",
+        "description": "Plastic box T3617 (400 grams)",
+        "unit": "Ctn",
+        "packaging": "250 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+      },
+      {
+        "code": "T3622",
+        "description": "Plastic box T3622 (250 grams)",
+        "unit": "Ctn",
+        "packaging": "360 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+      },
+      {
+        "code": "T3628",
+        "description": "Plastic box T3628 (500 grams)",
+        "unit": "Ctn",
+        "packaging": "220 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+      },
         {
             "code": "JAR",
             "description": "Plastic jar with lid",
@@ -2743,6 +2775,78 @@ var model =
             "unit": "1000",
             "quantity": 400,
             "packaging": "400 sets/ctn+ctn",
+            "orderAs": "ctn+ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF08",
+            "description": "Coffee paper cups (8 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF12",
+            "description": "Coffee paper cups (12 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF16",
+            "description": "Coffee paper cups (16 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF08",
+            "description": "Coffee paper cup lids (8 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF12",
+            "description": "Coffee paper cup lids (12 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF08",
+            "description": "Coffee paper cups with lids (8 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 sets/ctn+ctn",
+            "orderAs": "ctn+ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF12",
+            "description": "Coffee paper cups with lids (12 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 sets/ctn+ctn",
+            "orderAs": "ctn+ctn",
+            "ordered": 0
+        },
+        {
+            "code": "COF16",
+            "description": "Coffee paper cups with lids (16 oz)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 sets/ctn+ctn",
             "orderAs": "ctn+ctn",
             "ordered": 0
         }

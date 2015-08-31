@@ -74,10 +74,12 @@ var buildPackingSlips = function(itemList, scope) {
       table += '</table>';
 
       packingSlip += table;
-      // Name and signature
-      packingSlip += '<div class="packingSign">';
-      packingSlip += '<p>Name: _________________________________</p><br>';
-      packingSlip += '<p>Signature: _____________________________</p></div>';
+      // Name and signature only if sending in Auckland meaning will be delivered
+      if (itemList.selectedBranch.city == "Auckland") {
+        packingSlip += '<div class="packingSign">';
+        packingSlip += '<p>Name: _________________________________</p><br>';
+        packingSlip += '<p>Signature: _____________________________</p></div>';
+      }
 
       $("#packingSlip").append(packingSlip);
 
@@ -104,6 +106,7 @@ var buildPackingSlips = function(itemList, scope) {
         itemList.items[i].ordered = 0;
       }
       itemList.checkoutItems = [];
+      itemList.displayedItems = model.items;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
       // Applies the change to the view
