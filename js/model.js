@@ -1753,6 +1753,150 @@ var model =
             "ordered": 0
         },
         {
+            "code": "VAC001",
+            "description": "Vacuum bag (160x230mm)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC002",
+            "description": "Vacuum bag (175x200mm)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC003",
+            "description": "Vacuum bag (175x250mm)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC004",
+            "description": "Vacuum bag (200x250mm)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC005",
+            "description": "Vacuum bag (200x300mm)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC006",
+            "description": "Vacuum bag (220x300mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC007",
+            "description": "Vacuum bag (250x300mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC008",
+            "description": "Vacuum bag (220x350mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC009",
+            "description": "Vacuum bag (180x310mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC010",
+            "description": "Vacuum bag (250x350mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC011",
+            "description": "Vacuum bag (300x400mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC012",
+            "description": "Vacuum bag (400x400mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC013",
+            "description": "Vacuum bag (300x450mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC014",
+            "description": "Vacuum bag (390x500mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC015",
+            "description": "Vacuum bag (240x560mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "VAC016",
+            "description": "Vacuum bag (400x600mm)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
           "code": "TP001",
             "description": "Toilet paper",
             "unit": "Bundl",
