@@ -1088,6 +1088,24 @@ var model =
             "ordered": 0
         },
         {
+            "code": "SING_J",
+            "description": "White singlet bag (Jumbo)",
+            "unit": "1000",
+            "quantity": 250,
+            "packaging": "250 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "SING_XL",
+            "description": "White singlet bag (Extra Large)",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
             "code": "SING_L",
             "description": "White singlet bag (Large)",
             "unit": "1000",
@@ -1393,6 +1411,24 @@ var model =
             "ordered": 0
         },
         {
+            "code": "CARROT01",
+            "description": "Carrot bag 1.5kg",
+            "unit": "1000",
+            "quantity": 3500,
+            "packaging": "3,500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "FRENCH02",
+            "description": "French stick plastic bag (160x130x710mm)",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
             "code": "FP55",
             "description": "Foam plate #55 White",
             "unit": "Ctn",
@@ -1537,7 +1573,187 @@ var model =
             "ordered": 0
         },
         {
-            "code": "TP001",
+            "code": "PB01",
+            "description": "Poly bag (170x250mm) 30mu",
+            "unit": "1000",
+            "quantity": 5000,
+            "packaging": "5,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB02",
+            "description": "Poly bag (200x300mm) 30mu",
+            "unit": "1000",
+            "quantity": 5000,
+            "packaging": "5,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB03",
+            "description": "Poly bag (250x375mm) 30mu",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB04",
+            "description": "Poly bag (300x450mm) 30mu",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB05",
+            "description": "Poly bag (350x350mm) 30mu",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB06",
+            "description": "Poly bag (450x600mm) 30mu",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB07",
+            "description": "Poly bag (600x900mm) 30mu",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB08",
+            "description": "Poly bag (760x1000mm) 30mu",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB09",
+            "description": "Poly bag (900x1200mm) 30mu",
+            "unit": "1000",
+            "quantity": 300,
+            "packaging": "300 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB10",
+            "description": "Poly bag (570x560x1420mm) 30mu",
+            "unit": "1000",
+            "quantity": 200,
+            "packaging": "200 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB11",
+            "description": "Poly bag (300x550mm) 40mu",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB12",
+            "description": "Poly bag (400x830mm) 40mu",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB13",
+            "description": "Poly bag (150x300mm) 50mu",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB14",
+            "description": "Poly bag (200x300mm) 50mu",
+            "unit": "1000",
+            "quantity": 2000,
+            "packaging": "2,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB15",
+            "description": "Poly bag (500x800mm) 50mu",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB16",
+            "description": "Poly bag (210x165mm) 70mu",
+            "unit": "1000",
+            "quantity": 2500,
+            "packaging": "2,500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB17",
+            "description": "Poly bag (225x375mm) 70mu",
+            "unit": "1000",
+            "quantity": 1000,
+            "packaging": "1,000 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB18",
+            "description": "Poly bag (250x375mm) 70mu",
+            "unit": "1000",
+            "quantity": 1500,
+            "packaging": "1,500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB19",
+            "description": "Poly bag (300x500mm) 70mu",
+            "unit": "1000",
+            "quantity": 500,
+            "packaging": "500 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+            "code": "PB20",
+            "description": "Poly bag (600x900mm) 70mu",
+            "unit": "1000",
+            "quantity": 200,
+            "packaging": "200 pcs/ctn",
+            "orderAs": "ctn",
+            "ordered": 0
+        },
+        {
+          "code": "TP001",
             "description": "Toilet paper",
             "unit": "Bundl",
             "packaging": "100 rolls/bundl",
