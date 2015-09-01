@@ -3304,6 +3304,60 @@ var model =
         "packaging": "1,000 pcs/ctn",
         "orderAs": "ctn",
         "ordered": 0
+    },
+    {
+        "code": "FISH01",
+        "description": "Plain fish tray (Small)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FISH02",
+        "description": "Plain fish tray (Medium)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FISH03",
+        "description": "Plain fish tray (Large)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FISH04",
+        "description": "Printed fish tray (Small)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FISH05",
+        "description": "Printed fish tray (Medium)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FISH06",
+        "description": "Printed fish tray (Large)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
     }
   ]
 }
