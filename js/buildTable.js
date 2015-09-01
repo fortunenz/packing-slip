@@ -207,7 +207,7 @@ var buildPackingRow = function(itemList) {
         }
       } else if (tempItem.orderAs == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
-        table += quantity + " pcs";
+        table += insertComma(quantity.toString()) + " pcs";
       } else {
         table += tempItem.ordered + " " + tempItem.orderAs;
       }
@@ -223,10 +223,11 @@ var buildPackingRow = function(itemList) {
 var insertComma = function(number) {
   if (number.length < 4) {
     return number;
+  } else if (number.length > 6) {
+    number = number.slice(0,number.length-6) + "," + number.slice(number.length-6, number.length-3) + "," + number.slice(number.length-3);
+    return number;
   } else {
     number = number.slice(0,number.length-3) + "," + number.slice(number.length-3);
-
-
     return number;
   }
 };
