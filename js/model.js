@@ -958,6 +958,14 @@ var model =
                       "clicked": false
                 },
                 {
+                      "name": "Landmark Trading",
+                      "short": "landmark",
+                      "acc": "402",
+                      "address": "111 Eastern Hutt Road, Taita",
+                      "city": "Lower Hutt",
+                      "clicked": false
+                },
+                {
                       "name": "Pack Centre",
                       "short": "packCentre",
                       "acc": "019",
