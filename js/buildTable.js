@@ -155,6 +155,9 @@ var buildPackingRow = function(itemList) {
       } else if (tempItem.unit == "Roll" && tempItem.orderAs == "ctn") {
         quantity =  tempItem.ordered * tempItem.quantity;
         table += insertComma(quantity.toString()) + " rolls";
+      } else if (tempItem.unit == "Box" && tempItem.orderAs == "ctn") {
+        quantity =  tempItem.ordered * tempItem.quantity;
+        table += insertComma(quantity.toString()) + " boxes";
       } else {
         table += tempItem.ordered + " " + tempItem.orderAs;
       }
