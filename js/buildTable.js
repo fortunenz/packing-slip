@@ -141,17 +141,19 @@ var buildPackingRow = function(itemList) {
 
       // Logic for displaying correct quantities
       if (tempItem.code.includes("RE")) {
-        table += tempItem.ordered + " " + tempItem.orderAs;
+        table += insertComma(tempItem.ordered.toString()) + " " + tempItem.orderAs;
       } else if (tempItem.unit == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
 
+        // Checks if it's a set item or just normal pcs
         if (tempItem.orderAs == "ctn+ctn") {
-          table += quantity + " sets";
+          table += insertComma(quantity.toString()) + " sets";
         } else {
-          table += quantity + " pcs";
+          table += insertComma(quantity.toString()) + " pcs";
         }
-      } else if (tempItem.packaging.includes("4 rolls/ctn") && tempItem.description.includes("bag")) {
-        table += (tempItem.ordered * 4) + " roll";
+      } else if (tempItem.unit == "Roll" && tempItem.orderAs == "ctn") {
+        quantity =  tempItem.ordered * tempItem.quantity;
+        table += insertComma(quantity.toString()) + " rolls";
       } else {
         table += tempItem.ordered + " " + tempItem.orderAs;
       }
@@ -195,12 +197,12 @@ var buildPackingRow = function(itemList) {
       // Logic for resealable bags
       } else if (tempItem.code.includes("RE")) {
         if (tempItem.ordered < tempItem.quantity) {
-          table += tempItem.ordered + " pcs";
+          table += insertComma(tempItem.ordered.toString()) + " pcs";
         } else {
           if (tempItem.ordered%tempItem.quantity === 0) {
             table += (tempItem.ordered / tempItem.quantity) + " ctn";
           } else {
-            table += ((tempItem.ordered/tempItem.quantity)-((tempItem.ordered%tempItem.quantity)/tempItem.quantity)) + " ctn + " + (tempItem.ordered % tempItem.quantity)+ " pcs";
+            table += ((tempItem.ordered/tempItem.quantity)-((tempItem.ordered%tempItem.quantity)/tempItem.quantity)) + " ctn + " + insertComma((tempItem.ordered % tempItem.quantity).toString()) + " pcs";
           }
         }
       } else if (tempItem.orderAs == "1000") {
@@ -216,4 +218,15 @@ var buildPackingRow = function(itemList) {
   }
 
   return table;
+};
+
+var insertComma = function(number) {
+  if (number.length < 4) {
+    return number;
+  } else {
+    number = number.slice(0,number.length-3) + "," + number.slice(number.length-3);
+
+
+    return number;
+  }
 };

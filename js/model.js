@@ -1216,6 +1216,7 @@ var model =
           "code": "FW003",
           "description": "Fruit World roll bag (300x450mm) 3.0kg",
           "unit": "Roll",
+          "quantity": 4,
           "packaging": "4 rolls/ctn",
           "orderAs": "ctn",
           "ordered": 0
@@ -1224,6 +1225,7 @@ var model =
           "code": "ROLL01",
           "description": "Roll bag (200x300mm) 1.0kg",
           "unit": "Roll",
+          "quantity": 4,
           "packaging": "4 rolls/ctn",
           "orderAs": "ctn",
           "ordered": 0
@@ -1232,6 +1234,7 @@ var model =
           "code": "ROLL02",
           "description": "Roll bag (260x360mm) 2.0kg",
           "unit": "Roll",
+          "quantity": 4,
           "packaging": "4 rolls/ctn",
           "orderAs": "ctn",
           "ordered": 0
@@ -1240,6 +1243,7 @@ var model =
           "code": "ROLL03",
           "description": "Roll bag (200x100x450mm) 3.0kg",
           "unit": "Roll",
+          "quantity": 4,
           "packaging": "4 rolls/ctn",
           "orderAs": "ctn",
           "ordered": 0
@@ -1248,6 +1252,7 @@ var model =
           "code": "ROLL05",
           "description": "Roll bag (300x450mm) 3.0kg",
           "unit": "Roll",
+          "quantity": 4,
           "packaging": "4 rolls/ctn",
           "orderAs": "ctn",
           "ordered": 0
@@ -1256,6 +1261,7 @@ var model =
           "code": "ROLL04",
           "description": "Roll bag (250x125x475mm) 5.0kg",
           "unit": "Roll",
+          "quantity": 4,
           "packaging": "4 rolls/ctn",
           "orderAs": "ctn",
           "ordered": 0
@@ -1389,8 +1395,9 @@ var model =
           "code": "FW330",
           "description": "Foodwrap (330mm x 600m)",
           "unit": "Roll",
+          "quantity": 6,
           "packaging": "6 rolls/ctn",
-          "orderAs": "roll",
+          "orderAs": "ctn",
           "ordered": 0
       },
       {
@@ -2253,6 +2260,24 @@ var model =
           "ordered": 0
       },
       {
+          "code": "TAPE01",
+          "description": "Packaging tape (48mm x 100m)",
+          "unit": "Roll",
+          "quantity": 36,
+          "packaging": "36 rolls/ctn",
+          "orderAs": "ctn",
+          "ordered": 0
+      },
+      {
+          "code": "TAPE02",
+          "description": "Packaging tape (48mm x 50y)",
+          "unit": "Roll",
+          "quantity": 72,
+          "packaging": "72 rolls/ctn",
+          "orderAs": "ctn",
+          "ordered": 0
+      },
+      {
           "code": "PW002",
           "description": "Palletwrap",
           "unit": "Roll",
@@ -2589,7 +2614,7 @@ var model =
       "code": "CLOTH01",
       "description": "Microfibre shiny cloth (blue)",
       "unit": "1000",
-      "quantity": 200
+      "quantity": 200,
       "packaging": "200 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2598,7 +2623,7 @@ var model =
       "code": "CLOTH02",
       "description": "Microfibre shiny cloth (red)",
       "unit": "1000",
-      "quantity": 200
+      "quantity": 200,
       "packaging": "200 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2607,7 +2632,7 @@ var model =
       "code": "CLOTH03",
       "description": "Microfibre shiny cloth (pink)",
       "unit": "1000",
-      "quantity": 200
+      "quantity": 200,
       "packaging": "200 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2616,7 +2641,7 @@ var model =
       "code": "CLOTH04",
       "description": "Microfibre shiny cloth (yellow)",
       "unit": "1000",
-      "quantity": 200
+      "quantity": 200,
       "packaging": "200 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2625,7 +2650,7 @@ var model =
       "code": "CLOTH05",
       "description": "Microfibre shiny cloth (green)",
       "unit": "1000",
-      "quantity": 200
+      "quantity": 200,
       "packaging": "200 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2634,7 +2659,7 @@ var model =
       "code": "MOP01R",
       "description": "Blend mop 20oz (red)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2643,7 +2668,7 @@ var model =
       "code": "MOP01B",
       "description": "Blend mop 20oz (blue)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2652,7 +2677,7 @@ var model =
       "code": "MOP01G",
       "description": "Blend mop 20oz (green)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2661,7 +2686,7 @@ var model =
       "code": "MOP02R",
       "description": "Kentucky mop 20oz (red)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2670,7 +2695,7 @@ var model =
       "code": "MOP02B",
       "description": "Kentucky mop 20oz (blue)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2679,7 +2704,7 @@ var model =
       "code": "MOP02G",
       "description": "Kentucky mop 20oz (green)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -2688,7 +2713,7 @@ var model =
       "code": "MOP03W",
       "description": "Rayon mop 20oz (white)",
       "unit": "1000",
-      "quantity": 24
+      "quantity": 24,
       "packaging": "24 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
@@ -3171,6 +3196,15 @@ var model =
         "quantity": 1000,
         "packaging": "1,000 sets/ctn+ctn",
         "orderAs": "ctn+ctn",
+        "ordered": 0
+    },
+    {
+        "code": "PACKING",
+        "description": "Packing slip enclosed (115x150mm)",
+        "unit": "1000",
+        "quantity": 1000,
+        "packaging": "1,000 pcs/ctn",
+        "orderAs": "ctn",
         "ordered": 0
     }
   ]
