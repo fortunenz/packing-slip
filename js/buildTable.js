@@ -141,7 +141,8 @@ var buildPackingRow = function(itemList) {
 
       // Logic for displaying correct quantities
       if (tempItem.code.includes("RE")) {
-        table += insertComma(tempItem.ordered.toString()) + " " + tempItem.orderAs;
+        tempItem.ordered = tempItem.ordered * 1000;
+        table += insertComma(tempItem.ordered.toString()) + " pcs";
       } else if (tempItem.unit == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
 

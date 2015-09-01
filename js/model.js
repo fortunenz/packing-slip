@@ -1942,7 +1942,7 @@ var model =
           "unit": "1000",
           "quantity": 50000,
           "packaging": "50,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -1951,7 +1951,7 @@ var model =
           "unit": "1000",
           "quantity": 20000,
           "packaging": "20,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -1960,7 +1960,7 @@ var model =
           "unit": "1000",
           "quantity": 20000,
           "packaging": "20,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -1969,7 +1969,7 @@ var model =
           "unit": "1000",
           "quantity": 18000,
           "packaging": "18,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -1978,7 +1978,7 @@ var model =
           "unit": "1000",
           "quantity": 18000,
           "packaging": "18,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -1987,7 +1987,7 @@ var model =
           "unit": "1000",
           "quantity": 18000,
           "packaging": "18,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -1996,7 +1996,7 @@ var model =
           "unit": "1000",
           "quantity": 16000,
           "packaging": "16,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2005,7 +2005,7 @@ var model =
           "unit": "1000",
           "quantity": 12000,
           "packaging": "12,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2014,7 +2014,7 @@ var model =
           "unit": "1000",
           "quantity": 8000,
           "packaging": "8,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2023,7 +2023,7 @@ var model =
           "unit": "1000",
           "quantity": 8000,
           "packaging": "8,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2032,7 +2032,7 @@ var model =
           "unit": "1000",
           "quantity": 6000,
           "packaging": "6,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2041,7 +2041,7 @@ var model =
           "unit": "1000",
           "quantity": 6000,
           "packaging": "6,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2050,7 +2050,7 @@ var model =
           "unit": "1000",
           "quantity": 4000,
           "packaging": "4,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2059,7 +2059,7 @@ var model =
           "unit": "1000",
           "quantity": 2000,
           "packaging": "2,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2068,7 +2068,7 @@ var model =
           "unit": "1000",
           "quantity": 4000,
           "packaging": "4,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2077,7 +2077,7 @@ var model =
           "unit": "1000",
           "quantity": 2000,
           "packaging": "2,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2086,7 +2086,7 @@ var model =
           "unit": "1000",
           "quantity": 2000,
           "packaging": "2,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2095,7 +2095,7 @@ var model =
           "unit": "1000",
           "quantity": 2000,
           "packaging": "2,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2104,7 +2104,7 @@ var model =
           "unit": "1000",
           "quantity": 1000,
           "packaging": "1,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2113,7 +2113,7 @@ var model =
           "unit": "1000",
           "quantity": 1000,
           "packaging": "1,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2122,7 +2122,7 @@ var model =
           "unit": "1000",
           "quantity": 1000,
           "packaging": "1,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2131,7 +2131,7 @@ var model =
           "unit": "1000",
           "quantity": 1000,
           "packaging": "1,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2140,7 +2140,7 @@ var model =
           "unit": "1000",
           "quantity": 8000,
           "packaging": "8,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2149,7 +2149,7 @@ var model =
           "unit": "1000",
           "quantity": 4000,
           "packaging": "4,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2158,7 +2158,7 @@ var model =
           "unit": "1000",
           "quantity": 2000,
           "packaging": "2,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2167,7 +2167,7 @@ var model =
           "unit": "1000",
           "quantity": 1000,
           "packaging": "1,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
@@ -2176,7 +2176,7 @@ var model =
           "unit": "1000",
           "quantity": 1000,
           "packaging": "1,000 pcs/ctn",
-          "orderAs": "pcs",
+          "orderAs": "1000",
           "ordered": 0
       },
       {
