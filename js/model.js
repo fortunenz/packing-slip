@@ -608,14 +608,6 @@ var model =
                     "clicked": false
                 },
                 {
-                    "name": "Supervalue Otahuhu (Shop)",
-                    "short": "supervalueOtaShop",
-                    "acc": "324",
-                    "address": "29 Hall Avenue, Otahuhu",
-                    "city": "Auckland",
-                    "clicked": false
-                },
-                {
                     "name": "GBK Exports",
                     "short": "gbk",
                     "acc": "123",
@@ -800,6 +792,22 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Supervalue Otahuhu (Shop)",
+                    "short": "supervalueOtaShop",
+                    "acc": "324",
+                    "address": "29 Hall Avenue, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Supervalue Otahuhu (Veggie)",
+                    "short": "supervalueOtaVege",
+                    "acc": "324",
+                    "address": "29 Hall Avenue, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Tasman Packaging",
                     "short": "tasmanPack",
                     "acc": "216",
@@ -907,6 +915,14 @@ var model =
                       "acc": "346",
                       "address": "Unit 8, 131 Park Road, Miramar",
                       "city": "Wellington",
+                      "clicked": false
+                },
+                {
+                      "name": "Flexoplas Packaging",
+                      "short": "flexopas",
+                      "acc": "523",
+                      "address": "105 Wordsworth Street, Sydenham",
+                      "city": "Christchurch",
                       "clicked": false
                 },
                 {
@@ -2552,6 +2568,15 @@ var model =
       "unit": "1000",
       "quantity": 500,
       "packaging": "500 pcs/ctn",
+      "orderAs": "ctn",
+      "ordered": 0
+    },
+    {
+      "code": "RB102",
+      "description": "Black rubbish bag (600x300x1200mm) 25mu",
+      "unit": "1000",
+      "quantity": 250,
+      "packaging": "250 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
     },
