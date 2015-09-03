@@ -31,8 +31,8 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += '<p class="packingP">Email: <a href="#">feltd@xtra.co.nz</a></p></div>';
       // Right column of subheading
       packingSlip += '<div class="col-4">';
-      packingSlip += '<p class="packingP right">Phone:    (09) 276-2681</p>';
-      packingSlip += '<p class="packingP right">Fax:      (09) 276-2682</p>';
+      packingSlip += '<p class="packingP right">Phone:    (09) 276-8681</p>';
+      packingSlip += '<p class="packingP right">Fax:      (09) 276-8682</p>';
       packingSlip += '<p class="packingP right">Website:  <a href="#">www.fortunenz.com </a></p></div>';
       packingSlip += '</div>';
       // Left side shop details
