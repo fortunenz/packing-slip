@@ -140,7 +140,7 @@ var buildPackingRow = function(itemList) {
       table += '<td>';
 
       // Logic for displaying correct quantities
-      if (tempItem.code.includes("RE")) {
+      if (tempItem.code.includes("RE0")) {
         tempItem.ordered = tempItem.ordered * 1000;
         table += insertComma(tempItem.ordered.toString()) + " pcs";
       } else if (tempItem.unit == "1000") {
@@ -199,7 +199,7 @@ var buildPackingRow = function(itemList) {
           }
         }
       // Logic for resealable bags
-      } else if (tempItem.code.includes("RE")) {
+      } else if (tempItem.code.includes("RE0")) {
         if (tempItem.ordered < tempItem.quantity) {
           table += insertComma(tempItem.ordered.toString()) + " pcs";
         } else {
