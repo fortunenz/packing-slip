@@ -1034,7 +1034,7 @@ var model =
                       "short": "polyprintTa",
                       "acc": "036",
                       "address": "4 Maleme Street, Greerton",
-                      "city": "Auckland",
+                      "city": "Tauranga",
                       "clicked": false
                 },
                 {
