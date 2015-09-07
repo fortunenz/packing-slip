@@ -792,6 +792,14 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Starpak",
+                    "short": "starpak",
+                    "acc": "328",
+                    "address": "Unit 8, 40 Andromeda Crescent, East Tamaki",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Supervalue Otahuhu (Shop)",
                     "short": "supervalueOtaShop",
                     "acc": "324",
@@ -977,7 +985,7 @@ var model =
                       "name": "Landmark Trading",
                       "short": "landmark",
                       "acc": "402",
-                      "address": "111 Eastern Hutt Road, Taita",
+                      "address": "6 Hollands Crescent, Naenae",
                       "city": "Lower Hutt",
                       "clicked": false
                 },
