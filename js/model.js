@@ -870,6 +870,22 @@ var model =
             "show": false,
             "array": [
                 {
+                      "name": "Alpine 2000",
+                      "short": "alpine",
+                      "acc": "248",
+                      "address": "27 Shelley Street",
+                      "city": "Palmerston North",
+                      "clicked": false
+                },
+                {
+                      "name": "Amalgamated Packaging",
+                      "short": "amalgamated",
+                      "acc": "334",
+                      "address": "41 Trafalgar Street",
+                      "city": "Dannevirke",
+                      "clicked": false
+                },
+                {
                       "name": "Ayrpak",
                       "short": "Ayrpak",
                       "acc": "351",
@@ -913,7 +929,7 @@ var model =
                       "name": "Bidvest Foodservice Whangarei",
                       "short": "bidvestWh",
                       "acc": "504",
-                      "address": "3-9 Rewerewa Road",
+                      "address": "26 Te Waiiti Place, Raumanga",
                       "city": "Whangarei",
                       "clicked": false
                 },
