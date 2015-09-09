@@ -25,9 +25,11 @@
       <nav>
         <ul class="center">
           <li ng-repeat="customerList in app.customers">
-            <span ng-click="app.showList(customerList)" class="btn">{{customerList.name}}</span>
+            <span ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
+          </li>
+          <li ng-repeat="customerList in app.customers">
             <ul class="shopList" ng-show="customerList.show">
-              <li ng-repeat="branch in customerList.array" ng-click="app.listClick(branch)" class="btnShops">{{branch.name}}</li>
+              <li ng-repeat="branch in customerList.array" ng-click="app.listClick(branch)" class="clean-gray-btn-shop">{{branch.name}}</li>
             </ul>
           </li>
         </ul>
@@ -42,10 +44,10 @@
       </div>
       <h2>Customer:</h2>
       <h3>{{app.selectedBranch.name}}</h3>
-      <div class="checkout">
-        <h2>Items</h2>
-        <div ng-repeat="item in app.checkoutItems">
-          <p>
+      <div id="checkout">
+        <h2 id="checkoutHeader">Items</h2>
+        <div id="checkoutItems">
+          <p ng-repeat="item in app.checkoutItems">
             <strong>{{item.description}}:</strong><br>
             {{item.ordered}} {{item.orderAs}}
           </p>
@@ -63,9 +65,9 @@
             </span>
             <br>
           </span>
-          <input class="saveOrderBtn btn" type="submit" value="Print"/>
+          <input class="saveOrderBtn clean-gray-btn" type="submit" value="Print"/>
         </form>
-        <button class="btn backToTop" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast')">Back to top</button>
+        <button class="backToTop clean-gray-btn" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast')">Back to top</button>
         <br>
       </div>
     </div>

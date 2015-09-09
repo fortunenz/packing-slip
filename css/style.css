@@ -130,62 +130,86 @@ li {
   right: 20px;
 }
 
-.btn {
-  background: #a6a6a6;
-  background-image: -webkit-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: -moz-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: -ms-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: -o-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: linear-gradient(to bottom, #a6a6a6, #4a4a4a);
-  -webkit-border-radius: 29;
-  -moz-border-radius: 29;
-  border-radius: 29px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 10px;
-  padding: 5px 20px 6px 20px;
-  text-decoration: none;
-  outline:none;
+.clean-gray-btn {
+  background-color: #eeeeee;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: linear-gradient(top, #eeeeee, #cccccc);
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
+  border-radius: 3px;
+  color: #333;
+  font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  padding: 2px 5px;
+  text-align: center;
+  text-shadow: 0 1px 0 #eee;
+  width: 150px;
+  outline: none;
+}
+
+.clean-gray-btn:hover {
+  background-color: #dddddd;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd), color-stop(100%, #bbbbbb));
+  background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: linear-gradient(top, #dddddd, #bbbbbb);
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #999;
   cursor: pointer;
+  text-shadow: 0 1px 0 #ddd;
 }
 
-.btn:hover {
-  background: #c2c2c2;
-  background-image: -webkit-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: -moz-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: -ms-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: -o-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: linear-gradient(to bottom, #c2c2c2, #a6a6a6);
-  text-decoration: none;
+.clean-gray-btn:active {
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #888;
+  -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+  box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
 }
 
-.btnShops {
-  background: #a6a6a6;
-  background-image: -webkit-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: -moz-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: -ms-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: -o-linear-gradient(top, #a6a6a6, #4a4a4a);
-  background-image: linear-gradient(to bottom, #a6a6a6, #4a4a4a);
-  -webkit-border-radius: 29;
-  -moz-border-radius: 29;
-  border-radius: 29px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 15px;
-  padding: 5px 20px 6px 20px;
-  text-decoration: none;
-  outline:none;
+.clean-gray-btn-shop {
+  background-color: #eeeeee;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: linear-gradient(top, #eeeeee, #cccccc);
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
+  border-radius: 3px;
+  color: #333;
+  font: bold 15px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  padding: 2px 5px;
+  text-align: center;
+  text-shadow: 0 1px 0 #eee;
+  width: 150px;
+  outline: none;
+}
+
+.clean-gray-btn-shop:hover {
+  background-color: #dddddd;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd), color-stop(100%, #bbbbbb));
+  background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
+  background-image: linear-gradient(top, #dddddd, #bbbbbb);
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #999;
   cursor: pointer;
+  text-shadow: 0 1px 0 #ddd;
 }
 
-.btnShops:hover {
-  background: #c2c2c2;
-  background-image: -webkit-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: -moz-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: -ms-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: -o-linear-gradient(top, #c2c2c2, #a6a6a6);
-  background-image: linear-gradient(to bottom, #c2c2c2, #a6a6a6);
-  text-decoration: none;
+.clean-gray-btn-shop:active {
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #888;
+  -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+  box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
 }
 
 table {
@@ -207,8 +231,21 @@ table, th, td {
   text-align: center;
 }
 
-.checkout {
+#checkout {
   display: none;
+  width: 20%;
+  position: fixed;
+  top: 20px;
+  right: 0;
+  height: 100%;
+}
+
+#checkoutHeader {
+  height: 40px;
+}
+
+#checkoutItems {
+  overflow-y: auto;
 }
 
 .backToTop {
@@ -253,11 +290,18 @@ table, th, td {
 }
 
 @media screen and (min-width: 1000px) {
+  nav {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .shopList {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
   }
+
   .btnShops {
     margin-right: 5px;
     width: 40%;
@@ -269,14 +313,8 @@ table, th, td {
     width: 25%;
   }
 
-  .checkout {
+  #checkout {
     display: inline;
-    width: 20%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    overflow-y: scroll;
-    height: 100%;
   }
 
   #orderForm {

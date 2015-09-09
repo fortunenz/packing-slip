@@ -40,6 +40,11 @@
     self.showList = function(customer) {
       if (customer.show === false) {
         customer.show = true;
+        for (i = 0, len = self.customers.length; i < len; i++) {
+          if (customer !== self.customers[i]) {
+            self.customers[i].show = false;
+          }
+        }
       } else {
         customer.show = false;
       }
