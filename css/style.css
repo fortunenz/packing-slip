@@ -128,6 +128,7 @@ li {
   position: fixed;
   top: 5px;
   right: 20px;
+  z-index: 3;
 }
 
 .clean-gray-btn {
@@ -172,44 +173,7 @@ li {
 }
 
 .clean-gray-btn-shop {
-  background-color: #eeeeee;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
-  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: linear-gradient(top, #eeeeee, #cccccc);
-  border: 1px solid #ccc;
-  border-bottom: 1px solid #bbb;
-  border-radius: 3px;
-  color: #333;
   font: bold 15px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  padding: 2px 5px;
-  text-align: center;
-  text-shadow: 0 1px 0 #eee;
-  width: 150px;
-  outline: none;
-}
-
-.clean-gray-btn-shop:hover {
-  background-color: #dddddd;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd), color-stop(100%, #bbbbbb));
-  background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
-  background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
-  background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
-  background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
-  background-image: linear-gradient(top, #dddddd, #bbbbbb);
-  border: 1px solid #bbb;
-  border-bottom: 1px solid #999;
-  cursor: pointer;
-  text-shadow: 0 1px 0 #ddd;
-}
-
-.clean-gray-btn-shop:active {
-  border: 1px solid #aaa;
-  border-bottom: 1px solid #888;
-  -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
-  box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
 }
 
 table {
@@ -290,6 +254,39 @@ table, th, td {
 }
 
 @media screen and (min-width: 1000px) {
+  /* Keeps the header and customer aditional details panel locked at the
+      top of the screen*/
+  .white {
+    background-color: white;
+    width: 100%;
+    height: 130px;
+    top: 0;
+    right: 20%;
+    position: fixed;
+    z-index: 1;
+
+  }
+
+  #title {
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+  }
+
+  #customerDetails {
+    position: fixed;
+    left: 25%;
+    right: 20%;
+    top: 80px;
+    z-index: 2;
+    background-color: white;
+  }
+
+  #mainBody {
+    position: relative;
+    top: 130px;
+  }
+
   nav {
     width: 60%;
     margin-left: auto;
@@ -315,6 +312,7 @@ table, th, td {
 
   #checkout {
     display: inline;
+    z-index: 3;
   }
 
   #orderForm {
