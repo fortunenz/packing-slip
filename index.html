@@ -19,9 +19,15 @@
   <body ng-controller="appCtrl as app" class="container">
     <div id="loading"></div>
 
-    <h1 class="no-print title col-12"><img class="no-print logo" src="images/logo.png"> Packing Slip Generator</h1>
+    <h1 id="title" class="no-print col-12"><img class="no-print logo" src="images/logo.png"> Packing Slip Generator</h1>
 
     <div class="no-print">
+      <div id="customerDetails" class="center">
+        Backorder: <input ng-model="app.backOrder" type="checkbox">
+        <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
+        | Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
+        | <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
+      </div>
       <nav>
         <ul class="center">
           <li ng-repeat="customerList in app.customers">
@@ -34,14 +40,6 @@
           </li>
         </ul>
       </nav>
-      <div class="center">
-        Backorder: <input ng-model="app.backOrder" type="checkbox">
-        <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
-        <br>
-        Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
-        <br>
-        <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
-      </div>
       <h2>Customer:</h2>
       <h3>{{app.selectedBranch.name}}</h3>
       <div id="checkout">
