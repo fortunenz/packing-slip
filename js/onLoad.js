@@ -2,7 +2,6 @@
 $(window).ready(function() {
   $("#loading").hide();
   adjustCheckoutSize();
-
 });
 
 $(window).resize(function() {
@@ -12,7 +11,3 @@ $(window).resize(function() {
 var adjustCheckoutSize = function() {
   $("#checkoutItems").css("height", $("#checkout").height() - $("#checkoutHeader").height());
 };
-
-var adjustMainBody = function() {
-  $("#mainBody").css("height", $("#checkout").height() - $("#checkoutHeader").height());
-}

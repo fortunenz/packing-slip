@@ -29,6 +29,8 @@
         <strong>| </strong> <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
         <br>
         <h2>Customer: {{app.selectedBranch.name}}</h2>
+
+        <hr>
       </div>
 
       <div id="mainBody">
@@ -65,7 +67,11 @@
       </div>
 
       <div id="checkout">
-        <h2 id="checkoutHeader">Items</h2>
+        <div id="checkoutHeader">
+          <br>
+          <h2>Items</h2>
+          <hr>
+        </div>
         <div id="checkoutItems">
           <p ng-repeat="item in app.checkoutItems">
             <strong>{{item.description}}:</strong><br>
