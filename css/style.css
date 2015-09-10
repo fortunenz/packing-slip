@@ -58,17 +58,18 @@
 }
 
 html {
-  font-family: 'Noto Sans', sans-serif;
-}
-
-h2 {
-  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h2, h3 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+h2 {
+  font-size: 100%;
+  margin-top: 5px;
 }
 
 #title {
@@ -174,7 +175,7 @@ li {
 
 .customerList {
   width: 90%;
-  margin: 5px auto;
+  margin: 2px auto;
 }
 
 .printBtn {
@@ -182,6 +183,14 @@ li {
   top: 5px;
   right: 0;
   z-index: 4;
+}
+
+.shopList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table {
@@ -245,7 +254,8 @@ table, th, td {
 }
 
 .packingRow {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  font-size: 12px;
 }
 
 .packingP {
@@ -301,18 +311,15 @@ table, th, td {
   }
 
   .customerList {
-    width: 140px;
+    width: 139px;
+  }
+
+  .shopList {
+    margin-left: 50px;
   }
 
   .clean-gray-btn-shop {
     width: 150px;
-  }
-
-  .shopList {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-left: 50px;
   }
 
   #checkout {
