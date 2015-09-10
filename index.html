@@ -34,9 +34,9 @@
 
       <div id="mainBody">
         <nav>
-          <ul class="center">
-            <li ng-repeat="customerList in app.customers">
-              <span ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
+          <ul >
+            <li class="center row">
+              <span ng-repeat="customerList in app.customers" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
             </li>
             <li ng-repeat="customerList in app.customers">
               <ul class="shopList" ng-show="customerList.show">
