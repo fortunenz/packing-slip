@@ -1,6 +1,4 @@
 (function() {
-  Parse.initialize("p45yej86tibQrsfKYCcj6UmNw4o7b6kxtsobZnmA", "fXSkEhDGakCYnVv5OOdAfWDmjAuQvlnFI5KOwIUO");
-
   var app = angular.module("app", []);
 
   app.controller("appCtrl", function($scope, $compile) {

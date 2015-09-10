@@ -177,6 +177,12 @@ li {
   font: bold 15px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 }
 
+.clean-gray-btn-increment {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+
 table {
   border-collapse: collapse;
 }
