@@ -125,11 +125,11 @@ li {
   margin-top: 15px;
 }
 
-.saveOrderBtn {
+.printBtn {
   position: fixed;
   top: 5px;
-  right: 20px;
-  z-index: 3;
+  right: 0;
+  z-index: 4;
 }
 
 .clean-gray-btn {
