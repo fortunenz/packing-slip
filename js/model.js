@@ -512,6 +512,14 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "AYE NZ/2 Cheap",
+                    "short": "aye",
+                    "acc": "371",
+                    "address": "54 Diana Drive, Wairau Valley Glenfield",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "BCS Foodpak",
                     "short": "bcs",
                     "acc": "096",
@@ -939,6 +947,14 @@ var model =
                       "acc": "346",
                       "address": "Unit 8, 131 Park Road, Miramar",
                       "city": "Wellington",
+                      "clicked": false
+                },
+                {
+                      "name": "China Town Christchurch",
+                      "short": "chinaTown",
+                      "acc": "270",
+                      "address": "Unit C, 7 Vulcan Place, Middleton",
+                      "city": "Christchurch",
                       "clicked": false
                 },
                 {
@@ -3405,6 +3421,24 @@ var model =
         "unit": "1000",
         "quantity": 500,
         "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "RESOY",
+        "description": "Printed soybean resealable bag (200x255mm)",
+        "unit": "1000",
+        "quantity": 2000,
+        "packaging": "2,000 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "RERICE",
+        "description": "Printed rice noodle resealable bag (200x255mm)",
+        "unit": "1000",
+        "quantity": 2000,
+        "packaging": "2,000 pcs/ctn",
         "orderAs": "ctn",
         "ordered": 0
     }
