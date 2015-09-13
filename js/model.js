@@ -3441,6 +3441,24 @@ var model =
         "packaging": "2,000 pcs/ctn",
         "orderAs": "ctn",
         "ordered": 0
+    },
+    {
+        "code": "BS850B",
+        "description": "Plastic container base (850ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS850DL",
+        "description": "Plastic container raised lid (850ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
     }
   ]
 }
