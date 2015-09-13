@@ -3459,6 +3459,60 @@ var model =
         "ordered": 0
     },
     {
+        "code": "BS500B",
+        "description": "Plastic container base (500ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS500FL",
+        "description": "Plastic container flat lid (500ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS650B",
+        "description": "Plastic container base (650ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS650FL",
+        "description": "Plastic container flat lid (650ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS750B",
+        "description": "Plastic container base (750ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS750FL",
+        "description": "Plastic container flat lid (750ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
         "code": "BS850B",
         "description": "Plastic container base (850ml)",
         "unit": "Ctn",
@@ -3470,6 +3524,42 @@ var model =
     {
         "code": "BS850DL",
         "description": "Plastic container raised lid (850ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS900B",
+        "description": "Plastic container base (900ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS980B",
+        "description": "Plastic container base (980ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS1000B",
+        "description": "Plastic container base (1000ml)",
+        "unit": "Ctn",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "BS1000FL",
+        "description": "Plastic container flat lid (1000ml)",
         "unit": "Ctn",
         "quantity": 500,
         "packaging": "500 pcs/ctn",
