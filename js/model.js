@@ -314,16 +314,32 @@ var model =
                     "clicked": false
                 },
                 {
-                    "name": "Taiping Trading (Flatbush)",
-                    "short": "tpFlatbush",
+                    "name": "Taiping Trading (Flatbush Shop)",
+                    "short": "tpFlatbushShop",
                     "acc": "268",
                     "address": "16 Bishop Dunn Place, East Tamaki",
                     "city": "Auckland",
                     "clicked": false
                 },
                 {
-                    "name": "Taiping Trading (Glenfield)",
-                    "short": "tpGlenfield",
+                    "name": "Taiping Trading (Flatbush Veggie)",
+                    "short": "tpFlatbushVege",
+                    "acc": "268",
+                    "address": "16 Bishop Dunn Place, East Tamaki",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Glenfield Shop)",
+                    "short": "tpGlenfieldShop",
+                    "acc": "359",
+                    "address": "25 Porana Road, Glenfield",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
+                    "name": "Taiping Trading (Glenfield Veggie)",
+                    "short": "tpGlenfieldVege",
                     "acc": "359",
                     "address": "25 Porana Road, Glenfield",
                     "city": "Auckland",
