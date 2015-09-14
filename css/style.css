@@ -80,13 +80,6 @@ h2 {
   font-size: 160%;
 }
 
-/* Disable spinner for item input */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .logo {
   position: relative;
   top: 18px;
@@ -193,6 +186,13 @@ li {
   margin-right: auto;
 }
 
+/* Disable spinner for item input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -209,10 +209,19 @@ table, th, td {
   z-index: 5;
 }
 
+/* Generic styling for centering text */
 .center {
   text-align: center;
 }
 
+/* Styling for button that takes user back to top of the page */
+.backToTop {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* Styling the side panel showing shopping cart */
 #checkout {
   display: none;
   width: 20%;
@@ -228,12 +237,6 @@ table, th, td {
 
 #checkoutItems {
   overflow-y: auto;
-}
-
-.backToTop {
-  position: fixed;
-  bottom: 0;
-  left: 0;
 }
 
 /* Packing slip stylving */
