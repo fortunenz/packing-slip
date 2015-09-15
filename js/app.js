@@ -62,6 +62,7 @@
       $('html, body').animate({ scrollTop: 0 }, 'fast');
     };
 
+    // Appends data to the checkout list
     self.checkoutList = function() {
       var temp;
       for (i = 0, len = self.items.length; i < len; i++) {
