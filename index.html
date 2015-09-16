@@ -74,6 +74,9 @@
           <p ng-repeat="item in app.checkoutItems">
             <strong>{{item.description}}:</strong><br>
             {{item.ordered}} {{item.orderAs}}
+            <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = 0; app.checkoutList()">X</button>
+            <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
+            <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
           </p>
         </div>
       </div>

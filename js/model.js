@@ -1006,6 +1006,14 @@ var model =
                     "clicked": false
                 },
                 {
+                      "name": "Jasco Distributing Rotorua",
+                      "short": "jascoRotorua",
+                      "acc": "293",
+                      "address": "27 White Street, Fenton Park",
+                      "city": "Rotorua",
+                      "clicked": false
+                },
+                {
                       "name": "Jasco Distributing Taupo",
                       "short": "jascoTaupo",
                       "acc": "344",
