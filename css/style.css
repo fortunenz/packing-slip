@@ -88,6 +88,10 @@ h2 {
 }
 
 .greeting {
+  text-align: center;
+}
+
+.greetingBreakline {
   display: none;
 }
 
@@ -400,6 +404,10 @@ table, th, td {
     left: 0;
     top: 0;
     z-index: 5;
+  }
+
+  .greetingBreakline {
+    display: inline;
   }
 
   #title {
