@@ -9,7 +9,6 @@ $(window).resize(function() {
 
 // Hides the loading gif on load of the application
 window.onload = function() {
-  Parse.initialize("p45yej86tibQrsfKYCcj6UmNw4o7b6kxtsobZnmA", "fXSkEhDGakCYnVv5OOdAfWDmjAuQvlnFI5KOwIUO");
-  $("#loading").hide();
+  //$("#loading").hide();
   adjustCheckoutSize();
 };

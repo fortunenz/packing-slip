@@ -6,7 +6,7 @@
     <title>Packing Slip Generator</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="css/style.css" rel="stylesheet">
-    <script src="https://www.parsecdn.com/js/parse-1.5.0.min.js" async></script>
+    <script src="https://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
     <script src="bower_components/jquery-2.1.4.min/jquery-2.1.4.min.js"></script>
     <script src="js/onLoad.js" async></script>
     <script src="js/buildTable.js" async></script>
@@ -16,73 +16,94 @@
   </head>
   <body ng-controller="appCtrl as app" class="container">
     <div id="loading"></div>
-    <div class="no-print">
-      <div class="white"></div>
+    <!-- The user must first login before they can use the application -->
+    <div ng-show="!app.access" class="no-print">
       <h1 id="title" class="col-12"><img class="no-print logo" src="images/logo.png"> Packing Slip Generator</h1>
 
-      <div id="customerDetails" class="center">
-        Backorder: <input ng-model="app.backOrder" type="checkbox">
-        <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
-        <strong>| </strong> Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
-        <strong>| </strong> <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
-        <br>
-        <h2>Customer: {{app.selectedBranch.name}}</h2>
-
-        <hr>
-      </div>
-
-      <div id="mainBody">
-        <nav>
-          <ul >
-            <li class="center row">
-              <span ng-repeat="customerList in app.customers" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
-            </li>
-            <li ng-repeat="customerList in app.customers">
-              <ul class="shopList" ng-show="customerList.show">
-                <li ng-repeat="branch in customerList.array" ng-click="app.listClick(branch)" class="clean-gray-btn clean-gray-btn-shop">{{branch.name}}</li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="itemList">
-          <form id="orderForm" ng-submit="app.printPreview(app)">
-            <span ng-repeat="item in app.displayedItems" class="row item">
-              <strong class="col-12">{{item.description}}:</strong>
-              <input ng-change="app.checkoutList()" ng-model="item.ordered" type="number" value="0" min="0" class="col-7" onclick="this.select()">
-              <span class="col-4">
-                {{item.orderAs}}
-                <button type="button" class="clean-gray-btn clean-gray-btn-increment" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
-                <button type="button" class="clean-gray-btn clean-gray-btn-increment" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
-              </span>
-              <br>
-            </span>
-            <input class="printBtn clean-gray-btn" type="submit" value="Print"/>
-          </form>
-          <button class="backToTop clean-gray-btn" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast')">Back to top</button>
-          <br>
-        </div>
-      </div>
-
-      <div id="checkout">
-        <div id="checkoutHeader">
-          <br>
-          <h2>Items</h2>
-          <hr>
-        </div>
-        <div id="checkoutItems">
-          <p ng-repeat="item in app.checkoutItems">
-            <strong>{{item.description}}:</strong><br>
-            {{item.ordered}} {{item.orderAs}}
-            <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = 0; app.checkoutList()">X</button>
-            <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
-            <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
-          </p>
-        </div>
+      <div class="login-card">
+        <h2>Log-in</h2><br>
+        <form>
+          <input type="text" name="user" placeholder="Username" ng-model="app.userName">
+          <input type="password" name="pass" placeholder="Password" ng-model="app.password">
+          <input type="submit" name="login" class="login login-submit" value="login" ng-click="app.login()">
+        </form>
       </div>
     </div>
 
-    <div id="packingSlip">
+    <!-- If the user has logged in they can use the functions -->
+    <div ng-show="app.access">
+      <div class="no-print">
+        <span class="greeting">
+          <p>Welcome back, {{app.name}}!</p>
+          <button class="clean-gray-btn" ng-click="app.logout()">Logout</button>
+        </span>
+        <div class="white"></div>
+        <h1 id="title" class="col-12"><img class="no-print logo" src="images/logo.png"> Packing Slip Generator</h1>
+
+        <div id="customerDetails" class="center">
+          Backorder: <input ng-model="app.backOrder" type="checkbox">
+          <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
+          <strong>| </strong> Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
+          <strong>| </strong> <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
+          <br>
+          <h2>Customer: {{app.selectedBranch.name}}</h2>
+
+          <hr>
+        </div>
+
+        <div id="mainBody">
+          <nav>
+            <ul >
+              <li class="center row">
+                <span ng-repeat="customerList in app.customers" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
+              </li>
+              <li ng-repeat="customerList in app.customers">
+                <ul class="shopList" ng-show="customerList.show">
+                  <li ng-repeat="branch in customerList.array" ng-click="app.listClick(branch)" class="clean-gray-btn clean-gray-btn-shop">{{branch.name}}</li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="itemList">
+            <form id="orderForm" ng-submit="app.printPreview(app)">
+              <span ng-repeat="item in app.displayedItems" class="row item">
+                <strong class="col-12">{{item.description}}:</strong>
+                <input ng-change="app.checkoutList()" ng-model="item.ordered" type="number" value="0" min="0" class="col-7" onclick="this.select()">
+                <span class="col-4">
+                  {{item.orderAs}}
+                  <button type="button" class="clean-gray-btn clean-gray-btn-increment" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
+                  <button type="button" class="clean-gray-btn clean-gray-btn-increment" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
+                </span>
+                <br>
+              </span>
+              <input class="printBtn clean-gray-btn" type="submit" value="Print"/>
+            </form>
+            <button class="backToTop clean-gray-btn" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast')">Back to top</button>
+            <br>
+          </div>
+        </div>
+
+        <div id="checkout">
+          <div id="checkoutHeader">
+            <br>
+            <h2>Items</h2>
+            <hr>
+          </div>
+          <div id="checkoutItems">
+            <p ng-repeat="item in app.checkoutItems">
+              <strong>{{item.description}}:</strong><br>
+              {{item.ordered}} {{item.orderAs}}
+              <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = 0; app.checkoutList()">X</button>
+              <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
+              <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="packingSlip">
+      </div>
     </div>
   </body>
 </html>

@@ -1,8 +1,23 @@
 (function() {
   var app = angular.module("app", []);
+  Parse.initialize("p45yej86tibQrsfKYCcj6UmNw4o7b6kxtsobZnmA", "fXSkEhDGakCYnVv5OOdAfWDmjAuQvlnFI5KOwIUO");
 
   app.controller("appCtrl", function($scope, $compile) {
     var self = this;
+
+    // Login variables
+    self.userName = "";
+    self.password = "";
+    var currentUser = Parse.User.current();
+    if (currentUser) {
+      self.access = true;
+      self.name = currentUser.attributes.firstName;
+    } else {
+      self.access = false;
+      self.name = "";
+    }
+
+    // Application variables
     self.selectedBranch = {
       name: "",
       short: "",
@@ -18,6 +33,30 @@
     self.checkoutItems = [];
     self.customers = model.customers;
     self.items = model.items;
+
+    // Function to log the user in so they can use the program
+    self.login = function() {
+      $("#loading").show();
+      Parse.User.logIn(self.userName, self.password, {
+        success: function(user) {
+          $("#loading").hide();
+          self.name = user.attributes.firstName;
+          self.access = true;
+          $scope.$apply();
+        },
+        error: function(user, error) {
+          $("#loading").hide();
+          // The login failed. Check error to see why.
+          alert("Sorry the username or password may be wrong, please try again");
+        }
+      });
+    };
+
+    // Function to log the user out of applciation for security
+    self.logout = function() {
+      Parse.User.logOut();
+      self.access = false;
+    };
 
     // Loops through items in list and if it matches what's in the search bar
     // it will display the item
