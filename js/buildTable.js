@@ -77,10 +77,20 @@ var buildPackingSlips = function(itemList, scope) {
       // Name and signature only if sending in Auckland meaning will be delivered
       if (itemList.selectedBranch.city == "Auckland") {
         packingSlip += '<div class="packingSign">';
+        var tempLength = 0;
+        for (i = 0, len = itemList.items.length; i < len; i++) {
+          if (itemList.items[i].ordered > 0) {
+            tempLength++;
+          }
+        }
+        if (tempLength < 10) {
+          packingSlip += '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+        } else {
+          packingSlip += '<br><br>';
+        }
         packingSlip += '<p>Name: _________________________________</p><br>';
         packingSlip += '<p>Signature: _____________________________</p></div>';
       }
-
       $("#packingSlip").append(packingSlip);
 
       packingSlip += '<div class="break"></div>';

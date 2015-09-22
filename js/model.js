@@ -2447,8 +2447,17 @@ var model =
           "ordered": 0
       },
       {
-          "code": "TAPE02",
-          "description": "Packaging tape (48mm x 50y)",
+          "code": "TAPE02C",
+          "description": "Packaging tape (48mm x 50y) clear",
+          "unit": "Roll",
+          "quantity": 72,
+          "packaging": "72 rolls/ctn",
+          "orderAs": "ctn",
+          "ordered": 0
+      },
+      {
+          "code": "TAPE02B",
+          "description": "Packaging tape (48mm x 50y) brown",
           "unit": "Roll",
           "quantity": 72,
           "packaging": "72 rolls/ctn",
