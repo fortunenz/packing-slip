@@ -616,6 +616,14 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Family Choice",
+                    "short": "famChoice",
+                    "acc": "047",
+                    "address": "18 Noel Burnside Road, Wiri",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                     "name": "Fresh Choice Mangere Bridge (Shop)",
                     "short": "freshChoiceManShop",
                     "acc": "053",
@@ -2618,6 +2626,24 @@ var model =
       "ordered": 0
     },
     {
+      "code": "RB111B",
+      "description": "Bundled rubbish bag (350x290x900mm) 5pcs/bundle",
+      "unit": "Bundl",
+      "quantity": 100,
+      "packaging": "100 bundl/ctn",
+      "orderAs": "bundl",
+      "ordered": 0
+    },
+    {
+      "code": "BD111B",
+      "description": "Bundled biodegradable rubbish bag (350x290x900mm) 5pcs/bundle",
+      "unit": "Bundl",
+      "quantity": 100,
+      "packaging": "100 bundl/ctn",
+      "orderAs": "bundl",
+      "ordered": 0
+    },
+    {
       "code": "RB001",
       "description": "Black rubbish bag (600x150x900mm) 25mu",
       "unit": "1000",
@@ -3589,6 +3615,204 @@ var model =
         "unit": "Ctn",
         "quantity": 500,
         "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCSTEAML",
+        "description": "Family Choice steaming bag (Large)",
+        "unit": "Box",
+        "quantity": 48,
+        "packaging": "48 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCSTEAMM",
+        "description": "Family Choice steaming bag (Medium)",
+        "unit": "Box",
+        "quantity": 48,
+        "packaging": "48 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCSTOREL24",
+        "description": "Family Choice storage slider bag (Large) 24 pcs",
+        "unit": "Box",
+        "quantity": 24,
+        "packaging": "24 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCSTOREM24",
+        "description": "Family Choice storage slider bag (Medium) 24 pcs",
+        "unit": "Box",
+        "quantity": 24,
+        "packaging": "24 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCSTOREL48",
+        "description": "Family Choice storage slider bag (Large) 48 pcs",
+        "unit": "Box",
+        "quantity": 48,
+        "packaging": "48 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCSTOREM48",
+        "description": "Family Choice storage slider bag (Medium) 48 pcs",
+        "unit": "Box",
+        "quantity": 48,
+        "packaging": "48 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCFOIL01",
+        "description": "Family Choice foil (300mm x 5m)",
+        "unit": "Box",
+        "quantity": 100,
+        "packaging": "100 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCFOIL02",
+        "description": "Family Choice foil (450mm x 5m)",
+        "unit": "Box",
+        "quantity": 50,
+        "packaging": "50 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCFOIL03",
+        "description": "Family Choice foil (450mm x 90m)",
+        "unit": "Box",
+        "quantity": 6,
+        "packaging": "6 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "SINGBI_L",
+        "description": "Bin Inn biodegradable singlet bag (Large)",
+        "unit": "1000",
+        "quantity": 2000,
+        "packaging": "2,000 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "SINGBI_M",
+        "description": "Bin Inn biodegradable singlet bag (Medium)",
+        "unit": "1000",
+        "quantity": 3000,
+        "packaging": "3,000 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "SINGBI_S",
+        "description": "Bin Inn biodegradable singlet bag (Small)",
+        "unit": "1000",
+        "quantity": 4000,
+        "packaging": "4,000 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "ROLLBI01",
+        "description": "Bin Inn roll bag (200x300mm)",
+        "unit": "Roll",
+        "quantity": 4,
+        "packaging": "4 rolls/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "ROLLBI02",
+        "description": "Bin Inn roll bag (260x360mm)",
+        "unit": "Roll",
+        "quantity": 4,
+        "packaging": "4 rolls/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "ROLLBI04",
+        "description": "Bin Inn roll bag (250x125x475mm)",
+        "unit": "Roll",
+        "quantity": 4,
+        "packaging": "4 rolls/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FC37014",
+        "description": "Brown paper bag #37014 (125x70x265mm)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FC37015",
+        "description": "Brown paper bag #37015 (125x70x205mm)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FC37017",
+        "description": "Brown paper bag #37017 (200x125x445mm)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FC37018",
+        "description": "Brown paper bag #37018 (125x70x330mm)",
+        "unit": "1000",
+        "quantity": 500,
+        "packaging": "500 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FC37019",
+        "description": "Brown paper bag #37019 (185x100x390mm)",
+        "unit": "1000",
+        "quantity": 250,
+        "packaging": "250 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FC37020",
+        "description": "Brown paper bag #37020 (125x75x330mm) plastic inside",
+        "unit": "1000",
+        "quantity": 250,
+        "packaging": "250 pcs/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "SUGAR001",
+        "description": "Sugar bag (300x500mm)",
+        "unit": "1000",
+        "quantity": 2000,
+        "packaging": "2,000 pcs/ctn",
         "orderAs": "ctn",
         "ordered": 0
     }
