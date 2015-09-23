@@ -579,7 +579,7 @@ var model =
                     "name": "Conpac Trading",
                     "short": "conpac",
                     "acc": "319",
-                    "address": "33 Walmsley Road, Otahuhu",
+                    "address": "Unit H, 119 Captain Springs Road, Onehunga",
                     "city": "Auckland",
                     "clicked": false
                 },
