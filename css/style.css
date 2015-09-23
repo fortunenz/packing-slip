@@ -327,6 +327,7 @@ table, th, td {
   display: none;
   width: 20%;
   position: fixed;
+  z-index: 3;
   top: 0;
   right: 0;
   height: 100%;
@@ -449,7 +450,6 @@ table, th, td {
 
   #checkout {
     display: inline;
-    z-index: 3;
   }
 
   #orderForm {
@@ -459,6 +459,12 @@ table, th, td {
   .item {
     position: relative;
     left: 25%;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1250px) {
+  #mainBody {
+    top: 150px;
   }
 }
 
