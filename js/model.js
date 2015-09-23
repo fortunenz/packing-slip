@@ -875,7 +875,7 @@ var model =
                     "name": "Unitek NZ (Machi)",
                     "short": "unitek",
                     "acc": "518",
-                    "address": "Unit 2, 21 Ben Lomond Crescent, Pakuranga",
+                    "address": "3 Diversey Lane, Wiri",
                     "city": "Auckland",
                     "clicked": false
                 },
