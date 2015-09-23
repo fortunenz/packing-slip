@@ -2593,8 +2593,8 @@ var model =
       "code": "CL001",
       "description": "Carton Liner (430x280x400mm)",
       "unit": "1000",
-      "quantity": 2000,
-      "packaging": "2,000 pcs/ctn",
+      "quantity": 1000,
+      "packaging": "1,000 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
     },
