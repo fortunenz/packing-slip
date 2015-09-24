@@ -1480,6 +1480,69 @@ var model =
           "ordered": 0
       },
       {
+          "code": "PRB01P",
+          "description": "Produce bag (150x300mm) 0.5kg 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
+          "code": "PRB02P",
+          "description": "Produce bag (200x375mm) 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
+          "code": "PRB03P",
+          "description": "Produce bag (200x300mm) 1.0kg 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
+          "code": "PRB04P",
+          "description": "Produce bag (225x375mm) 1.5kg 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
+          "code": "PRB05P",
+          "description": "Produce bag (225x425mm) 2.0kg 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
+          "code": "PRB06P",
+          "description": "Produce bag (250x500mm) 3.0kg 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
+          "code": "PRB07",
+          "description": "Produce bag (300x350mm) Spinach 250 pcs",
+          "unit": "1000",
+          "quantity": 250,
+          "packaging": "250 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
           "code": "POTA01R",
           "description": "Potato bag 3.0kg red",
           "unit": "1000",
@@ -1511,7 +1574,7 @@ var model =
           "description": "Printed mushroom paper bag",
           "unit": "Pack",
           "packaging": "500 pcs/pkt",
-          "orderAs": "pack",
+          "orderAs": "pkt",
           "ordered": 0
       },
       {
@@ -2097,6 +2160,15 @@ var model =
           "ordered": 0
       },
       {
+          "code": "MUSH02P",
+          "description": "Mushroom plastic bag (175x300mm) 200 pcs",
+          "unit": "1000",
+          "quantity": 200,
+          "packaging": "200 pcs/ctn",
+          "orderAs": "pkt",
+          "ordered": 0
+      },
+      {
           "code": "MUSH0325",
           "description": "Mushroom plastic bag (200x375mm) 2,500 pcs",
           "unit": "1000",
@@ -2112,6 +2184,15 @@ var model =
           "quantity": 5000,
           "packaging": "5,000 pcs/ctn",
           "orderAs": "ctn",
+          "ordered": 0
+      },
+      {
+          "code": "MUSH03P",
+          "description": "Mushroom plastic bag (200x375mm) 100 pcs",
+          "unit": "1000",
+          "quantity": 100,
+          "packaging": "100 pcs/ctn",
+          "orderAs": "pkt",
           "ordered": 0
       },
       {

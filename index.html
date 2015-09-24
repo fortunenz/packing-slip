@@ -68,7 +68,7 @@
             <form id="orderForm" ng-submit="app.printPreview(app)">
               <span ng-repeat="item in app.displayedItems" class="row item">
                 <strong class="col-12">{{item.description}}:</strong>
-                <input ng-change="app.checkoutList()" ng-model="item.ordered" type="number" value="0" min="0" class="col-7" onclick="this.select()">
+                <input ng-change="app.checkoutList()" ng-model="item.ordered" type="number" value="0" min="0" step="0.01" class="col-7" onclick="this.select()">
                 <span class="col-4">
                   {{item.orderAs}}
                   <button type="button" class="clean-gray-btn clean-gray-btn-increment" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
