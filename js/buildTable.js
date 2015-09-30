@@ -90,13 +90,15 @@ var buildPackingSlips = function(itemList, scope) {
         packingSlip += '<div class="packingSign">';
         packingSlip += '<p>Name: _________________________________</p><br>';
         packingSlip += '<p>Signature: _____________________________</p></div>';
+      } else {
+        packingSlip += '<br><br>';
+      }
 
-        // Appends notes to the bottom of the page
-        if (itemList.notes.trim().length !== 0) {
-          packingSlip += '<div class="packingNotes"><p class="packingNotesInner">';
-          packingSlip += itemList.notes;
-          packingSlip += '</p></div>';
-        }
+      // Appends notes to the bottom of the page
+      if (itemList.notes.trim().length !== 0) {
+        packingSlip += '<div class="packingNotes"><p class="packingNotesInner">';
+        packingSlip += itemList.notes;
+        packingSlip += '</p></div>';
       }
 
       $("#packingSlip").append(packingSlip);
