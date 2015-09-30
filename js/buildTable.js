@@ -76,7 +76,6 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += table;
       // Name and signature only if sending in Auckland meaning will be delivered
       if (itemList.selectedBranch.city == "Auckland") {
-        packingSlip += '<div class="packingSign">';
         var tempLength = 0;
         for (i = 0, len = itemList.items.length; i < len; i++) {
           if (itemList.items[i].ordered > 0) {
@@ -88,9 +87,18 @@ var buildPackingSlips = function(itemList, scope) {
         } else {
           packingSlip += '<br><br>';
         }
+        packingSlip += '<div class="packingSign">';
         packingSlip += '<p>Name: _________________________________</p><br>';
         packingSlip += '<p>Signature: _____________________________</p></div>';
+
+        // Appends notes to the bottom of the page
+        if (itemList.notes.trim().length !== 0) {
+          packingSlip += '<div class="packingNotes"><p class="packingNotesInner">';
+          packingSlip += itemList.notes;
+          packingSlip += '</p></div>';
+        }
       }
+
       $("#packingSlip").append(packingSlip);
 
       packingSlip += '<div class="break"></div>';
@@ -100,11 +108,11 @@ var buildPackingSlips = function(itemList, scope) {
       results.save();
 
       if (itemList.selectedBranch.city !== "Auckland") {
-        var check = confirm("Would you like to print shipping labels for your customer?");
+        var check = confirm("Would you like to print shipping addresses for your customer?");
         if (check) {
-          var labelAmount = prompt("How many labels do you need?", 0);
+          var labelAmount = prompt("How many addresses do you need?", 0);
           if (parseInt(labelAmount) === NaN) {
-            alert("No shipping labels will be printed because you did not enter a valid number");
+            alert("No shipping addresses will be printed because you did not enter a valid number");
           } else {
             var shippingLabel = '<div class="shippingLabel"><br><br><br><br><br>';
             shippingLabel += '<p>' + itemList.selectedBranch.name + '</p>';
@@ -130,6 +138,7 @@ var buildPackingSlips = function(itemList, scope) {
       itemList.backOrder = false;
       itemList.orderNo = "";
       itemList.searchBox = "";
+      itemList.notes = "";
       $("#orderForm")[0].reset();
       for (i = 0, len = itemList.items.length; i < len; i++) {
         itemList.items[i].ordered = 0;

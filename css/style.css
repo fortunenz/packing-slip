@@ -389,6 +389,18 @@ table, th, td {
 }
 
 .packingSign {
+  float: left;
+}
+
+.packingNotes {
+  float: right;
+  border-style: solid;
+  border-width: 1px;
+  width: 40%;
+}
+
+.packingNotesInner {
+  margin: 10px;
 }
 
 .shippingLabel {
