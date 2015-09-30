@@ -168,7 +168,9 @@ var buildPackingRow = function(itemList) {
 
       table += '<td>';
 
+      // -------------------------------------------------------------------
       // Logic for displaying correct quantities
+
       if (tempItem.code.includes("RE0")) {
         tempItem.ordered = tempItem.ordered * 1000;
         table += insertComma(tempItem.ordered.toString()) + " pcs";
@@ -194,19 +196,11 @@ var buildPackingRow = function(itemList) {
       table += '</td>';
       table += '<td>';
 
+      // -------------------------------------------------------------------
       // Logic for displaying correct carton values
 
-      // Logic for gloves
-      if (tempItem.code.includes("GLOVE") && tempItem.ordered%10 !== 0) {
-        if (tempItem.ordered < 10) {
-          table += (tempItem.ordered % 10)+ " boxes";
-        } else {
-          table += ((tempItem.ordered/10)-((tempItem.ordered%10)/10)) + " ctn + " + (tempItem.ordered % 10)+ " boxes";
-        }
-      } else if (tempItem.unit == "box") {
-        table += (tempItem.ordered / 10) + " ctn";
       // Logic for bag seal tape 9mmx66m
-      } else if (tempItem.code.includes("SEAL09")) {
+      if (tempItem.code.includes("SEAL09")) {
         if (tempItem.ordered%48 === 0) {
           table += (tempItem.ordered / 48) + " ctn";
         } else {
@@ -226,6 +220,15 @@ var buildPackingRow = function(itemList) {
           } else {
             table += ((tempItem.ordered/36)-((tempItem.ordered%36)/36)) + " ctn + " + (tempItem.ordered % 36)+ " rolls";
           }
+        }
+      // Logic for gloves
+      } else if (tempItem.code.includes("GLOVES")) {
+        if (tempItem.ordered < 1) {
+          table += (tempItem.ordered * 10) + " boxes";
+        } else if (tempItem.ordered.toString().includes(".")) {
+          table += tempItem.ordered-(tempItem.ordered%1) + " ctn + " + parseInt(tempItem.ordered%1*10) + " boxes";
+        } else {
+          table += tempItem.ordered + " ctn";
         }
       // Logic for resealable bags
       } else if (tempItem.code.includes("RE0")) {
