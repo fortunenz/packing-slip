@@ -2124,6 +2124,15 @@ var model =
           "ordered": 0
       },
       {
+        "code": "TP002",
+          "description": "Facial tissues",
+          "unit": "Box",
+          "quantity": 48
+          "packaging": "48 boxes/ctn",
+          "orderAs": "ctn",
+          "ordered": 0
+      },
+      {
           "code": "NB405",
           "description": "Netlon bag (405mm) red",
           "unit": "1000",
@@ -3700,6 +3709,46 @@ var model =
         "unit": "Box",
         "quantity": 48,
         "packaging": "48 boxes/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCFZ01",
+        "description": "Family Choice freezer bag (Samll)",
+        "unit": "Ctn",
+        "packaging": "50 pkt/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCFZ02",
+        "description": "Family Choice freezer bag (Medium)",
+        "unit": "Ctn",
+        "packaging": "50 pkt/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCFZ03",
+        "description": "Family Choice freezer bag (Large)",
+        "unit": "Ctn",
+        "packaging": "50 pkt/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCKT01",
+        "description": "Family Choice kitchen tidy liner red (Large)",
+        "unit": "Ctn",
+        "packaging": "50 pkt/ctn",
+        "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "FCKT02",
+        "description": "Family Choice kitchen tidy liner yellow (Extra large)",
+        "unit": "Ctn",
+        "packaging": "50 pkt/ctn",
         "orderAs": "ctn",
         "ordered": 0
     },
