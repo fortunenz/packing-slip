@@ -95,6 +95,13 @@ h2 {
   display: none;
 }
 
+.notes {
+  position: relative;
+  left: 5%;
+  width: 90%;
+  resize: vertical;
+}
+
 .chooseShopHeader {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -403,7 +410,6 @@ table, th, td {
   }
 
   .greeting {
-    display: inline;
     margin: 5px 0 0 5px;
     position: fixed;
     left: 0;
@@ -413,6 +419,17 @@ table, th, td {
 
   .greetingBreakline {
     display: inline;
+  }
+
+  .notes {
+    margin: 5px 0 0 5px;
+    position: fixed;
+    left: 0;
+    top: 80px;
+    z-index: 5;
+    resize: both;
+    max-width: 19%;
+    height: 100px;
   }
 
   #title {

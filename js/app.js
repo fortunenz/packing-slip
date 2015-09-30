@@ -25,6 +25,7 @@
       address: "",
       city: ""
     };
+    self.notes = "";
     self.searchBox = "";
     self.backOrder = false;
     self.orderNo = "";

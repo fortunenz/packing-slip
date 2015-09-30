@@ -38,7 +38,8 @@
         <div class="greeting">
           <p>Welcome back, {{app.name}}! <br class="greetingBreakline"><button class="clean-gray-btn" ng-click="app.logout()">Logout</button></p>
         </div>
-
+        <textarea class="notes" ng-model="app.notes" placeholder="Notes"></textarea>
+        
         <div id="customerDetails" class="center">
           Backorder: <input ng-model="app.backOrder" type="checkbox">
           <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
