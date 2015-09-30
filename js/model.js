@@ -3721,7 +3721,7 @@ var model =
         "ordered": 0
     },
     {
-        "code": "FCFZ02",
+        "code": "FC25642",
         "description": "Family Choice freezer bag (Medium)",
         "unit": "Ctn",
         "packaging": "50 pkt/ctn",
@@ -3745,7 +3745,7 @@ var model =
         "ordered": 0
     },
     {
-        "code": "FCKT02",
+        "code": "FC25566",
         "description": "Family Choice kitchen tidy liner yellow (Extra large)",
         "unit": "Ctn",
         "packaging": "50 pkt/ctn",
