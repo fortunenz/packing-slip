@@ -99,6 +99,25 @@ var buildPackingSlips = function(itemList, scope) {
       results.set("orderNumber", orderNum);
       results.save();
 
+      if (itemList.selectedBranch.city !== "Auckland") {
+        var check = confirm("Would you like to print shipping labels for your customer?");
+        if (check) {
+          var labelAmount = prompt("How many labels do you need?", 0);
+          if (parseInt(labelAmount) === NaN) {
+            alert("No shipping labels will be printed because you did not enter a valid number");
+          } else {
+            var shippingLabel = '<div class="shippingLabel"><br><br><br><br><br>';
+            shippingLabel += '<p>' + itemList.selectedBranch.name + '</p>';
+            shippingLabel += '<p>' + itemList.selectedBranch.address + '</p>';
+            shippingLabel += '<p>' + itemList.selectedBranch.city + '</p>';
+            shippingLabel += '</div>';
+            for (i = 0; i < labelAmount; i++) {
+              $("#packingSlip").append(shippingLabel);
+            }
+          }
+        }
+      }
+
       window.print();
 
       // Resets the order form

@@ -29,10 +29,10 @@
     self.backOrder = false;
     self.orderNo = "";
     self.date = new Date();
-    self.displayedItems = model.items;
     self.checkoutItems = [];
     self.customers = model.customers;
     self.items = model.items;
+    self.displayedItems = self.items;
 
     // Function to log the user in so they can use the program
     self.login = function() {
@@ -62,7 +62,7 @@
     // it will display the item
     self.search = function() {
       if (self.searchBox == " ") {
-        self.displayedItems = model.items;
+        self.displayedItems = self.items;
       } else {
         self.displayedItems = [];
         for (i = 0, len = self.items.length; i < len; i++) {

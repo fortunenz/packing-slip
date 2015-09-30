@@ -384,6 +384,11 @@ table, th, td {
 .packingSign {
 }
 
+.shippingLabel {
+  font-size: 36pt;
+  text-align: center;
+}
+
 @media screen and (min-width: 1000px) {
   /* Keeps the header and customer aditional details panel locked at the
       top of the screen*/
@@ -479,5 +484,9 @@ table, th, td {
 
   .break {
     page-break-after: always;
+  }
+
+  .shippingLabel {
+    page-break-before: always;
   }
 }
