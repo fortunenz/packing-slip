@@ -2702,6 +2702,15 @@ var model =
       "ordered": 0
     },
     {
+      "code": "HDSHEET",
+      "description": "Clear liner sheet (300x450mm)",
+      "unit": "1000",
+      "quantity": 10000,
+      "packaging": "10,000 pcs/ctn",
+      "orderAs": "ctn",
+      "ordered": 0
+    },
+    {
       "code": "BL001",
       "description": "White bin liner (240x230x520mm)",
       "unit": "1000",
