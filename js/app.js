@@ -23,7 +23,8 @@
       short: "",
       acc: "",
       address: "",
-      city: ""
+      city: "",
+      shippingComment: ""
     };
     self.notes = "";
     self.searchBox = "";
@@ -99,6 +100,9 @@
       self.selectedBranch.acc = data.acc;
       self.selectedBranch.address = data.address;
       self.selectedBranch.city = data.city;
+      if (data.hasOwnProperty("shippingComment")) {
+        self.selectedBranch.shippingComment = data.shippingComment;
+      }
       $('html, body').animate({ scrollTop: 0 }, 'fast');
     };
 

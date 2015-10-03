@@ -109,6 +109,8 @@ var buildPackingSlips = function(itemList, scope) {
       results.set("orderNumber", orderNum);
       results.save();
 
+      // If the customer is out of Auckland they most likely require shipping
+      // so shipping addresses will be printed automatically if the user requires
       if (itemList.selectedBranch.city !== "Auckland") {
         var check = confirm("Would you like to print shipping addresses for your customer?");
         if (check) {
@@ -116,10 +118,20 @@ var buildPackingSlips = function(itemList, scope) {
           if (parseInt(labelAmount) === NaN) {
             alert("No shipping addresses will be printed because you did not enter a valid number");
           } else {
-            var shippingLabel = '<div class="shippingLabel"><br><br><br><br><br>';
+            var shippingLabel = '<div class="shippingLabel">';
+            if (itemList.selectedBranch.shippingComment !== "") {
+              shippingLabel += '<br><br>';
+            } else {
+              shippingLabel += '<br><br><br><br><br>';
+            }
             shippingLabel += '<p>' + itemList.selectedBranch.name + '</p>';
             shippingLabel += '<p>' + itemList.selectedBranch.address + '</p>';
             shippingLabel += '<p>' + itemList.selectedBranch.city + '</p>';
+            // If the customer has special needs the program will append a note
+            // in the shipping address label
+            if (itemList.selectedBranch.shippingComment !== "") {
+              shippingLabel += '<br><p>' + itemList.selectedBranch.shippingComment + '</p><br>';
+            }
             shippingLabel += '</div>';
             for (i = 0; i < labelAmount; i++) {
               $("#packingSlip").append(shippingLabel);
@@ -136,6 +148,7 @@ var buildPackingSlips = function(itemList, scope) {
       itemList.selectedBranch.acc = "";
       itemList.selectedBranch.address = "";
       itemList.selectedBranch.city = "";
+      itemList.selectedBranch.shippingComment = "";
       itemList.selectedBranch.selected = false;
       itemList.backOrder = false;
       itemList.orderNo = "";
