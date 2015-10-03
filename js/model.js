@@ -979,6 +979,7 @@ var model =
                       "acc": "270",
                       "address": "Unit C, 7 Vulcan Place, Middleton",
                       "city": "Christchurch",
+                      "shippingComment": "Please ring before delivery, 03-341-0128/ 021-022-72006/ 021-368-805",
                       "clicked": false
                 },
                 {
@@ -1051,6 +1052,7 @@ var model =
                       "acc": "402",
                       "address": "6 Hollands Crescent, Naenae",
                       "city": "Lower Hutt",
+                      "shippingComment", "Deliver to back door, please ring 30 minutes before delivery",
                       "clicked": false
                 },
                 {
@@ -1075,6 +1077,7 @@ var model =
                       "acc": "059",
                       "address": "65 Treffers Road, Wigram",
                       "city": "Christchurch",
+                      "shippingComment": "Please use the truck with the trailer",
                       "clicked": false
                 },
                 {
