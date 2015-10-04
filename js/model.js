@@ -2642,6 +2642,24 @@ var model =
       "ordered": 0
     },
     {
+      "code": "CHERRY30",
+      "description": "Fruit world cherry paper box 30 pcs",
+      "unit": "1000",
+      "quantity": 30,
+      "packaging": "30 pcs/pkt",
+      "orderAs": "pkt",
+      "ordered": 0
+    },
+    {
+      "code": "CHERRY50",
+      "description": "Fruit world cherry paper box 50 pcs",
+      "unit": "1000",
+      "quantity": 50,
+      "packaging": "50 pcs/pkt",
+      "orderAs": "pkt",
+      "ordered": 0
+    },
+    {
       "code": "PPB001",
       "description": "PP bag (100x160mm)",
       "unit": "1000",
