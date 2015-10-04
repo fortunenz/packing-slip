@@ -1052,7 +1052,7 @@ var model =
                       "acc": "402",
                       "address": "6 Hollands Crescent, Naenae",
                       "city": "Lower Hutt",
-                      "shippingComment", "Deliver to back door, please ring 30 minutes before delivery",
+                      "shippingComment": "Deliver to back door, please ring 30 minutes before delivery",
                       "clicked": false
                 },
                 {
