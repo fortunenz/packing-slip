@@ -2725,8 +2725,7 @@ var model =
     {
       "code": "HDSHEET",
       "description": "Clear liner sheet (300x450mm)",
-      "unit": "1000",
-      "quantity": 10000,
+      "unit": "Ctn",
       "packaging": "10,000 pcs/ctn",
       "orderAs": "ctn",
       "ordered": 0
