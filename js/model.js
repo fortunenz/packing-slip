@@ -768,6 +768,14 @@ var model =
                     "clicked": false
                 },
                 {
+                    "name": "Original n Crispy Products",
+                    "short": "originalNCrispy",
+                    "acc": "158",
+                    "address": "125 Great South Road, Otahuhu",
+                    "city": "Auckland",
+                    "clicked": false
+                },
+                {
                       "name": "Pak Line",
                       "short": "pakline",
                       "acc": "017",
@@ -3959,6 +3967,15 @@ var model =
         "quantity": 2000,
         "packaging": "2,000 pcs/ctn",
         "orderAs": "ctn",
+        "ordered": 0
+    },
+    {
+        "code": "WENDY01",
+        "description": "Wendy hotdog paper bag (100x40x240mm)",
+        "unit": "1000",
+        "quantity": 5000,
+        "packaging": "5,000 pcs/ctn",
+        "orderAs": "1000",
         "ordered": 0
     }
   ]
