@@ -115,7 +115,7 @@ var buildPackingSlips = function(itemList, scope) {
         var check = confirm("Would you like to print shipping addresses for your customer?");
         if (check) {
           var labelAmount = prompt("How many addresses do you need?", 0);
-          if (parseInt(labelAmount) === NaN) {
+          if (isNaN(parseInt(labelAmount))) {
             alert("No shipping addresses will be printed because you did not enter a valid number");
           } else {
             var shippingLabel = '<div class="shippingLabel">';

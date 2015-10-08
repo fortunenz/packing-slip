@@ -18,4 +18,4 @@ var sortByKey = function(array, key) {
       var x = a[key]; var y = b[key];
       return ((x < y) ? -1 : ((x > y) ? 1 : 0));
   });
-}
+};
