@@ -83,6 +83,9 @@
             }
           }
         }
+        for (i = 0; i < self.customers.length; i++) {
+          sortByKey(self.customers[i].array, "name");
+        }
         $scope.$apply();
       },
       error: function(error) {
@@ -109,6 +112,7 @@
             "ordered": results[i].attributes.ordered
           });
         }
+        sortByKey(self.items, "code");
         self.displayedItems = self.items;
         $scope.$apply();
       },
