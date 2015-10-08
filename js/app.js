@@ -95,6 +95,7 @@
     self.displayedItems = [];
     var Items = Parse.Object.extend("Items");
     var query = new Parse.Query(Items);
+    query.limit(1000);
     query.find({
       success: function(results) {
         for (i = 0, len = results.length; i < len; i++) {
