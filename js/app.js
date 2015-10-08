@@ -33,8 +33,32 @@
     self.date = new Date();
     self.checkoutItems = [];
     self.customers = model.customers;
-    self.items = model.items;
-    self.displayedItems = self.items;
+
+    // Pulls data from server for all items
+    self.items = [];
+    self.displayedItems = [];
+    var Items = Parse.Object.extend("Items");
+    var query = new Parse.Query(Items);
+    query.find({
+      success: function(results) {
+        for (i = 0, len = results.length; i < len; i++) {
+          self.items.push({
+            "code": results[i].attributes.code,
+            "description": results[i].attributes.description,
+            "unit": results[i].attributes.unit,
+            "quantity": results[i].attributes.quantity,
+            "packaging": results[i].attributes.packaging,
+            "orderAs": results[i].attributes.orderAs,
+            "ordered": results[i].attributes.ordered
+          });
+        }
+        self.displayedItems = self.items;
+        $scope.$apply();
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
 
     // Function to log the user in so they can use the program
     self.login = function() {

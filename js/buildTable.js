@@ -160,7 +160,7 @@ var buildPackingSlips = function(itemList, scope) {
         itemList.items[i].ordered = 0;
       }
       itemList.checkoutItems = [];
-      itemList.displayedItems = model.items;
+      itemList.displayedItems = itemList.items;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
       // Applies the change to the view
