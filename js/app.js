@@ -32,7 +32,63 @@
     self.orderNo = "";
     self.date = new Date();
     self.checkoutItems = [];
-    self.customers = model.customers;
+
+    // Pulls data from server for all customers
+    self.customers = [
+      {
+        "name": "Fruit World",
+        "show": false,
+        "array": []
+      },
+      {
+        "name": "Supa Fruit Mart",
+        "show": false,
+        "array": []
+      },
+      {
+        "name": "Taiping Trading",
+        "show": false,
+        "array": []
+      },
+      {
+        "name": "Delivery",
+        "show": false,
+        "array": []
+      },
+      {
+        "name": "Out of Auckland",
+        "show": false,
+        "array": []
+      }
+    ];
+    var Customers = Parse.Object.extend("Customers");
+    var query = new Parse.Query(Customers);
+    query.limit(1000);
+    query.find({
+      success: function(results) {
+        for (i = 0, len = results.length; i < len; i++) {
+          customerJson = {
+            "type": results[i].attributes.type,
+            "name": results[i].attributes.name,
+            "short": results[i].attributes.short,
+            "acc": results[i].attributes.acc,
+            "address": results[i].attributes.address,
+            "city": results[i].attributes.city,
+            "clicked": results[i].attributes.clicked,
+            "shippingComment": results[i].attributes.shippingComment
+          };
+          for (j = 0; j < self.customers.length; j++) {
+            if (customerJson.type == self.customers[j].name) {
+              self.customers[j].array.push(customerJson);
+            }
+          }
+        }
+        $scope.$apply();
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
 
     // Pulls data from server for all items
     self.items = [];
@@ -124,7 +180,7 @@
       self.selectedBranch.acc = data.acc;
       self.selectedBranch.address = data.address;
       self.selectedBranch.city = data.city;
-      if (data.hasOwnProperty("shippingComment")) {
+      if (data.shippingComment !== undefined) {
         self.selectedBranch.shippingComment = data.shippingComment;
       }
       $('html, body').animate({ scrollTop: 0 }, 'fast');
