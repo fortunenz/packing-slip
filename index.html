@@ -67,7 +67,8 @@
           <div class="itemList">
             <form id="orderForm" ng-submit="app.printPreview(app)">
               <span ng-repeat="item in app.displayedItems" class="row item">
-                <strong class="col-12">{{item.description}}:</strong>
+                <strong class="col-12">
+                  {{item.description}}<span ng-show="item.code.includes('RE0')"> {{item.packaging}}</span>:</strong>
                 <input ng-change="app.checkoutList()" ng-model="item.ordered" type="number" value="0" min="0" step="0.01" class="col-7" onclick="this.select()">
                 <span class="col-4">
                   {{item.orderAs}}
