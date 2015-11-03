@@ -197,6 +197,7 @@ var buildPackingSlips = function(itemList, scope) {
 var buildPackingRow = function(itemList) {
   var table = "";
   var quantity = 0;
+  var tempItemOrdered;
 
   for (i = 0; i < itemList.items.length; i++) {
     var tempItem = itemList.items[i];
@@ -217,8 +218,8 @@ var buildPackingRow = function(itemList) {
       // Logic for displaying correct quantities
 
       if (tempItem.code.includes("RE0") || tempItem.code.includes("WENDY01")) {
-        tempItem.ordered = tempItem.ordered * 1000;
-        table += insertComma(tempItem.ordered.toString()) + " pcs";
+        tempItemOrdered = tempItem.ordered * 1000;
+        table += insertComma(tempItemOrdered.toString()) + " pcs";
       } else if (tempItem.unit == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
 
@@ -277,17 +278,17 @@ var buildPackingRow = function(itemList) {
         }
       // Logic for resealable bags
       } else if (tempItem.code.includes("RE0")) {
-        if (tempItem.ordered < tempItem.quantity) {
-          table += insertComma(tempItem.ordered.toString()) + " pcs";
+        if (tempItemOrdered < tempItem.quantity) {
+          table += insertComma(tempItemOrdered.toString()) + " pcs";
         } else {
-          if (tempItem.ordered%tempItem.quantity === 0) {
-            table += (tempItem.ordered / tempItem.quantity) + " ctn";
+          if (tempItemOrdered%tempItem.quantity === 0) {
+            table += (tempItemOrdered / tempItem.quantity) + " ctn";
           } else {
-            table += ((tempItem.ordered/tempItem.quantity)-((tempItem.ordered%tempItem.quantity)/tempItem.quantity)) + " ctn + " + insertComma((tempItem.ordered % tempItem.quantity).toString()) + " pcs";
+            table += ((tempItemOrdered/tempItem.quantity)-((tempItemOrdered%tempItem.quantity)/tempItem.quantity)) + " ctn + " + insertComma((tempItemOrdered % tempItem.quantity).toString()) + " pcs";
           }
         }
       } else if (tempItem.code.includes("WENDY01")) {
-        table += (tempItem.ordered/tempItem.quantity) + " ctn";
+        table += (tempItemOrdered/tempItem.quantity) + " ctn";
       } else if (tempItem.orderAs == "1000") {
         quantity =  tempItem.ordered * tempItem.quantity;
         table += insertComma(quantity.toString()) + " pcs";
