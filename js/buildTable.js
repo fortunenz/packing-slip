@@ -148,6 +148,9 @@ var buildPackingSlips = function(itemList, scope) {
       var orders = new Orders();
       orders.set("name", itemList.selectedBranch.name);
       orders.set("city", itemList.selectedBranch.city);
+      orders.set("notes", itemList.notes);
+      orders.set("backOrder", itemList.backOrder);
+      orders.set("orderNo", itemList.orderNo);
       for (i = 0, len = itemList.items.length; i < len; i++) {
         orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
       }
