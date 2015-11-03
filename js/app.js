@@ -245,6 +245,9 @@
       orderQuery.descending("updatedAt");
       orderQuery.first({
         success: function(results) {
+          self.notes = results.attributes.notes;
+          self.backOrder = results.attributes.backOrder;
+          self.orderNo = results.attributes.orderNo;
           for (i = 0, len = self.items.length; i < len; i++) {
             if (results.attributes.hasOwnProperty(self.items[i].code)) {
               self.items[i].ordered = results.attributes[self.items[i].code];
