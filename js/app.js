@@ -1,6 +1,8 @@
 (function() {
   var app = angular.module("app", []);
   Parse.initialize("p45yej86tibQrsfKYCcj6UmNw4o7b6kxtsobZnmA", "fXSkEhDGakCYnVv5OOdAfWDmjAuQvlnFI5KOwIUO");
+  // Allows users to access the Orders class
+  var Orders = Parse.Object.extend("Orders");
 
   app.controller("appCtrl", function($scope, $compile) {
     var self = this;
@@ -233,6 +235,33 @@
       } else {
         buildPackingSlips(app, $scope);
       }
+    };
+
+    // Loads last saved order for current customer
+    self.loadData = function() {
+      var orderQuery = new Parse.Query(Orders);
+      orderQuery.equalTo("name", self.selectedBranch.name);
+      orderQuery.equalTo("city", self.selectedBranch.city);
+      orderQuery.descending("updatedAt");
+      orderQuery.first({
+        success: function(results) {
+          for (i = 0, len = self.items.length; i < len; i++) {
+            if (results.attributes.hasOwnProperty(self.items[i].code)) {
+              self.items[i].ordered = results.attributes[self.items[i].code];
+            }
+          }
+          self.checkoutList();
+          $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+          // Applies the change to the view
+          $scope.$apply();
+        },
+        error: function(object, error) {
+          // The object was not retrieved successfully.
+          // error is a Parse.Error with an error code and message.
+          console.log("Unable to load last saved order");
+        }
+      });
     };
   });
 })();

@@ -9,6 +9,7 @@ var buildPackingSlips = function(itemList, scope) {
   var date = tokens[2] + " " + tokens[1] + " " + tokens[3];
 
   var OrderNumber = Parse.Object.extend("OrderNumber");
+  var Orders = Parse.Object.extend("Orders");
   var queryOrderNumber = new Parse.Query(OrderNumber);
   queryOrderNumber.exists("orderNumber");
   queryOrderNumber.descending("updatedAt");
@@ -141,6 +142,25 @@ var buildPackingSlips = function(itemList, scope) {
       }
 
       window.print();
+
+      // Saves the shop data to be reloaded if most recent order needs to be
+      // modified at a later stage
+      var orders = new Orders();
+      orders.set("name", itemList.selectedBranch.name);
+      orders.set("city", itemList.selectedBranch.city);
+      for (i = 0, len = itemList.items.length; i < len; i++) {
+        orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
+      }
+      orders.save(null,{
+        success: function(orders) {
+          console.log('New object created with objectId: ' + orders.id);
+        },
+        error: function(orders, error) {
+          // Execute any logic that should take place if the save fails.
+          // error is a Parse.Error with an error code and message.
+          alert('Failed to create new object, with error code: ' + error.message);
+        }
+      });
 
       // Resets the order form
       itemList.selectedBranch.name = "";

@@ -35,7 +35,7 @@
         <div class="white"></div>
         <h1 id="title" class="col-12"><img class="no-print logo" src="images/logo.png"> Packing Slip Generator</h1>
         <div class="greeting">
-          <p>Welcome back, {{app.name}}! <br class="greetingBreakline"><button class="clean-gray-btn" ng-click="app.logout()">Logout</button></p>
+          <p>Welcome back, {{app.name}}! <br class="greetingBreakline"><button class="clean-gray-btn" ng-click="app.logout()">Logout</button><span ng-show="!app.selectedBranch.name==''"><button class="clean-gray-btn" ng-click="app.loadData()">Load last order</button></p>
         </div>
         <textarea class="notes" ng-model="app.notes" placeholder="Notes"></textarea>
 
