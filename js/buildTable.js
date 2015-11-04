@@ -182,7 +182,7 @@ var buildPackingSlips = function(itemList, scope) {
       for (i = 0, len = itemList.items.length; i < len; i++) {
         itemList.items[i].ordered = 0;
       }
-      itemList.checkoutItems = [];
+      itemList.checkoutList();
       itemList.displayedItems = itemList.items;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
