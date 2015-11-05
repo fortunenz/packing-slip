@@ -95,6 +95,7 @@
           sortByKey(self.items, "code");
           self.displayedItems = self.items;
           $scope.$apply();
+          stopScroll();
         },
         error: function(error) {
           alert("Error: " + error.code + " " + error.message);
