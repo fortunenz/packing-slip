@@ -422,6 +422,7 @@ table, th, td {
   }
 
   .greeting {
+    text-align: left;
     margin: 5px 0 0 5px;
     position: fixed;
     left: 0;

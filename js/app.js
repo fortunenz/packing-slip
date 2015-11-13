@@ -7,6 +7,7 @@
   app.controller("appCtrl", function($scope, $compile) {
     var self = this;
 
+    self.invoice = false;
     // Predefine the customer directories for later server loads
     self.customers = [
       {
