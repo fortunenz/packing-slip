@@ -268,5 +268,26 @@
         }
       });
     };
+
+    // User changes the view to invoice or packing slip and aspects of the view
+    // gets arranged
+    self.changeView = function() {
+      self.invoice = !self.invoice;
+      // If the view has been changed to invoice view do the following
+      if (self.invoice === true && window.innerWidth >= 1000) {
+        $("#notes").css("left", "80%");
+        // Checks height of window to put notes at right place
+        var top = window.innerHeight - 120;
+        $("#notes").css("top", top + "px");
+
+        $("#mainBody").css("left", "-25%");
+        // Else if view has been changed back to packing slip view do the following
+      } else if (self.invoice === false && window.innerWidth >= 1000) {
+        $("#notes").css("left", 0);
+        $("#notes").css("top", "80px");
+
+        $("#mainBody").css("left", "0");
+      }
+    };
   });
 })();

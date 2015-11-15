@@ -95,7 +95,7 @@ h2 {
   display: none;
 }
 
-.notes {
+#notes {
   position: relative;
   left: 5%;
   width: 90%;
@@ -434,7 +434,7 @@ table, th, td {
     display: inline;
   }
 
-  .notes {
+  #notes {
     margin: 5px 0 0 5px;
     position: fixed;
     left: 0;

@@ -38,14 +38,14 @@
           <p>
             Welcome back, {{app.name}}! <br class="greetingBreakline"><button class="clean-gray-btn" ng-click="app.logout()">Logout</button><span ng-show="!app.selectedBranch.name==''"><button class="clean-gray-btn" ng-click="app.loadData()">Load last order</button></span>
             <br>
-            Current view: <button class="clean-gray-btn" ng-click="app.invoice = !app.invoice"><span ng-show="!app.invoice">Packing Slip</span><span ng-show="app.invoice">Invoice</span></button>
+            Current view: <button class="clean-gray-btn" ng-click="app.changeView()"><span ng-show="!app.invoice">Packing Slip</span><span ng-show="app.invoice">Invoice</span></button>
           </p>
         </div>
-        <textarea class="notes" ng-model="app.notes" placeholder="Notes"></textarea>
+        <textarea id="notes" ng-model="app.notes" placeholder="Notes"></textarea>
 
         <div id="customerDetails" class="center">
-          Backorder: <input ng-model="app.backOrder" type="checkbox">
-          <strong>| </strong><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
+          <span ng-show="!app.invoice">Backorder: <input ng-model="app.backOrder" type="checkbox">
+          <strong>| </strong></span><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
           <strong>| </strong> Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
           <strong>| </strong> <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
           <br>
@@ -55,7 +55,7 @@
         </div>
 
         <div id="mainBody">
-          <nav>
+          <nav ng-show="!app.invoice">
             <ul>
               <li class="center row">
                 <span ng-repeat="customerList in app.customers" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
