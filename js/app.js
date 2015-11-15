@@ -276,9 +276,7 @@
       // If the view has been changed to invoice view do the following
       if (self.invoice === true && window.innerWidth >= 1000) {
         $("#notes").css("left", "80%");
-        // Checks height of window to put notes at right place
-        var top = window.innerHeight - 120;
-        $("#notes").css("top", top + "px");
+        $("#notes").css("top", "30px");
 
         $("#mainBody").css("left", "-25%");
         // Else if view has been changed back to packing slip view do the following

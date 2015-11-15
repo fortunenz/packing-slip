@@ -88,23 +88,24 @@
           </div>
         </div>
 
-        <div id="checkout">
+        <div id="checkout"  ng-show="!app.invoice">
           <div id="checkoutHeader">
             <br>
             <h2>Items</h2>
             <hr>
           </div>
           <div id="checkoutItems">
-            <p ng-repeat="item in app.checkoutItems" ng-show="!app.invoice">
+            <p ng-repeat="item in app.checkoutItems">
               <strong>{{item.description}}:</strong><br>
               {{item.ordered}} {{item.orderAs}}
               <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = 0; app.checkoutList()">X</button>
               <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
               <button type="button" class="clean-gray-btn checkoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
             </p>
-            <p ng-repeat="item in app.checkoutItems" ng-show="!app.invoice">
-            </p>
           </div>
+        </div>
+
+        <div id="invoiceCheckout" ng-show="app.invoice">
         </div>
       </div>
 

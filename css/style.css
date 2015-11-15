@@ -497,6 +497,7 @@ table, th, td {
   }
 }
 
+/* Makes the main body lower to accomodate for header space when screen is small*/
 @media screen and (min-width: 1001px) and (max-width: 1250px) {
   #mainBody {
     top: 150px;
