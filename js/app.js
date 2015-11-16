@@ -34,6 +34,11 @@
         "name": "Out of Auckland",
         "show": false,
         "array": []
+      },
+      {
+        "name": "Invoice",
+        "show": false,
+        "array": []
       }
     ];
 

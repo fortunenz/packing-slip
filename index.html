@@ -55,10 +55,13 @@
         </div>
 
         <div id="mainBody">
-          <nav ng-show="!app.invoice">
+          <nav>
             <ul>
-              <li class="center row">
+              <li class="center row" ng-show="!app.invoice">
                 <span ng-repeat="customerList in app.customers" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
+              </li>
+              <li class="center row" ng-show="app.invoice">
+                <span ng-click="app.showList(app.customers[5])" class="clean-gray-btn customerList">Invoice customers</span>
               </li>
               <li ng-repeat="customerList in app.customers">
                 <ul class="shopList" ng-show="customerList.show">
