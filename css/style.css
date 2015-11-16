@@ -357,6 +357,27 @@ table, th, td {
   font-size: 10px;
 }
 
+/* Invoice checkout styling */
+#invoiceCheckout {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  width: 50%;
+  z-index: 5;
+}
+
+.invoiceDesc {
+  width: 100px;
+}
+
+.invoiceCheckoutButtons {
+  float: right;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+}
+
 /* Packing slip stylving */
 #packingSlip {
   display: none;
