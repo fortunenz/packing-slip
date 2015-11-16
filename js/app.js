@@ -240,7 +240,11 @@
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
       } else {
-        buildPackingSlips(app, $scope);
+        if (self.invoice === true) {
+          console.log("build the invoice");
+        } else {
+          buildPackingSlips(app, $scope);
+        }
       }
     };
 
