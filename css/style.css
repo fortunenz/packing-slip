@@ -356,6 +356,9 @@ input[type=number]::-webkit-outer-spin-button {
   left: 50%;
   width: 50%;
   z-index: 5;
+}
+
+#invoiceInnerItems {
   overflow-y: auto;
 }
 
@@ -363,12 +366,27 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 
-.invoiceDesc {
-  width: 40%;
+.invoiceQuantity {
+  width: 100px;
 }
 
 .invoiceCheckoutButtonsTable {
   width: 100px;
+}
+
+.invoicePrice {
+  width: 100px;
+}
+
+.invoicePriceTotal {
+  width: 150px;
+}
+
+#invoiceTotalTable {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .invoiceCheckoutButtons {
