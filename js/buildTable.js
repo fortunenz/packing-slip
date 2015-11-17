@@ -70,7 +70,7 @@ var buildPackingSlips = function(itemList, scope) {
       // Item details with table
       var table = '';
 
-      table += '<table class="packingTable"><tr><th>Code</th><th>Description</th><th>Packaging</th><th>Quantity</th><th>Carton</th></tr>';
+      table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th><th class="packingT">Packaging</th><th class="packingT">Quantity</th><th class="packingT">Carton</th></tr>';
       table += buildPackingRow(itemList);
       table += '</table>';
 
@@ -205,17 +205,17 @@ var buildPackingRow = function(itemList) {
   for (i = 0; i < itemList.items.length; i++) {
     var tempItem = itemList.items[i];
     if (tempItem.ordered > 0) {
-      table += '<tr><td>';
+      table += '<tr><td class="packingT">';
       table += tempItem.code;
       table += '</td>';
-      table += '<td>';
+      table += '<td class="packingT">';
       table += tempItem.description;
       table += '</td>';
-      table += '<td>';
+      table += '<td class="packingT">';
       table += tempItem.packaging;
       table += '</td>';
 
-      table += '<td>';
+      table += '<td class="packingT">';
 
       // -------------------------------------------------------------------
       // Logic for displaying correct quantities
@@ -243,7 +243,7 @@ var buildPackingRow = function(itemList) {
       }
 
       table += '</td>';
-      table += '<td>';
+      table += '<td class="packingT">';
 
       // -------------------------------------------------------------------
       // Logic for displaying correct carton values

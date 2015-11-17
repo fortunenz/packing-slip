@@ -1,6 +1,7 @@
 // Checks the height of the browser to create height of item list
 var adjustCheckoutSize = function() {
   $("#checkoutItems").css("height", $("#checkout").height() - $("#checkoutHeader").height());
+  $("#invoiceCheckout").css("height", window.innerHeight - 250);
 };
 
 $(window).resize(function() {

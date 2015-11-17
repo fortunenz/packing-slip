@@ -109,14 +109,26 @@
         </div>
 
         <div id="invoiceCheckout" ng-show="app.invoice">
-          <h2>Items</h2>
-          <p ng-repeat="item in app.checkoutItems">
-            <strong class="invoiceDesc">{{item.description}}:</strong>
-            {{item.ordered}} {{item.orderAs}}
-            <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = 0; app.checkoutList()">X</button>
-            <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
-            <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
-          </p>
+          <table id="invoiceTable">
+            <tr>
+              <th class="invoiceDesc">Description</th>
+              <th>Quantity</th>
+              <th class="invoiceCheckoutButtonsTable"></th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+            <tr ng-repeat="item in app.checkoutItems">
+              <td>{{item.description}}</td>
+              <td>{{item.ordered}} {{item.orderAs}}</td>
+              <td>
+                <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = 0; app.checkoutList()">X</button>
+                <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
+                <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
         </div>
       </div>
 

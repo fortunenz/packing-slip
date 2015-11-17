@@ -208,14 +208,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-table {
-  border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
 #loading {
   position: fixed;
   height: 100%;
@@ -364,9 +356,18 @@ table, th, td {
   left: 50%;
   width: 50%;
   z-index: 5;
+  overflow-y: auto;
+}
+
+#invoiceTable {
+  width: 100%;
 }
 
 .invoiceDesc {
+  width: 40%;
+}
+
+.invoiceCheckoutButtonsTable {
   width: 100px;
 }
 
@@ -406,7 +407,12 @@ table, th, td {
 }
 
 .packingTable {
+  border-collapse: collapse;
   width: 100%;
+}
+
+.packingTable, .packingT{
+  border: 1px solid black;
 }
 
 .packingSign {
