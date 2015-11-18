@@ -95,11 +95,15 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
       // Displays totals of invoice if user is in invoice view
       if (itemList.invoice === true) {
-        packingSlip += '<table class="packingTableTotal">';
+        packingSlip += '<div class="right">';
+        packingSlip += '<table>';
         packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
         packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
         packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
         packingSlip += '</table>';
+
+        packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account:<br>Westpac 03-0166-0248508-00</p>';
+        packingSlip += '</div>';
       }
 
       // Name and signature only if sending in Auckland meaning will be delivered
