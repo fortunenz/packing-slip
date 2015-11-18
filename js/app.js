@@ -4,7 +4,7 @@
   // Allows users to access the Orders class
   var Orders = Parse.Object.extend("Orders");
 
-  app.controller("appCtrl", function($scope, $compile) {
+  app.controller("appCtrl", function($scope, $compile, $filter) {
     var self = this;
 
     // Predefine the customer directories for later server loads
@@ -259,11 +259,7 @@
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
       } else {
-        if (self.invoice === true) {
-          console.log("build the invoice");
-        } else {
-          buildPackingSlips(app, $scope);
-        }
+        buildPackingSlips(app, $scope, $filter);
       }
     };
 

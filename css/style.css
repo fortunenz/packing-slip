@@ -437,6 +437,10 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid black;
 }
 
+.packingTableTotal {
+  float: right;
+}
+
 .packingSign {
   float: left;
 }

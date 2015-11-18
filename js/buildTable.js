@@ -1,5 +1,5 @@
 // Builds the packing slip
-var buildPackingSlips = function(itemList, scope) {
+var buildPackingSlips = function(itemList, scope, filter) {
   $("#packingSlip").empty();
   var packingSlip;
   var orderNum;
@@ -23,7 +23,11 @@ var buildPackingSlips = function(itemList, scope) {
       // Header
       packingSlip += '<div class="row">';
       packingSlip += '<h1 class="col-10 packingTitle"><img class="logo"src="images/logo.png"> FORTUNE ENTERPRISES CO (NZ) LTD</h1>';
-      packingSlip += '<strong class="col-2 packingName">Packing Slip</strong>';
+      if (itemList.invoice === true) {
+        packingSlip += '<strong class="col-2 packingName">Invoice Slip</strong>';
+      } else {
+        packingSlip += '<strong class="col-2 packingName">Packing Slip</strong>';
+      }
       packingSlip += '</div>';
       // Left column of subheading
       packingSlip += '<div class="row packingRow"><div class="col-8">';
@@ -50,7 +54,11 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += '</p></div>';
       // Right side date + packing slip number
       packingSlip += '<div class="col-4">';
-      packingSlip += '<p class="packingP">Packing slip no.: ';
+      if (itemList.invoice === true) {
+        packingSlip += '<p class="packingP">Invoice slip no.: ';
+      } else {
+        packingSlip += '<p class="packingP">Packing slip no.: ';
+      }
       packingSlip += orderNum;
       packingSlip += '</p>';
       packingSlip += '<p class="packingP">Account no.: ';
@@ -63,18 +71,49 @@ var buildPackingSlips = function(itemList, scope) {
       packingSlip += '</div></div>';
 
       // If the order is for a backorder
-      if (itemList.backOrder === true) {
+      if (itemList.backOrder === true && itemList.invoice === false) {
         packingSlip += '<div class="center"><strong>Backorder</strong></div>';
       }
 
       // Item details with table
       var table = '';
 
-      table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th><th class="packingT">Packaging</th><th class="packingT">Quantity</th><th class="packingT">Carton</th></tr>';
-      table += buildPackingRow(itemList);
+      table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th><th class="packingT">Packaging</th><th class="packingT">Quantity</th><th class="packingT">Carton</th><th class="packingT">Price</th><th class="packingT">Total</th></tr>';
+      table += buildPackingRow(itemList, filter);
       table += '</table>';
 
       packingSlip += table;
+
+      // Displays totals of invoice if user is in invoice view
+      packingSlip += '<table class="packingTableTotal">';
+      packingSlip += '<tr>';
+      for (i = 0, len = 5; i < 5; i++) {
+        packingSlip += '<td></td>';
+      }
+      packingSlip += '<th class="packingT">Sub Total</th><td class="packingT">';
+      packingSlip += filter('currency')(itemList.subTotal);
+      packingSlip += '</td>';
+      packingSlip += '</tr>';
+
+      packingSlip += '<tr>';
+      for (i = 0, len = 5; i < 5; i++) {
+        packingSlip += '<td></td>';
+      }
+      packingSlip += '<th class="packingT">GST</th><td class="packingT">';
+      packingSlip += filter('currency')(itemList.gst);
+      packingSlip += '</td>';
+      packingSlip += '</tr>';
+
+      packingSlip += '<tr>';
+      for (i = 0, len = 5; i < 5; i++) {
+        packingSlip += '<td></td>';
+      }
+      packingSlip += '<th class="packingT">Total</th><td class="packingT">';
+      packingSlip += filter('currency')(itemList.grandTotal);
+      packingSlip += '</td>';
+      packingSlip += '</tr>';
+      packingSlip += '</table>';
+
       // Name and signature only if sending in Auckland meaning will be delivered
       if (itemList.selectedBranch.city == "Auckland") {
         var tempLength = 0;
@@ -143,27 +182,29 @@ var buildPackingSlips = function(itemList, scope) {
 
       window.print();
 
-      // Saves the shop data to be reloaded if most recent order needs to be
-      // modified at a later stage
-      var orders = new Orders();
-      orders.set("name", itemList.selectedBranch.name);
-      orders.set("city", itemList.selectedBranch.city);
-      orders.set("notes", itemList.notes);
-      orders.set("backOrder", itemList.backOrder);
-      orders.set("orderNo", itemList.orderNo);
-      for (i = 0, len = itemList.items.length; i < len; i++) {
-        orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
-      }
-      orders.save(null,{
-        success: function(orders) {
-          console.log('New object created with objectId: ' + orders.id);
-        },
-        error: function(orders, error) {
-          // Execute any logic that should take place if the save fails.
-          // error is a Parse.Error with an error code and message.
-          alert('Failed to create new object, with error code: ' + error.message);
+      if (itemList.invoice === false) {
+        // Saves the shop data to be reloaded if most recent order needs to be
+        // modified at a later stage
+        var orders = new Orders();
+        orders.set("name", itemList.selectedBranch.name);
+        orders.set("city", itemList.selectedBranch.city);
+        orders.set("notes", itemList.notes);
+        orders.set("backOrder", itemList.backOrder);
+        orders.set("orderNo", itemList.orderNo);
+        for (i = 0, len = itemList.items.length; i < len; i++) {
+          orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
         }
-      });
+        orders.save(null,{
+          success: function(orders) {
+            console.log('New object created with objectId: ' + orders.id);
+          },
+          error: function(orders, error) {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            alert('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+      }
 
       // Resets the order form
       itemList.selectedBranch.name = "";
@@ -198,7 +239,7 @@ var buildPackingSlips = function(itemList, scope) {
   });
 };
 
-var buildPackingRow = function(itemList) {
+var buildPackingRow = function(itemList, filter) {
   var table = "";
   var quantity = 0;
   var tempItemOrdered;
@@ -301,6 +342,14 @@ var buildPackingRow = function(itemList) {
       }
 
       table += '</td>';
+
+      // Displays price and total for items if the user is in invoice view
+      table += '<td class="packingT">';
+      table += filter('currency')(tempItem.tempPrice);
+      table += '</td><td class="packingT">';
+      table += filter('currency')(tempItem.tempPrice * tempItem.ordered);
+      table += '</td>';
+
       table += '</tr>';
     }
   }
@@ -308,6 +357,7 @@ var buildPackingRow = function(itemList) {
   return table;
 };
 
+// Inserts approprate commas for quantities for ease of viewing when invoicing
 var insertComma = function(number) {
   if (number.length < 4) {
     return number;
