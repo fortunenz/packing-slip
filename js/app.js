@@ -327,10 +327,20 @@
         if (self.selectedBranch.full[item.code] !== undefined) {
           item.tempPrice = self.selectedBranch.full[item.code];
         } else {
-          item.tempPrice = item.price;
+          if (item.tempPrice === undefined) {
+            if (item.price === undefined) {
+              item.tempPrice = 0;
+            } else {
+              item.tempPrice = item.price;
+            }
+          }
         }
       } else {
-        item.tempPrice = item.price;
+        if (item.price === undefined) {
+          item.tempPrice = 0;
+        } else {
+          item.tempPrice = item.price;
+        }
       }
     };
 
