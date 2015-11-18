@@ -128,7 +128,7 @@
                   <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
                   <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
                 </td>
-                <td><label>$</label><input class="invoicePriceInput" ng-model="item.tempPrice" ng-keyup="app.defineTotalPrice()" min="0" step="0.01" onclick="this.select()"></td>
+                <td><label>$</label><input class="invoicePriceInput" type="number" ng-model="item.tempPrice" ng-keyup="app.defineTotalPrice()" min="0" step="0.01" onclick="this.select()"></td>
                 <td>{{item.tempPrice*item.ordered | currency}}</td>
               </tr>
             </table>
