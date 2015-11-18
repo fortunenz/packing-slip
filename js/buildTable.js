@@ -78,41 +78,29 @@ var buildPackingSlips = function(itemList, scope, filter) {
       // Item details with table
       var table = '';
 
-      table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th><th class="packingT">Packaging</th><th class="packingT">Quantity</th><th class="packingT">Carton</th><th class="packingT">Price</th><th class="packingT">Total</th></tr>';
+      // Adds the required columns based on whether user is in invoice or
+      // packing slip view as not all are required for either view
+      table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th>';
+      if (itemList.invoice === false) {
+        table += '<th class="packingT">Packaging</th>';
+      }
+      table += '<th class="packingT">Quantity</th><th class="packingT">Carton</th>';
+      if (itemList.invoice === true) {
+        table += '<th class="packingT">Price</th><th class="packingT">Total</th></tr>';
+      }
       table += buildPackingRow(itemList, filter);
       table += '</table>';
 
       packingSlip += table;
 
       // Displays totals of invoice if user is in invoice view
-      packingSlip += '<table class="packingTableTotal">';
-      packingSlip += '<tr>';
-      for (i = 0, len = 5; i < 5; i++) {
-        packingSlip += '<td></td>';
+      if (itemList.invoice === true) {
+        packingSlip += '<table class="packingTableTotal">';
+        packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
+        packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
+        packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
+        packingSlip += '</table>';
       }
-      packingSlip += '<th class="packingT">Sub Total</th><td class="packingT">';
-      packingSlip += filter('currency')(itemList.subTotal);
-      packingSlip += '</td>';
-      packingSlip += '</tr>';
-
-      packingSlip += '<tr>';
-      for (i = 0, len = 5; i < 5; i++) {
-        packingSlip += '<td></td>';
-      }
-      packingSlip += '<th class="packingT">GST</th><td class="packingT">';
-      packingSlip += filter('currency')(itemList.gst);
-      packingSlip += '</td>';
-      packingSlip += '</tr>';
-
-      packingSlip += '<tr>';
-      for (i = 0, len = 5; i < 5; i++) {
-        packingSlip += '<td></td>';
-      }
-      packingSlip += '<th class="packingT">Total</th><td class="packingT">';
-      packingSlip += filter('currency')(itemList.grandTotal);
-      packingSlip += '</td>';
-      packingSlip += '</tr>';
-      packingSlip += '</table>';
 
       // Name and signature only if sending in Auckland meaning will be delivered
       if (itemList.selectedBranch.city == "Auckland") {
@@ -253,9 +241,11 @@ var buildPackingRow = function(itemList, filter) {
       table += '<td class="packingT">';
       table += tempItem.description;
       table += '</td>';
-      table += '<td class="packingT">';
-      table += tempItem.packaging;
-      table += '</td>';
+      if (itemList.invoice === false) {
+        table += '<td class="packingT">';
+        table += tempItem.packaging;
+        table += '</td>';
+      }
 
       table += '<td class="packingT">';
 
@@ -368,4 +358,16 @@ var insertComma = function(number) {
     number = number.slice(0,number.length-3) + "," + number.slice(number.length-3);
     return number;
   }
+};
+
+// Builds one of the rows for totals of the invoicing table
+var buildTotalRow = function(name, total) {
+  var table = '<tr>';
+  table += '<th class="packingT">';
+  table += name;
+  table += '</th><td class="packingT">';
+  table += total;
+  table += '</td></tr>';
+
+  return table;
 };
