@@ -58,7 +58,7 @@
           <nav>
             <ul>
               <li class="center row" ng-show="!app.invoice">
-                <span ng-repeat="customerList in app.customers" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
+                <span ng-repeat="customerList in app.customers | limitTo: 5" ng-click="app.showList(customerList)" class="clean-gray-btn customerList">{{customerList.name}}</span>
               </li>
               <li class="center row" ng-show="app.invoice">
                 <span ng-click="app.showList(app.customers[5])" class="clean-gray-btn customerList">Invoice customers</span>

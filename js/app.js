@@ -308,6 +308,10 @@
       self.selectedBranch.full = "";
       self.selectedBranch.selected = false;
       self.backOrder = false;
+      // Close all customer tabs
+      for (i = 0, len = self.customers.length; i < len; i++) {
+        self.customers[i].show = false;
+      }
 
       // If the view has been changed to invoice view do the following
       if (self.invoice === true && window.innerWidth >= 1000) {
