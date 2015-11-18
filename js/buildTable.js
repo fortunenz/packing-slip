@@ -334,11 +334,13 @@ var buildPackingRow = function(itemList, filter) {
       table += '</td>';
 
       // Displays price and total for items if the user is in invoice view
-      table += '<td class="packingT">';
-      table += filter('currency')(tempItem.tempPrice);
-      table += '</td><td class="packingT">';
-      table += filter('currency')(tempItem.tempPrice * tempItem.ordered);
-      table += '</td>';
+      if (itemList.invoice === true) {
+        table += '<td class="packingT">';
+        table += filter('currency')(tempItem.tempPrice);
+        table += '</td><td class="packingT">';
+        table += filter('currency')(tempItem.tempPrice * tempItem.ordered);
+        table += '</td>';
+      }
 
       table += '</tr>';
     }
