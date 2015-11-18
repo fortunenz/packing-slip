@@ -297,6 +297,18 @@
     // gets arranged
     self.changeView = function() {
       self.invoice = !self.invoice;
+
+      // Resets parts of the data when user changes the view to prevent bugs
+      self.selectedBranch.name = "";
+      self.selectedBranch.short = "";
+      self.selectedBranch.acc = "";
+      self.selectedBranch.address = "";
+      self.selectedBranch.city = "";
+      self.selectedBranch.shippingComment = "";
+      self.selectedBranch.full = "";
+      self.selectedBranch.selected = false;
+      self.backOrder = false;
+
       // If the view has been changed to invoice view do the following
       if (self.invoice === true && window.innerWidth >= 1000) {
         $("#notes").css("left", "80%");
