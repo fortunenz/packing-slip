@@ -7,7 +7,6 @@
   app.controller("appCtrl", function($scope, $compile) {
     var self = this;
 
-    self.invoice = false;
     // Predefine the customer directories for later server loads
     self.customers = [
       {
@@ -142,6 +141,12 @@
     self.date = new Date();
     self.checkoutItems = [];
 
+    // Invoice view variables
+    self.invoice = false;
+    self.subTotal = 0;
+    self.gst = 0;
+    self.grandTotal = 0;
+
     // Function to log the user in so they can use the program
     self.login = function() {
       $("#loading").show();
@@ -226,9 +231,11 @@
         if (self.items[i].ordered > 0) {
           if (temp === -1) {
             self.checkoutItems.push(self.items[i]);
+            // Recalculate the prices and totals if in invoice view
+            if (self.invoice === true) {
+              self.definePrices(self.items[i]);
+            }
           }
-          // Recalculate the prices and totals if in invoice view
-          self.definePrices(self.items[i]);
         } else {
           if (temp > -1) {
             self.checkoutItems.splice(temp, 1);
@@ -311,22 +318,17 @@
 
     // Modifies the prices of items in the checkout list
     self.definePrices = function(item) {
-      if (self.invoice === true) {
-        // Checks if customer has been selected
-        // if so then change the prices based on customer
-        // otherwise use default prices
-        if (self.selectedBranch.name !== "") {
-          if (self.selectedBranch.full[item.code] !== undefined) {
-            item.tempPrice = self.selectedBranch.full[item.code];
-          } else {
-            item.tempPrice = item.price;
-          }
+      // Checks if customer has been selected
+      // if so then change the prices based on customer
+      // otherwise use default prices
+      if (self.selectedBranch.name !== "") {
+        if (self.selectedBranch.full[item.code] !== undefined) {
+          item.tempPrice = self.selectedBranch.full[item.code];
         } else {
           item.tempPrice = item.price;
         }
-
-        // Displays sub total for each item
-        item.tempTotal = item.tempPrice*item.ordered;
+      } else {
+        item.tempPrice = item.price;
       }
     };
   });
