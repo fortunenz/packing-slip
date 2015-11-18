@@ -220,6 +220,7 @@
         for (i = 0, len = self.checkoutItems.length; i < len; i++) {
           self.definePrices(self.checkoutItems[i]);
         }
+        self.defineTotalPrice();
       }
     };
 
@@ -242,6 +243,7 @@
           }
         }
       }
+      self.defineTotalPrice();
     };
 
     // Grabs all data required and proceeds with a print preview
@@ -330,6 +332,17 @@
       } else {
         item.tempPrice = item.price;
       }
+    };
+
+    self.defineTotalPrice = function() {
+      self.subTotal = 0;
+      for (i = 0, len = self.items.length; i < len; i++) {
+        if (self.items[i].ordered > 0) {
+          self.subTotal += self.items[i].ordered * self.items[i].tempPrice;
+        }
+      }
+      self.gst = self.subTotal * 0.15;
+      self.grandTotal = self.subTotal * 1.15;
     };
   });
 })();
