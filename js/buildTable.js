@@ -172,6 +172,7 @@ var buildPackingSlips = function(itemList, scope) {
       itemList.selectedBranch.address = "";
       itemList.selectedBranch.city = "";
       itemList.selectedBranch.shippingComment = "";
+      itemList.selectedBranch.full = "";
       itemList.selectedBranch.selected = false;
       itemList.backOrder = false;
       itemList.orderNo = "";

@@ -91,6 +91,7 @@
           </div>
         </div>
 
+        <!-- The checkout list for packing slip view -->
         <div id="checkout"  ng-show="!app.invoice">
           <div id="checkoutHeader">
             <br>
@@ -108,6 +109,7 @@
           </div>
         </div>
 
+        <!-- The checkout list for invoice view -->
         <div id="invoiceCheckout" ng-show="app.invoice">
           <div id="invoiceInnerItems">
             <table id="invoiceTable">
@@ -115,7 +117,7 @@
                 <th>Description</th>
                 <th>Quantity</th>
                 <th class="invoiceCheckoutButtonsTable"></th>
-                <th>Price</th>
+                <th class="invoicePrice">Price</th>
                 <th>Total</th>
               </tr>
               <tr ng-repeat="item in app.checkoutItems">
@@ -126,8 +128,8 @@
                   <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered-1; app.checkoutList()">-</button>
                   <button type="button" class="clean-gray-btn invoiceCheckoutButtons" ng-click="item.ordered = item.ordered+1; app.checkoutList()">+</button>
                 </td>
-                <td>$100</td>
-                <td>$10000</td>
+                <td><label>$</label><input class="invoicePriceInput" ng-model="item.tempPrice" min="0" step="0.01" onclick="this.select()"></td>
+                <td>${{item.tempTotal}}</td>
               </tr>
             </table>
           </div>

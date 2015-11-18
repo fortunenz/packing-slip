@@ -378,6 +378,10 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100px;
 }
 
+.invoicePriceInput {
+  width: 80px;
+}
+
 .invoicePriceTotal {
   width: 150px;
 }

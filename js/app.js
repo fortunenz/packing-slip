@@ -59,7 +59,8 @@
               "address": results[i].attributes.address,
               "city": results[i].attributes.city,
               "clicked": results[i].attributes.clicked,
-              "shippingComment": results[i].attributes.shippingComment
+              "shippingComment": results[i].attributes.shippingComment,
+              "full": results[i].attributes
             };
             for (j = 0; j < self.customers.length; j++) {
               if (customerJson.type == self.customers[j].name) {
@@ -95,7 +96,8 @@
               "quantity": results[i].attributes.quantity,
               "packaging": results[i].attributes.packaging,
               "orderAs": results[i].attributes.orderAs,
-              "ordered": results[i].attributes.ordered
+              "ordered": results[i].attributes.ordered,
+              "price": results[i].attributes.price
             });
           }
           sortByKey(self.items, "code");
@@ -130,7 +132,8 @@
       acc: "",
       address: "",
       city: "",
-      shippingComment: ""
+      shippingComment: "",
+      full: ""
     };
     self.notes = "";
     self.searchBox = "";
@@ -193,8 +196,7 @@
       }
     };
 
-    // Loads all the saved data from previous orders
-    // of a branch
+    // Loads the selected customer as the selected customer
     self.listClick = function(data) {
       for (i = 0, len = self.customers.length; i < len; i++) {
         self.customers[i].show = false;
@@ -207,7 +209,13 @@
       if (data.shippingComment !== undefined) {
         self.selectedBranch.shippingComment = data.shippingComment;
       }
+      self.selectedBranch.full = data.full;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
+      if (self.invoice === true) {
+        for (i = 0, len = self.checkoutItems.length; i < len; i++) {
+          self.definePrices(self.checkoutItems[i]);
+        }
+      }
     };
 
     // Appends data to the checkout list
@@ -219,6 +227,8 @@
           if (temp === -1) {
             self.checkoutItems.push(self.items[i]);
           }
+          // Recalculate the prices and totals if in invoice view
+          self.definePrices(self.items[i]);
         } else {
           if (temp > -1) {
             self.checkoutItems.splice(temp, 1);
@@ -296,6 +306,27 @@
         $("#notes").css("max-height", "100%");
 
         $("#mainBody").css("left", "0");
+      }
+    };
+
+    // Modifies the prices of items in the checkout list
+    self.definePrices = function(item) {
+      if (self.invoice === true) {
+        // Checks if customer has been selected
+        // if so then change the prices based on customer
+        // otherwise use default prices
+        if (self.selectedBranch.name !== "") {
+          if (self.selectedBranch.full[item.code] !== undefined) {
+            item.tempPrice = self.selectedBranch.full[item.code];
+          } else {
+            item.tempPrice = item.price;
+          }
+        } else {
+          item.tempPrice = item.price;
+        }
+
+        // Displays sub total for each item
+        item.tempTotal = item.tempPrice*item.ordered;
       }
     };
   });
