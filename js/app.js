@@ -330,6 +330,7 @@
         $("#notes").css("max-height", "100%");
 
         $("#mainBody").css("left", "0");
+        $("#checkoutItems").css("height", window.innerHeight - $("#checkoutHeader").height());
       }
 
       stopScrollInvoice();

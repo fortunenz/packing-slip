@@ -120,8 +120,8 @@ var buildPackingSlips = function(itemList, scope, filter) {
         packingSlip += '<div class="packingSign">';
         packingSlip += '<p>Name: _________________________________</p><br>';
         packingSlip += '<p>Signature: _____________________________</p>';
-        if (itemList.invoice === true) {
-          packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account:<br>Westpac 03-0166-0248508-00</p>';
+        if (itemList.invoice === true && itemList.selectedBranch.acc !== " ") {
+          packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account: Westpac 03-0166-0248508-00</p>';
         }
         packingSlip += '</div>';
       } else {
@@ -199,7 +199,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
           }
         });
       }
-
+      
       // Resets the order form
       itemList.selectedBranch.name = "";
       itemList.selectedBranch.short = "";
