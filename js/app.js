@@ -243,7 +243,14 @@
           }
         }
       }
-      self.defineTotalPrice();
+      if (self.invoice === true) {
+        self.defineTotalPrice();
+        // Set timer to give time for checkout item to appear before having
+        // function applied
+        setTimeout(function() {
+          stopScroll();
+        }, 100);
+      }
     };
 
     // Grabs all data required and proceeds with a print preview
