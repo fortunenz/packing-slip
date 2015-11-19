@@ -441,8 +441,12 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid black;
 }
 
+.packingTotalTable {
+  margin-top: 10px;
+}
+
 .packingPaymentInfo {
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .packingSign {

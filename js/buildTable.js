@@ -36,9 +36,9 @@ var buildPackingSlips = function(itemList, scope, filter) {
       packingSlip += '<p class="packingP">Email: <a href="#">feltd@xtra.co.nz</a></p></div>';
       // Right column of subheading
       packingSlip += '<div class="col-4">';
-      packingSlip += '<p class="packingP right">Phone:    (09) 276-8681</p>';
-      packingSlip += '<p class="packingP right">Fax:      (09) 276-8682</p>';
-      packingSlip += '<p class="packingP right">Website:  <a href="#">www.fortunenz.com </a></p></div>';
+      packingSlip += '<p class="packingP">Phone:    (09) 276-8681</p>';
+      packingSlip += '<p class="packingP">Fax:      (09) 276-8682</p>';
+      packingSlip += '<p class="packingP">Website:  <a href="#">www.fortunenz.com </a></p></div>';
       packingSlip += '</div>';
       // Left side shop details
       packingSlip += '<div class="row packingRow"><div class="col-8">';
@@ -95,14 +95,12 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
       // Displays totals of invoice if user is in invoice view
       if (itemList.invoice === true) {
-        packingSlip += '<div class="right">';
+        packingSlip += '<div class="packingTotalTable right">';
         packingSlip += '<table>';
         packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
         packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
         packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
         packingSlip += '</table>';
-
-        packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account:<br>Westpac 03-0166-0248508-00</p>';
         packingSlip += '</div>';
       }
 
@@ -121,7 +119,11 @@ var buildPackingSlips = function(itemList, scope, filter) {
         }
         packingSlip += '<div class="packingSign">';
         packingSlip += '<p>Name: _________________________________</p><br>';
-        packingSlip += '<p>Signature: _____________________________</p></div>';
+        packingSlip += '<p>Signature: _____________________________</p>';
+        if (itemList.invoice === true) {
+          packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account:<br>Westpac 03-0166-0248508-00</p>';
+        }
+        packingSlip += '</div>';
       } else {
         packingSlip += '<br><br>';
       }
