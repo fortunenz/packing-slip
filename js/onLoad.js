@@ -34,3 +34,18 @@ var stopScroll = function() {
     $(this).off("mousewheel.disableScroll");
   });
 };
+
+// Disable mousewheel on a input number field when in focus so the user
+// doesn't accidently scroll values by incemrent of 0.01
+var stopScrollInvoice = function() {
+  setTimeout(function() {
+    $("#invoiceTable").on("focus", "input[type=number]", function (e) {
+      $(this).on("mousewheel.disableScroll", function (e) {
+        e.preventDefault();
+      });
+    });
+    $("#invoiceTable").on("blur", "input[type=number]", function (e) {
+      $(this).off("mousewheel.disableScroll");
+    });
+  }, 100);
+};
