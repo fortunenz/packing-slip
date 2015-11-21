@@ -216,6 +216,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
       itemList.orderNo = "";
       itemList.searchBox = "";
       itemList.notes = "";
+      itemList.invoiceNewCustomer = false;
       itemList.date = new Date();
       $("#orderForm")[0].reset();
       for (i = 0, len = itemList.items.length; i < len; i++) {
