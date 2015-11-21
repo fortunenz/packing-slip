@@ -296,6 +296,7 @@
       });
     };
 
+    // Rests the customer variables
     self.resetCustomer = function () {
       self.selectedBranch.name = "";
       self.selectedBranch.short = "";
@@ -367,6 +368,7 @@
       }
     };
 
+    // Adjusts the total price charged to customers responsively
     self.defineTotalPrice = function() {
       self.subTotal = 0;
       for (i = 0, len = self.items.length; i < len; i++) {
