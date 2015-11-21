@@ -201,13 +201,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
       }
 
       // Resets the order form
-      itemList.selectedBranch.name = "";
-      itemList.selectedBranch.short = "";
-      itemList.selectedBranch.acc = "";
-      itemList.selectedBranch.address = "";
-      itemList.selectedBranch.city = "";
-      itemList.selectedBranch.shippingComment = "";
-      itemList.selectedBranch.full = "";
+      itemList.resetCustomer();
       itemList.backOrder = false;
       itemList.orderNo = "";
       itemList.searchBox = "";

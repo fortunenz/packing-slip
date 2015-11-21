@@ -296,12 +296,7 @@
       });
     };
 
-    // User changes the view to invoice or packing slip and aspects of the view
-    // gets arranged
-    self.changeView = function() {
-      self.invoice = !self.invoice;
-
-      // Resets parts of the data when user changes the view to prevent bugs
+    self.resetCustomer = function () {
       self.selectedBranch.name = "";
       self.selectedBranch.short = "";
       self.selectedBranch.acc = "";
@@ -309,6 +304,17 @@
       self.selectedBranch.city = "";
       self.selectedBranch.shippingComment = "";
       self.selectedBranch.full = "";
+    };
+
+    // Functions specific to invoice view
+    // ------------------------------------------------------------------------
+
+    // User changes the view to invoice or packing slip and aspects of the view
+    // gets arranged
+    self.changeView = function() {
+      self.invoice = !self.invoice;
+
+      self.resetCustomer();
       self.backOrder = false;
       // Close all customer tabs
       for (i = 0, len = self.customers.length; i < len; i++) {
