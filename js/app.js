@@ -329,7 +329,11 @@
         $("#notes").css("top", "30px");
         $("#notes").css("max-height", "100px");
 
-        $("#mainBody").css("left", "-25%");
+        $("#mainBody").css("width", "50%");
+        $(".itemList").css("position", "relative");
+        $(".itemList").css("left", "-15%");
+        $("nav").css("width", "100%");
+        $(".item").css("width", "150%");
         // Else if view has been changed back to packing slip view do the following
       } else if (self.invoice === false && window.innerWidth >= 1000) {
         $("#notes").css("left", 0);
@@ -337,6 +341,10 @@
         $("#notes").css("max-height", "100%");
 
         $("#mainBody").css("left", "0");
+        $("#mainBody").css("width", "100%");
+        $(".itemList").css("left", "0");
+        $("nav").css("width", "60%");
+        $(".item").css("width", "80%");
         $("#checkoutItems").css("height", window.innerHeight - $("#checkoutHeader").height());
       }
 
