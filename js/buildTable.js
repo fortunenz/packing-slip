@@ -199,7 +199,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
           }
         });
       }
-      
+
       // Resets the order form
       itemList.selectedBranch.name = "";
       itemList.selectedBranch.short = "";
@@ -208,7 +208,6 @@ var buildPackingSlips = function(itemList, scope, filter) {
       itemList.selectedBranch.city = "";
       itemList.selectedBranch.shippingComment = "";
       itemList.selectedBranch.full = "";
-      itemList.selectedBranch.selected = false;
       itemList.backOrder = false;
       itemList.orderNo = "";
       itemList.searchBox = "";
