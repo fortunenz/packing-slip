@@ -4,6 +4,16 @@ var buildPackingSlips = function(itemList, scope, filter) {
   var packingSlip;
   var orderNum;
 
+  // If the user is using a new customer while in invoice view then set
+  // irrelevent variables to null
+  if (itemList.invoiceNewCustomer === true && itemList.invoice === true) {
+    itemList.selectedBranch.short = "";
+    itemList.selectedBranch.acc = "";
+    itemList.selectedBranch.city = "";
+    itemList.selectedBranch.shippingComment = "";
+    itemList.selectedBranch.full = "";
+  }
+
   // Formats date
   var tokens = itemList.date.toString().split(" ");
   var date = tokens[2] + " " + tokens[1] + " " + tokens[3];
@@ -145,7 +155,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
       // If the customer is out of Auckland they most likely require shipping
       // so shipping addresses will be printed automatically if the user requires
-      if (itemList.selectedBranch.city !== "Auckland") {
+      if (itemList.selectedBranch.city !== "Auckland" && itemList.invoiceNewCustomer === false) {
         var check = confirm("Would you like to print shipping addresses for your customer?");
         if (check) {
           var labelAmount = prompt("How many addresses do you need?", 0);

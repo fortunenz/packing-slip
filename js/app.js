@@ -143,6 +143,7 @@
 
     // Invoice view variables
     self.invoice = false;
+    self.invoiceNewCustomer = false;
     self.subTotal = 0;
     self.gst = 0;
     self.grandTotal = 0;
