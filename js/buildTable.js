@@ -107,9 +107,15 @@ var buildPackingSlips = function(itemList, scope, filter) {
       if (itemList.invoice === true) {
         packingSlip += '<div class="packingTotalTable right">';
         packingSlip += '<table>';
-        packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
-        packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
-        packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
+        // If the customer has their prices as including GST the sub total price
+        // will be treated as the grand total instead
+        if (itemList.selectedBranch.full.includeGST !== true) {
+          packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
+          packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
+          packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
+        } else {
+          packingSlip += buildTotalRow("Total", filter('currency')(itemList.subTotal));
+        }
         packingSlip += '</table>';
         packingSlip += '</div>';
       }
