@@ -145,6 +145,15 @@ var buildPackingSlips = function(itemList, scope, filter) {
         packingSlip += '</p></div>';
       }
 
+      // Christmas time closing message
+      // ----------------------------------------------------------------------
+      packingSlip += '<div class="packingChristmasNotes">';
+      packingSlip += '<p class="packingNotesInner">Please be aware that we will be closing on the 23/12/2015 and will re-open on 13/01/2016</p>';
+      packingSlip += '<p class="packingNotesInner">Have a Merry Christmas and a Happy New Year!</p>';
+      packingSlip += '</div>';
+
+      // ----------------------------------------------------------------------
+
       $("#packingSlip").append(packingSlip);
 
       packingSlip += '<div class="break"></div>';

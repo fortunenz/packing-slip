@@ -460,6 +460,13 @@ input[type=number]::-webkit-outer-spin-button {
   width: 40%;
 }
 
+.packingChristmasNotes {
+  border-style: dashed;
+  float: right;
+  width: 40%;
+  font-size: 12px;
+}
+
 .packingNotesInner {
   margin: 10px;
 }
