@@ -176,7 +176,7 @@
     // Loops through items in list and if it matches what's in the search bar
     // it will display the item
     self.search = function() {
-      if (self.searchBox == " ") {
+      if (self.searchBox.trim().length == 0) {
         self.displayedItems = self.items;
       } else {
         self.displayedItems = [];
