@@ -81,7 +81,7 @@
     // Pulls data from server for all items
     self.loadItems = function() {
       self.items = [];
-      self.displayedItems = [];
+      $scope.displayedItems = [];
       var Items = Parse.Object.extend("Items");
       query = new Parse.Query(Items);
       query.limit(1000);
@@ -100,7 +100,7 @@
             });
           }
           sortByKey(self.items, "code");
-          self.displayedItems = self.items;
+          $scope.displayedItems = self.items;
           $scope.$apply();
           stopScroll();
         },
@@ -177,12 +177,12 @@
     // it will display the item
     self.search = function() {
       if (self.searchBox.trim().length == 0) {
-        self.displayedItems = self.items;
+        $scope.displayedItems = self.items;
       } else {
-        self.displayedItems = [];
+        $scope.displayedItems = [];
         for (i = 0, len = self.items.length; i < len; i++) {
           if (self.items[i].description.toLowerCase().includes(self.searchBox.toLowerCase()) || self.items[i].code.toLowerCase().includes(self.searchBox.toLowerCase())) {
-            self.displayedItems.push(self.items[i]);
+            $scope.displayedItems.push(self.items[i]);
           }
         }
       }
@@ -322,12 +322,20 @@
         self.items[i].tempPrice = 0;
       }
       self.checkoutList();
-      self.displayedItems = self.items;
+      $scope.displayedItems = self.items;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
       // Applies the change to the view
       $scope.$apply();
     };
+
+    // Watches if the displayedItems variable changes based on searches and Resets
+    // and will respond accordingly to the view
+    $scope.$watch("displayedItems", function() {
+      if (self.invoice === true) {
+        $(".item").css("width", "150%");
+      }
+    });
 
     // Functions specific to invoice view
     // ------------------------------------------------------------------------
