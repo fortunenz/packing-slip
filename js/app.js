@@ -333,7 +333,9 @@
     // and will respond accordingly to the view
     $scope.$watch("displayedItems", function() {
       if (self.invoice === true) {
-        $(".item").css("width", "150%");
+        $scope.$evalAsync(function() {
+          $(".item").css("width", "150%")
+        });
       }
     });
 
