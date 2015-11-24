@@ -231,14 +231,13 @@ var buildPackingSlips = function(itemList, scope, filter) {
         customerQuery.equalTo("short", itemList.selectedBranch.short);
         customerQuery.first({
           success: function(results) {
-            console.log(results);
             for (i = 0, len = itemList.items.length; i < len; i++) {
               if (itemList.items[i].ordered > 0 && itemList.items[i].tempPrice !== results.attributes[itemList.items[i].code]) {
                 results.set(itemList.items[i].code, itemList.items[i].tempPrice);
                 results.save();
+                console.log("New price has been saved for item " + itemList.items[i].code + " with the price of " + itemList.items[i].tempPrice);
               }
             }
-
             itemList.resetApp();
           },
           error: function(error) {
