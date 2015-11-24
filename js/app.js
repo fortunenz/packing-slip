@@ -297,7 +297,7 @@
       });
     };
 
-    // Rests the customer variables
+    // Resets the customer variables
     self.resetCustomer = function () {
       self.selectedBranch.name = "";
       self.selectedBranch.short = "";
@@ -306,6 +306,27 @@
       self.selectedBranch.city = "";
       self.selectedBranch.shippingComment = "";
       self.selectedBranch.full = "";
+    };
+
+    // Reset the app
+    self.resetApp = function() {
+      self.resetCustomer();
+      self.backOrder = false;
+      self.orderNo = "";
+      self.searchBox = "";
+      self.notes = "";
+      self.invoiceNewCustomer = false;
+      self.date = new Date();
+      $("#orderForm")[0].reset();
+      for (i = 0, len = self.items.length; i < len; i++) {
+        self.items[i].ordered = 0;
+      }
+      self.checkoutList();
+      self.displayedItems = self.items;
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+      // Applies the change to the view
+      $scope.$apply();
     };
 
     // Functions specific to invoice view

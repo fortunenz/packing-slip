@@ -223,26 +223,13 @@ var buildPackingSlips = function(itemList, scope, filter) {
             alert('Failed to create new object, with error code: ' + error.message);
           }
         });
-      }
 
-      // Resets the order form
-      itemList.resetCustomer();
-      itemList.backOrder = false;
-      itemList.orderNo = "";
-      itemList.searchBox = "";
-      itemList.notes = "";
-      itemList.invoiceNewCustomer = false;
-      itemList.date = new Date();
-      $("#orderForm")[0].reset();
-      for (i = 0, len = itemList.items.length; i < len; i++) {
-        itemList.items[i].ordered = 0;
-      }
-      itemList.checkoutList();
-      itemList.displayedItems = itemList.items;
-      $('html, body').animate({ scrollTop: 0 }, 'fast');
+        itemList.resetApp();
+      } else {
+        
 
-      // Applies the change to the view
-      scope.$apply();
+        itemList.resetApp();
+      }
     },
     error: function(object, error) {
       // The object was not retrieved successfully.
