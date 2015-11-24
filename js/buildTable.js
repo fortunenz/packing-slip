@@ -234,7 +234,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
             console.log(results);
             for (i = 0, len = itemList.items.length; i < len; i++) {
               if (itemList.items[i].ordered > 0 && itemList.items[i].tempPrice !== results.attributes[itemList.items[i].code]) {
-                results.set(results.attributes[itemList.items[i].code], itemList.items[i].tempPrice);
+                results.set(itemList.items[i].code, itemList.items[i].tempPrice);
                 results.save();
               }
             }
