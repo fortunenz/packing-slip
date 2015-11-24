@@ -317,7 +317,6 @@
       self.notes = "";
       self.invoiceNewCustomer = false;
       self.date = new Date();
-      $("#orderForm")[0].reset();
       for (i = 0, len = self.items.length; i < len; i++) {
         self.items[i].ordered = 0;
         self.items[i].tempPrice = 0;
