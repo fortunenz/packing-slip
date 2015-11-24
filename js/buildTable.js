@@ -226,7 +226,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
         });
 
         itemList.resetApp();
-      } else {
+      } else if (itemList.selectedBranch.short !== "") {
         var customerQuery = new Parse.Query(Customers);
         customerQuery.equalTo("short", itemList.selectedBranch.short);
         customerQuery.first({
