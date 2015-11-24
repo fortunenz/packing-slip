@@ -20,6 +20,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
   var OrderNumber = Parse.Object.extend("OrderNumber");
   var Orders = Parse.Object.extend("Orders");
+  var Customers = Parse.Object.extend("Customers");
   var queryOrderNumber = new Parse.Query(OrderNumber);
   queryOrderNumber.exists("orderNumber");
   queryOrderNumber.descending("updatedAt");
@@ -226,9 +227,24 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
         itemList.resetApp();
       } else {
-        
+        var customerQuery = new Parse.Query(Customers);
+        customerQuery.equalTo("short", itemList.selectedBranch.short);
+        customerQuery.first({
+          success: function(results) {
+            console.log(results);
+            for (i = 0, len = itemList.items.length; i < len; i++) {
+              if (itemList.items[i].ordered > 0 && itemList.items[i].tempPrice !== results.attributes[itemList.items[i].code]) {
+                results.set(results.attributes[itemList.items[i].code], itemList.items[i].tempPrice);
+                results.save();
+              }
+            }
 
-        itemList.resetApp();
+            itemList.resetApp();
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
       }
     },
     error: function(object, error) {
