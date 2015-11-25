@@ -305,6 +305,7 @@
       for (i = 0, len = self.items.length; i < len; i++) {
         self.items[i].ordered = 0;
         self.items[i].tempPrice = 0;
+        self.items[i].wrongPrice = false;
       }
       self.checkoutList();
       $scope.displayedItems = self.items;
@@ -405,6 +406,14 @@
         } else {
           item.tempPrice = item.price;
         }
+      }
+
+      // If the customer has not previously purchased an item using the system
+      // the price will not yet be set, and therefore the user needs to be
+      // alerted that they need to check the price
+      if (self.selectedBranch.short !== "" && item.tempPrice !== self.selectedBranch.full[item.code]) {
+        console.log("the price ain't right");
+        item.wrongPrice = true;
       }
     };
 
