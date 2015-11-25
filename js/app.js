@@ -319,7 +319,7 @@
     $scope.$watch("displayedItems", function() {
       if (self.invoice === true) {
         $scope.$evalAsync(function() {
-          $(".item").css("width", "150%")
+          $(".item").css("width", "150%");
         });
       }
     });
@@ -327,7 +327,7 @@
     // Watches if the search box and changes the displayed items accordingly
     // if the user searches for items
     $scope.$watch("searchBox", function() {
-      if ($scope.searchBox.trim().length == 0) {
+      if ($scope.searchBox.trim().length === 0) {
         $scope.displayedItems = self.items;
       } else {
         $scope.displayedItems = [];
