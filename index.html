@@ -47,7 +47,7 @@
           <span ng-show="!app.invoice">Backorder: <input ng-model="app.backOrder" type="checkbox">
           <strong>| </strong></span><input ng-model="app.orderNo" onclick="this.select()" placeholder="Order no.">
           <strong>| </strong> Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
-          <strong>| </strong> <input type="text" ng-model="app.searchBox" ng-keyup="app.search()" placeholder="Item search">
+          <strong>| </strong> <input type="text" ng-model="searchBox" placeholder="Item search">
           <br>
           <h2><span ng-show="app.invoice">New: <input ng-model="app.invoiceNewCustomer" ng-click="app.resetCustomer()" type="checkbox"> | </span>Customer: <span ng-show="!app.invoiceNewCustomer">{{app.selectedBranch.name}}</span> <span ng-show="app.invoiceNewCustomer"><input ng-model="app.selectedBranch.name" placeholder="Name"> <input ng-model="app.selectedBranch.address" placeholder="Address"></span></h2>
 

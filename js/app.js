@@ -135,7 +135,7 @@
       full: ""
     };
     self.notes = "";
-    self.searchBox = "";
+    $scope.searchBox = "";
     self.backOrder = false;
     self.orderNo = "";
     self.date = new Date();
@@ -171,21 +171,6 @@
     self.logout = function() {
       Parse.User.logOut();
       self.access = false;
-    };
-
-    // Loops through items in list and if it matches what's in the search bar
-    // it will display the item
-    self.search = function() {
-      if (self.searchBox.trim().length == 0) {
-        $scope.displayedItems = self.items;
-      } else {
-        $scope.displayedItems = [];
-        for (i = 0, len = self.items.length; i < len; i++) {
-          if (self.items[i].description.toLowerCase().includes(self.searchBox.toLowerCase()) || self.items[i].code.toLowerCase().includes(self.searchBox.toLowerCase())) {
-            $scope.displayedItems.push(self.items[i]);
-          }
-        }
-      }
     };
 
     // Displays the list of shops that can be accessed
@@ -313,7 +298,7 @@
       self.resetCustomer();
       self.backOrder = false;
       self.orderNo = "";
-      self.searchBox = "";
+      $scope.searchBox = "";
       self.notes = "";
       self.invoiceNewCustomer = false;
       self.date = new Date();
@@ -336,6 +321,21 @@
         $scope.$evalAsync(function() {
           $(".item").css("width", "150%")
         });
+      }
+    });
+
+    // Watches if the search box and changes the displayed items accordingly
+    // if the user searches for items
+    $scope.$watch("searchBox", function() {
+      if ($scope.searchBox.trim().length == 0) {
+        $scope.displayedItems = self.items;
+      } else {
+        $scope.displayedItems = [];
+        for (i = 0, len = self.items.length; i < len; i++) {
+          if (self.items[i].description.toLowerCase().includes($scope.searchBox.toLowerCase()) || self.items[i].code.toLowerCase().includes($scope.searchBox.toLowerCase())) {
+            $scope.displayedItems.push(self.items[i]);
+          }
+        }
       }
     });
 
