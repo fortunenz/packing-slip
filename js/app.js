@@ -245,8 +245,8 @@
     // Loads last saved order for current customer
     self.loadData = function() {
       var orderQuery = new Parse.Query(Orders);
-      // Short names should always be unique across all customers
-      orderQuery.equalTo("short", self.selectedBranch.short);
+      orderQuery.equalTo("name", self.selectedBranch.name);
+      orderQuery.equalTo("city", self.selectedBranch.city);
       orderQuery.descending("updatedAt");
       orderQuery.first({
         success: function(results) {
