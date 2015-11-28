@@ -57,7 +57,6 @@
               "acc": results[i].attributes.acc,
               "address": results[i].attributes.address,
               "city": results[i].attributes.city,
-              "clicked": results[i].attributes.clicked,
               "shippingComment": results[i].attributes.shippingComment,
               "full": results[i].attributes
             };
@@ -88,16 +87,7 @@
       query.find({
         success: function(results) {
           for (i = 0, len = results.length; i < len; i++) {
-            self.items.push({
-              "code": results[i].attributes.code,
-              "description": results[i].attributes.description,
-              "unit": results[i].attributes.unit,
-              "quantity": results[i].attributes.quantity,
-              "packaging": results[i].attributes.packaging,
-              "orderAs": results[i].attributes.orderAs,
-              "ordered": results[i].attributes.ordered,
-              "price": results[i].attributes.price
-            });
+            self.items.push(results[i].attributes);
           }
           sortByKey(self.items, "code");
           $scope.displayedItems = self.items;
@@ -236,7 +226,7 @@
     };
 
     // Grabs all data required and proceeds with a print preview
-    self.printPreview = function(app) {
+    self.printPreview = function() {
       // Prevents the user from creating packing slips if there are no
       // customer or items selected
       var total = 0;
@@ -248,15 +238,15 @@
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
       } else {
-        buildPackingSlips(app, $scope, $filter);
+        buildPackingSlips(self, $scope, $filter);
       }
     };
 
     // Loads last saved order for current customer
     self.loadData = function() {
       var orderQuery = new Parse.Query(Orders);
-      orderQuery.equalTo("name", self.selectedBranch.name);
-      orderQuery.equalTo("city", self.selectedBranch.city);
+      // Short names should always be unique across all customers
+      orderQuery.equalTo("short", self.selectedBranch.short);
       orderQuery.descending("updatedAt");
       orderQuery.first({
         success: function(results) {

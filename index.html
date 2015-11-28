@@ -72,7 +72,7 @@
           </nav>
 
           <div class="itemList">
-            <form id="orderForm" ng-submit="app.printPreview(app)">
+            <form id="orderForm" ng-submit="app.printPreview()">
               <span ng-repeat="item in displayedItems" class="row item">
                 <strong class="col-12">
                   {{item.description}}<span ng-show="item.code.includes('RE0')"> {{item.packaging}}</span>:</strong>
