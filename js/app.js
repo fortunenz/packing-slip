@@ -87,6 +87,7 @@
       query.find({
         success: function(results) {
           for (i = 0, len = results.length; i < len; i++) {
+            results[i].attributes.ordered = 0;
             self.items.push(results[i].attributes);
           }
           sortByKey(self.items, "code");
@@ -195,6 +196,7 @@
       if (self.invoice === true) {
         for (i = 0, len = self.checkoutItems.length; i < len; i++) {
           self.definePrices(self.checkoutItems[i]);
+          self.priceChange(self.checkoutItems[i]);
         }
         self.defineTotalPrice();
       }
@@ -417,6 +419,16 @@
       }
       self.gst = self.subTotal * 0.15;
       self.grandTotal = self.subTotal * 1.15;
+    };
+
+    self.priceChange = function(tempItem) {
+      if (self.selectedBranch.short !== "") {
+        if (self.selectedBranch.full[tempItem.code] !== tempItem.tempPrice) {
+          tempItem.wrongPrice = true;
+        } else {
+          tempItem.wrongPrice = false;
+        }
+      }
     };
   });
 })();
