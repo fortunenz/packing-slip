@@ -244,6 +244,8 @@ var buildPackingSlips = function(itemList, scope, filter) {
             alert("Error: " + error.code + " " + error.message);
           }
         });
+      } else if (itemList.invoiceNewCustomer === true) {
+        itemList.resetApp();
       }
     },
     error: function(object, error) {
