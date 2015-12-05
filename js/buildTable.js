@@ -204,30 +204,30 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
       // Saves the shop data to be reloaded if most recent order needs to be
       // modified at a later stage
-      var orders = new Orders();
-      orders.set("short", itemList.selectedBranch.short);
-      orders.set("notes", itemList.notes);
-      orders.set("backOrder", itemList.backOrder);
-      orders.set("orderNo", itemList.orderNo);
-      for (i = 0, len = itemList.items.length; i < len; i++) {
-        orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
-      }
-      orders.save(null,{
-        success: function(orders) {
-          console.log('New object created with objectId: ' + orders.id);
-        },
-        error: function(orders, error) {
-          // Execute any logic that should take place if the save fails.
-          // error is a Parse.Error with an error code and message.
-          console.log('Failed to create new object, with error code: ' + error.message);
+      if (itemList.invoiceNewCustomer === false) {
+        var orders = new Orders();
+        orders.set("short", itemList.selectedBranch.short);
+        orders.set("notes", itemList.notes);
+        orders.set("backOrder", itemList.backOrder);
+        orders.set("orderNo", itemList.orderNo);
+        for (i = 0, len = itemList.items.length; i < len; i++) {
+          orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
         }
-      });
+        orders.save(null,{
+          success: function(orders) {
+            console.log('New object created with objectId: ' + orders.id);
+          },
+          error: function(orders, error) {
+            // Execute any logic that should take place if the save fails.
+            // error is a Parse.Error with an error code and message.
+            console.log('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+      }
 
       // If customer is being invoiced prices will be checked and if needed
       // will be saved for next time
-      if (itemList.invoiceNewCustomer === true) {
-       itemList.resetApp();
-      } else if (itemList.invoice === true) {
+      if (itemList.invoice === true && itemList.invoiceNewCustomer === false) {
         var customerQuery = new Parse.Query(Customers);
         customerQuery.equalTo("short", itemList.selectedBranch.short);
         customerQuery.first({
@@ -245,6 +245,8 @@ var buildPackingSlips = function(itemList, scope, filter) {
             console.log("Error: " + error.code + " " + error.message);
           }
         });
+      } else {
+       itemList.resetApp();
       }
     },
     error: function(object, error) {

@@ -403,7 +403,6 @@
       // the price will not yet be set, and therefore the user needs to be
       // alerted that they need to check the price
       if (self.selectedBranch.short !== "" && item.tempPrice !== self.selectedBranch.full[item.code]) {
-        console.log("the price ain't right");
         item.wrongPrice = true;
       }
     };
