@@ -202,31 +202,32 @@ var buildPackingSlips = function(itemList, scope, filter) {
 
       window.print();
 
-      if (itemList.invoice === false) {
-        // Saves the shop data to be reloaded if most recent order needs to be
-        // modified at a later stage
-        var orders = new Orders();
-        orders.set("name", itemList.selectedBranch.name);
-        orders.set("city", itemList.selectedBranch.city);
-        orders.set("notes", itemList.notes);
-        orders.set("backOrder", itemList.backOrder);
-        orders.set("orderNo", itemList.orderNo);
-        for (i = 0, len = itemList.items.length; i < len; i++) {
-          orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
+      // Saves the shop data to be reloaded if most recent order needs to be
+      // modified at a later stage
+      var orders = new Orders();
+      orders.set("short", itemList.selectedBranch.short);
+      orders.set("notes", itemList.notes);
+      orders.set("backOrder", itemList.backOrder);
+      orders.set("orderNo", itemList.orderNo);
+      for (i = 0, len = itemList.items.length; i < len; i++) {
+        orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
+      }
+      orders.save(null,{
+        success: function(orders) {
+          console.log('New object created with objectId: ' + orders.id);
+        },
+        error: function(orders, error) {
+          // Execute any logic that should take place if the save fails.
+          // error is a Parse.Error with an error code and message.
+          console.log('Failed to create new object, with error code: ' + error.message);
         }
-        orders.save(null,{
-          success: function(orders) {
-            console.log('New object created with objectId: ' + orders.id);
-          },
-          error: function(orders, error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and message.
-            alert('Failed to create new object, with error code: ' + error.message);
-          }
-        });
+      });
 
-        itemList.resetApp();
-      } else if (itemList.selectedBranch.short !== "") {
+      // If customer is being invoiced prices will be checked and if needed
+      // will be saved for next time
+      if (itemList.invoiceNewCustomer === true) {
+       itemList.resetApp();
+      } else if (itemList.invoice === true) {
         var customerQuery = new Parse.Query(Customers);
         customerQuery.equalTo("short", itemList.selectedBranch.short);
         customerQuery.first({
@@ -241,11 +242,9 @@ var buildPackingSlips = function(itemList, scope, filter) {
             itemList.resetApp();
           },
           error: function(error) {
-            alert("Error: " + error.code + " " + error.message);
+            console.log("Error: " + error.code + " " + error.message);
           }
         });
-      } else if (itemList.invoiceNewCustomer === true) {
-        itemList.resetApp();
       }
     },
     error: function(object, error) {

@@ -247,8 +247,7 @@
     // Loads last saved order for current customer
     self.loadData = function() {
       var orderQuery = new Parse.Query(Orders);
-      orderQuery.equalTo("name", self.selectedBranch.name);
-      orderQuery.equalTo("city", self.selectedBranch.city);
+      orderQuery.equalTo("short", self.selectedBranch.short);
       orderQuery.descending("updatedAt");
       orderQuery.first({
         success: function(results) {
