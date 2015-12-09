@@ -136,14 +136,14 @@
 
           <table id="invoiceTotalTable">
             <tr>
-              <th>Sub total</th>
+              <th><span ng-show="app.selectedBranch.full.includeGST">Total including GST</span><span ng-show="!app.selectedBranch.full.includeGST">Sub total</span></th>
               <td>{{app.subTotal | currency}}</td>
             </tr>
-            <tr>
+            <tr ng-show="!app.selectedBranch.full.includeGST">
               <th>GST</th>
               <td>{{app.gst | currency}}</td>
             </tr>
-            <tr>
+            <tr ng-show="!app.selectedBranch.full.includeGST">
               <th>Total</th>
               <td>{{app.grandTotal | currency}}</td>
             </tr>

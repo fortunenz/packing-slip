@@ -115,7 +115,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
           packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
           packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
         } else {
-          packingSlip += buildTotalRow("Total", filter('currency')(itemList.subTotal));
+          packingSlip += buildTotalRow("Total including GST", filter('currency')(itemList.subTotal));
         }
         packingSlip += '</table>';
         packingSlip += '</div>';
