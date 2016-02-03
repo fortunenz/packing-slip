@@ -1,6 +1,6 @@
 (function() {
   var app = angular.module("app", ["firebase"]);
-  
+
   app.controller("appCtrl", function($scope, $compile, $filter, $firebaseArray) {
     // Connects to the firebase server
     var ref = new Firebase('https://popping-torch-7294.firebaseio.com/');
@@ -245,13 +245,7 @@
 
     // Resets the customer variables
     self.resetCustomer = function () {
-      $scope.selectedCustomer.name = "";
-      $scope.selectedCustomer.short = "";
-      $scope.selectedCustomer.acc = "";
-      $scope.selectedCustomer.address = "";
-      $scope.selectedCustomer.city = "";
-      $scope.selectedCustomer.shippingComment = "";
-      $scope.selectedCustomer.full = "";
+      $scope.selectedCustomer = {};
     };
 
     // Reset the app
@@ -349,9 +343,9 @@
       // Checks if customer has been selected
       // if so then change the prices based on customer
       // otherwise use default prices
-      if ($scope.selectedCustomer.name !== "") {
-        if ($scope.selectedCustomer.full[item.code] !== undefined) {
-          item.tempPrice = $scope.selectedCustomer.full[item.code];
+      if ($scope.selectedCustomer.name !== undefined) {
+        if ($scope.selectedCustomer[item.code] !== undefined) {
+          item.tempPrice = $scope.selectedCustomer[item.code];
         } else {
           if (item.tempPrice === undefined) {
             if (item.price === undefined) {
@@ -372,7 +366,7 @@
       // If the customer has not previously purchased an item using the system
       // the price will not yet be set, and therefore the user needs to be
       // alerted that they need to check the price
-      if ($scope.selectedCustomer.short !== "" && item.tempPrice !== $scope.selectedCustomer.full[item.code]) {
+      if ($scope.selectedCustomer.short !== undefined && item.tempPrice !== $scope.selectedCustomer[item.code]) {
         item.wrongPrice = true;
       }
     };
@@ -390,8 +384,8 @@
     };
 
     self.priceChange = function(tempItem) {
-      if ($scope.selectedCustomer.short !== "") {
-        if ($scope.selectedCustomer.full[tempItem.code] !== tempItem.tempPrice) {
+      if ($scope.selectedCustomer !== undefined) {
+        if ($scope.selectedCustomer[tempItem.code] !== tempItem.tempPrice) {
           tempItem.wrongPrice = true;
         } else {
           tempItem.wrongPrice = false;

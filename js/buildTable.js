@@ -15,7 +15,7 @@ var buildPackingSlips = function(itemList, scope, filter) {
   // Formats date
   var tokens = itemList.date.toString().split(" ");
   var date = tokens[2] + " " + tokens[1] + " " + tokens[3];
-  console.log(scope.slipNumber);
+  
   scope.slipNumber++;
 
   var packingSlip;
