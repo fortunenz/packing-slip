@@ -76,6 +76,8 @@
         ref.child("slipNumber").on("value", function(snapshot) {
           $scope.slipNumber = snapshot.val();
         });
+
+        $scope.slipOrders = $firebaseArray(ref.child('slipOrders'));
       } else {
         console.log("Client unauthenticated.")
       }
@@ -218,31 +220,19 @@
 
     // Loads last saved order for current customer
     self.loadData = function() {
-      var orderQuery = new Parse.Query(Orders);
-      orderQuery.equalTo("short", $scope.selectedCustomer.short);
-      orderQuery.descending("updatedAt");
-      orderQuery.first({
-        success: function(results) {
-          self.notes = results.attributes.notes;
-          self.backOrder = results.attributes.backOrder;
-          self.orderNo = results.attributes.orderNo;
-          for (i = 0, len = $scope.items.length; i < len; i++) {
-            if (results.attributes.hasOwnProperty($scope.items[i].code)) {
-              $scope.items[i].ordered = results.attributes[$scope.items[i].code];
+      for (var i = $scope.slipOrders.length, len = 0; i > len; i--) {
+        if ($scope.slipOrders[i-1].short == $scope.selectedCustomer.short) {
+          self.notes = $scope.slipOrders[i-1].notes;
+          self.orderNo = $scope.slipOrders[i-1].orderNo;
+          for (j = 0, len = $scope.items.length; j < len; j++) {
+            if ($scope.slipOrders[i-1].hasOwnProperty($scope.items[j].code)) {
+              $scope.items[j].ordered = $scope.slipOrders[i-1][$scope.items[j].code];
             }
           }
           self.checkoutList();
           $('html, body').animate({ scrollTop: 0 }, 'fast');
-
-          // Applies the change to the view
-          $scope.$apply();
-        },
-        error: function(object, error) {
-          // The object was not retrieved successfully.
-          // error is a Parse.Error with an error code and message.
-          console.log("Unable to load last saved order");
         }
-      });
+      }
     };
 
     // Resets the customer variables

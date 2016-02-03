@@ -196,10 +196,12 @@ var buildPackingSlips = function(appData, scope, filter) {
 
     tempJson.short =  scope.selectedCustomer.short;
     tempJson.notes = appData.notes;
-    tempJson.slipNumber = scope.slipNumber;
+    tempJson.orderNo = appData.orderNo;
 
     for (var i = 0; i < scope.items.length; i++) {
-      tempJson[scope.items[i].code] = scope.items[i].ordered;
+      if (scope.items[i].ordered > 0) {
+        tempJson[scope.items[i].code] = scope.items[i].ordered;
+      }
     }
 
     var ordersRef = new Firebase('https://popping-torch-7294.firebaseio.com/slipOrders');
