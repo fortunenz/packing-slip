@@ -5,11 +5,10 @@ var buildPackingSlips = function(appData, scope, filter) {
   // If the user is using a new customer while in invoice view then set
   // irrelevent variables to null
   if (appData.invoiceNewCustomer === true && appData.invoice === true) {
-    appData.selectedBranch.short = "";
-    appData.selectedBranch.acc = "";
-    appData.selectedBranch.city = "";
-    appData.selectedBranch.shippingComment = "";
-    appData.selectedBranch.full = "";
+    scope.selectedCustomer.short = "";
+    scope.selectedCustomer.acc = "";
+    scope.selectedCustomer.city = "";
+    scope.selectedCustomer.shippingComment = "";
   }
 
   // Formats date
@@ -114,7 +113,7 @@ var buildPackingSlips = function(appData, scope, filter) {
   // Name and signature only if sending in Auckland meaning will be delivered
   if (scope.selectedCustomer.city == "Auckland") {
     var tempLength = 0;
-    for (i = 0, len = scope.items.length; i < len; i++) {
+    for (var i = 0, len = scope.items.length; i < len; i++) {
       if (scope.items[i].ordered > 0) {
         tempLength++;
       }
@@ -166,7 +165,7 @@ var buildPackingSlips = function(appData, scope, filter) {
         alert("No shipping addresses will be printed because you did not enter a valid number");
       } else {
         var shippingLabel = '<div class="shippingLabel">';
-        if (scope.selectedCustomer.shippingComment !== null) {
+        if (scope.selectedCustomer.shippingComment !== undefined) {
           shippingLabel += '<br><br>';
         } else {
           shippingLabel += '<br><br><br><br><br>';
@@ -176,11 +175,11 @@ var buildPackingSlips = function(appData, scope, filter) {
         shippingLabel += '<p>' + scope.selectedCustomer.city + '</p>';
         // If the customer has special needs the program will append a note
         // in the shipping address label
-        if (scope.selectedCustomer.shippingComment !== null) {
+        if (scope.selectedCustomer.shippingComment !== undefined) {
           shippingLabel += '<br><p>' + scope.selectedCustomer.shippingComment + '</p><br>';
         }
         shippingLabel += '</div>';
-        for (i = 0; i < labelAmount; i++) {
+        for (var i = 0; i < labelAmount; i++) {
           $("#packingSlip").append(shippingLabel);
         }
       }
@@ -198,7 +197,7 @@ var buildPackingSlips = function(appData, scope, filter) {
     tempJson.notes = appData.notes;
     tempJson.orderNo = appData.orderNo;
 
-    for (var i = 0; i < scope.items.length; i++) {
+    for ( i = 0; i < scope.items.length; i++) {
       if (scope.items[i].ordered > 0) {
         tempJson[scope.items[i].code] = scope.items[i].ordered;
       }
@@ -215,10 +214,10 @@ var buildPackingSlips = function(appData, scope, filter) {
   // If customer is being invoiced prices will be checked and if needed
   // will be saved for next time
   if (appData.invoice === true && appData.invoiceNewCustomer === false) {
-    for (i = 0, len = scope.items.length; i < len; i++) {
+    for (var i = 0, len = scope.items.length; i < len; i++) {
       if (scope.items[i].ordered > 0 && scope.items[i].tempPrice !== scope.selectedCustomer[scope.items[i].code]) {
         var tempJson = {};
-        tempJson[scope.items[i].code] = scope.items[i].tempPrice
+        tempJson[scope.items[i].code] = scope.items[i].tempPrice;
         ref.child("customers").child(scope.selectedCustomer.$id).update(
           tempJson
         );
@@ -236,7 +235,7 @@ var buildPackingRow = function(appData, filter, scope) {
   var quantity = 0;
   var tempItemOrdered;
 
-  for (i = 0; i < scope.items.length; i++) {
+  for (var i = 0; i < scope.items.length; i++) {
     var tempItem = scope.items[i];
     if (tempItem.ordered > 0) {
       table += '<tr><td class="packingT">';

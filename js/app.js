@@ -47,8 +47,8 @@
         // Loads customers from server and appends them into the correct array
         var results = $firebaseArray(ref.child('customers'));
         results.$loaded().then(function() {
-          for (i = 0, len = results.length; i < len; i++) {
-            for (j = 0; j < $scope.customers.length; j++) {
+          for (var i = 0, len = results.length; i < len; i++) {
+            for (var j = 0; j < $scope.customers.length; j++) {
               if (results[i].type == $scope.customers[j].name) {
                 $scope.customers[j].array.push(results[i]);
               }
@@ -79,7 +79,7 @@
 
         $scope.slipOrders = $firebaseArray(ref.child('slipOrders'));
       } else {
-        console.log("Client unauthenticated.")
+        console.log("Client unauthenticated.");
       }
     });
 
@@ -150,7 +150,7 @@
     self.showList = function(customer) {
       if (customer.show === false) {
         customer.show = true;
-        for (i = 0, len = $scope.customers.length; i < len; i++) {
+        for (var i = 0, len = $scope.customers.length; i < len; i++) {
           if (customer !== $scope.customers[i]) {
             $scope.customers[i].show = false;
           }
@@ -162,7 +162,7 @@
 
     // Loads the selected customer as the selected customer
     self.listClick = function(data) {
-      for (i = 0, len = $scope.customers.length; i < len; i++) {
+      for (var i = 0, len = $scope.customers.length; i < len; i++) {
         $scope.customers[i].show = false;
       }
       $scope.selectedCustomer = data;
@@ -179,7 +179,7 @@
     // Appends data to the checkout list
     self.checkoutList = function() {
       var temp;
-      for (i = 0, len = $scope.items.length; i < len; i++) {
+      for (var i = 0, len = $scope.items.length; i < len; i++) {
         temp = $.inArray($scope.items[i], self.checkoutItems);
         if ($scope.items[i].ordered > 0) {
           if (temp === -1) {
@@ -206,10 +206,10 @@
       // Prevents the user from creating packing slips if there are no
       // customer or items selected
       var total = 0;
-      for (i = 0, len = $scope.items.length; i < len; i++) {
+      for (var i = 0, len = $scope.items.length; i < len; i++) {
         total += $scope.items[i].ordered;
       }
-      if ($scope.selectedCustomer.name === "") {
+      if ($scope.selectedCustomer.name === undefined) {
         alert("Please select a customer before you print");
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
@@ -224,7 +224,7 @@
         if ($scope.slipOrders[i-1].short == $scope.selectedCustomer.short) {
           self.notes = $scope.slipOrders[i-1].notes;
           self.orderNo = $scope.slipOrders[i-1].orderNo;
-          for (j = 0, len = $scope.items.length; j < len; j++) {
+          for (var j = 0; j < $scope.items.length; j++) {
             if ($scope.slipOrders[i-1].hasOwnProperty($scope.items[j].code)) {
               $scope.items[j].ordered = $scope.slipOrders[i-1][$scope.items[j].code];
             }
@@ -249,7 +249,7 @@
       self.notes = "";
       self.invoiceNewCustomer = false;
       self.date = new Date();
-      for (i = 0, len = $scope.items.length; i < len; i++) {
+      for (var i = 0, len = $scope.items.length; i < len; i++) {
         $scope.items[i].ordered = 0;
         $scope.items[i].tempPrice = 0;
         $scope.items[i].wrongPrice = false;
@@ -276,7 +276,7 @@
         $scope.displayedItems = $scope.items;
       } else {
         $scope.displayedItems = [];
-        for (i = 0, len = $scope.items.length; i < len; i++) {
+        for (var i = 0, len = $scope.items.length; i < len; i++) {
           if ($scope.items[i].description.toLowerCase().includes($scope.searchBox.toLowerCase()) || $scope.items[i].code.toLowerCase().includes($scope.searchBox.toLowerCase())) {
             $scope.displayedItems.push($scope.items[i]);
           }
@@ -295,7 +295,7 @@
       self.resetCustomer();
       self.backOrder = false;
       // Close all customer tabs
-      for (i = 0, len = $scope.customers.length; i < len; i++) {
+      for (var i = 0, len = $scope.customers.length; i < len; i++) {
         $scope.customers[i].show = false;
       }
 
@@ -363,7 +363,7 @@
     // Adjusts the total price charged to customers responsively
     self.defineTotalPrice = function() {
       self.subTotal = 0;
-      for (i = 0, len = $scope.items.length; i < len; i++) {
+      for (var i = 0, len = $scope.items.length; i < len; i++) {
         if ($scope.items[i].ordered > 0) {
           self.subTotal += $scope.items[i].ordered * $scope.items[i].tempPrice;
         }
