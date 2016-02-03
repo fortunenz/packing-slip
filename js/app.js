@@ -1,9 +1,6 @@
 (function() {
   var app = angular.module("app", ["firebase"]);
-  Parse.initialize("p45yej86tibQrsfKYCcj6UmNw4o7b6kxtsobZnmA", "fXSkEhDGakCYnVv5OOdAfWDmjAuQvlnFI5KOwIUO");
-  // Allows users to access the Orders class
-  var Orders = Parse.Object.extend("Orders");
-
+  
   app.controller("appCtrl", function($scope, $compile, $filter, $firebaseArray) {
     // Connects to the firebase server
     var ref = new Firebase('https://popping-torch-7294.firebaseio.com/');
@@ -73,6 +70,10 @@
           $scope.$apply();
           stopScroll();
         });
+
+        ref.child("slipNumber").on("value", function(snapshot) {
+          $scope.slipNumber = snapshot.val();
+        });
       } else {
         console.log("Client unauthenticated.")
       }
@@ -97,15 +98,7 @@
     $scope.password = "";
 
     // Application variables
-    self.selectedBranch = {
-      name: "",
-      short: "",
-      acc: "",
-      address: "",
-      city: "",
-      shippingComment: "",
-      full: ""
-    };
+    $scope.selectedCustomer = {};
     self.notes = "";
     $scope.searchBox = "";
     self.backOrder = false;
@@ -168,15 +161,7 @@
       for (i = 0, len = $scope.customers.length; i < len; i++) {
         $scope.customers[i].show = false;
       }
-      self.selectedBranch.name = data.name;
-      self.selectedBranch.short = data.short;
-      self.selectedBranch.acc = data.acc;
-      self.selectedBranch.address = data.address;
-      self.selectedBranch.city = data.city;
-      if (data.shippingComment !== undefined) {
-        self.selectedBranch.shippingComment = data.shippingComment;
-      }
-      self.selectedBranch.full = data.full;
+      $scope.selectedCustomer = data;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
       if (self.invoice === true) {
         for (i = 0, len = self.checkoutItems.length; i < len; i++) {
@@ -220,7 +205,7 @@
       for (i = 0, len = $scope.items.length; i < len; i++) {
         total += $scope.items[i].ordered;
       }
-      if (self.selectedBranch.name === "") {
+      if ($scope.selectedCustomer.name === "") {
         alert("Please select a customer before you print");
       } else if (total === 0) {
         alert("Your customers order cannot have no items");
@@ -232,7 +217,7 @@
     // Loads last saved order for current customer
     self.loadData = function() {
       var orderQuery = new Parse.Query(Orders);
-      orderQuery.equalTo("short", self.selectedBranch.short);
+      orderQuery.equalTo("short", $scope.selectedCustomer.short);
       orderQuery.descending("updatedAt");
       orderQuery.first({
         success: function(results) {
@@ -260,13 +245,13 @@
 
     // Resets the customer variables
     self.resetCustomer = function () {
-      self.selectedBranch.name = "";
-      self.selectedBranch.short = "";
-      self.selectedBranch.acc = "";
-      self.selectedBranch.address = "";
-      self.selectedBranch.city = "";
-      self.selectedBranch.shippingComment = "";
-      self.selectedBranch.full = "";
+      $scope.selectedCustomer.name = "";
+      $scope.selectedCustomer.short = "";
+      $scope.selectedCustomer.acc = "";
+      $scope.selectedCustomer.address = "";
+      $scope.selectedCustomer.city = "";
+      $scope.selectedCustomer.shippingComment = "";
+      $scope.selectedCustomer.full = "";
     };
 
     // Reset the app
@@ -364,9 +349,9 @@
       // Checks if customer has been selected
       // if so then change the prices based on customer
       // otherwise use default prices
-      if (self.selectedBranch.name !== "") {
-        if (self.selectedBranch.full[item.code] !== undefined) {
-          item.tempPrice = self.selectedBranch.full[item.code];
+      if ($scope.selectedCustomer.name !== "") {
+        if ($scope.selectedCustomer.full[item.code] !== undefined) {
+          item.tempPrice = $scope.selectedCustomer.full[item.code];
         } else {
           if (item.tempPrice === undefined) {
             if (item.price === undefined) {
@@ -387,7 +372,7 @@
       // If the customer has not previously purchased an item using the system
       // the price will not yet be set, and therefore the user needs to be
       // alerted that they need to check the price
-      if (self.selectedBranch.short !== "" && item.tempPrice !== self.selectedBranch.full[item.code]) {
+      if ($scope.selectedCustomer.short !== "" && item.tempPrice !== $scope.selectedCustomer.full[item.code]) {
         item.wrongPrice = true;
       }
     };
@@ -405,8 +390,8 @@
     };
 
     self.priceChange = function(tempItem) {
-      if (self.selectedBranch.short !== "") {
-        if (self.selectedBranch.full[tempItem.code] !== tempItem.tempPrice) {
+      if ($scope.selectedCustomer.short !== "") {
+        if ($scope.selectedCustomer.full[tempItem.code] !== tempItem.tempPrice) {
           tempItem.wrongPrice = true;
         } else {
           tempItem.wrongPrice = false;

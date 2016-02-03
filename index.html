@@ -6,8 +6,7 @@
     <title>Packing Slip Generator</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="css/style.css" rel="stylesheet">
-
-    <script src="https://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    
     <script src="bower_components/jquery-2.1.4.min/jquery-2.1.4.min.js"></script>
 
     <!-- Angular -->
@@ -43,7 +42,7 @@
         <h1 id="title" class="col-12"><img class="no-print logo" src="images/logo.png"> <span ng-show="!app.invoice">Packing Slip Generator</span><span ng-show="app.invoice">Invoice Slip Generator</span></h1>
         <div class="greeting">
           <p>
-            Welcome back, {{name}}! <br class="greetingBreakline"><button class="clean-gray-btn" ng-click="app.logout()">Logout</button><span ng-show="!app.selectedBranch.name==''"><button class="clean-gray-btn" ng-click="app.loadData()">Load last order</button></span>
+            Welcome back, {{name}}! <br class="greetingBreakline"><button class="clean-gray-btn" ng-click="app.logout()">Logout</button><span ng-show="!selectedCustomer.name==''"><button class="clean-gray-btn" ng-click="app.loadData()">Load last order</button></span>
             <br>
             Change to: <button class="clean-gray-btn" ng-click="app.changeView()"><span ng-show="!app.invoice">Invoice Slip</span><span ng-show="app.invoice">Packing slip</span></button>
           </p>
@@ -56,7 +55,7 @@
           <strong>| </strong> Date: <input id="datePicker" type="date" onclick="this.select()" ng-model="app.date">
           <strong>| </strong> <input type="text" ng-model="searchBox" placeholder="Item search">
           <br>
-          <h2><span ng-show="app.invoice">New: <input ng-model="app.invoiceNewCustomer" ng-click="app.resetCustomer()" type="checkbox"> | </span>Customer: <span ng-show="!app.invoiceNewCustomer">{{app.selectedBranch.name}}</span> <span ng-show="app.invoiceNewCustomer"><input ng-model="app.selectedBranch.name" placeholder="Name"> <input ng-model="app.selectedBranch.address" placeholder="Address"></span></h2>
+          <h2><span ng-show="app.invoice">New: <input ng-model="app.invoiceNewCustomer" ng-click="app.resetCustomer()" type="checkbox"> | </span>Customer: <span ng-show="!app.invoiceNewCustomer">{{selectedCustomer.name}}</span> <span ng-show="app.invoiceNewCustomer"><input ng-model="selectedCustomer.name" placeholder="Name"> <input ng-model="selectedCustomer.address" placeholder="Address"></span></h2>
 
           <hr>
         </div>
@@ -143,14 +142,14 @@
 
           <table id="invoiceTotalTable">
             <tr>
-              <th><span ng-show="app.selectedBranch.full.includeGST">Total including GST</span><span ng-show="!app.selectedBranch.full.includeGST">Sub total</span></th>
+              <th><span ng-show="selectedCustomer.includeGST">Total including GST</span><span ng-show="!selectedCustomer.includeGST">Sub total</span></th>
               <td>{{app.subTotal | currency}}</td>
             </tr>
-            <tr ng-show="!app.selectedBranch.full.includeGST">
+            <tr ng-show="!selectedCustomer.includeGST">
               <th>GST</th>
               <td>{{app.gst | currency}}</td>
             </tr>
-            <tr ng-show="!app.selectedBranch.full.includeGST">
+            <tr ng-show="!selectedCustomer.includeGST">
               <th>Total</th>
               <td>{{app.grandTotal | currency}}</td>
             </tr>

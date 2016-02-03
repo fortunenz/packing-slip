@@ -1,8 +1,6 @@
 // Builds the packing slip
 var buildPackingSlips = function(itemList, scope, filter) {
   $("#packingSlip").empty();
-  var packingSlip;
-  var orderNum;
 
   // If the user is using a new customer while in invoice view then set
   // irrelevent variables to null
@@ -17,253 +15,225 @@ var buildPackingSlips = function(itemList, scope, filter) {
   // Formats date
   var tokens = itemList.date.toString().split(" ");
   var date = tokens[2] + " " + tokens[1] + " " + tokens[3];
+  console.log(scope.slipNumber);
+  scope.slipNumber++;
 
-  var OrderNumber = Parse.Object.extend("OrderNumber");
-  var Orders = Parse.Object.extend("Orders");
-  var Customers = Parse.Object.extend("Customers");
-  var queryOrderNumber = new Parse.Query(OrderNumber);
-  queryOrderNumber.exists("orderNumber");
-  queryOrderNumber.descending("updatedAt");
-  queryOrderNumber.first({
-    success: function(results) {
-      orderNum = results.attributes.orderNumber;
-      orderNum++;
+  var packingSlip;
+  packingSlip = "";
+  packingSlip += '<div class="packingSlips">';
+  // Header
+  packingSlip += '<div class="row">';
+  packingSlip += '<h1 class="col-10 packingTitle"><img class="logo"src="images/logo.png"> FORTUNE ENTERPRISES CO (NZ) LTD</h1>';
+  if (itemList.invoice === true) {
+    packingSlip += '<strong class="col-2 packingName">Invoice Slip</strong>';
+  } else {
+    packingSlip += '<strong class="col-2 packingName">Packing Slip</strong>';
+  }
+  packingSlip += '</div>';
+  // Left column of subheading
+  packingSlip += '<div class="row packingRow"><div class="col-8">';
+  packingSlip += '<p class="packingP">73 Huia Road, Otahuhu, Auckland</p>';
+  packingSlip += '<p class="packingP">PO Box 9511 New Market, Auckland</p>';
+  packingSlip += '<p class="packingP">Email: <a href="#">feltd@xtra.co.nz</a></p></div>';
+  // Right column of subheading
+  packingSlip += '<div class="col-4">';
+  packingSlip += '<p class="packingP">Phone:    (09) 276-8681</p>';
+  packingSlip += '<p class="packingP">Fax:      (09) 276-8682</p>';
+  packingSlip += '<p class="packingP">Website:  <a href="#">www.fortunenz.com </a></p></div>';
+  packingSlip += '</div>';
+  // Left side shop details
+  packingSlip += '<div class="row packingRow"><div class="col-8">';
+  packingSlip += '<p class="packingP">Deliver to:</p>';
+  packingSlip += '<p class="packingP"><strong>';
+  packingSlip += scope.selectedCustomer.name;
+  packingSlip += '</strong></p>';
+  packingSlip += '<p class="packingP">';
+  packingSlip += scope.selectedCustomer.address;
+  packingSlip += '</p>';
+  packingSlip += '<p class="packingP">';
+  packingSlip += scope.selectedCustomer.city;
+  packingSlip += '</p></div>';
+  // Right side date + packing slip number
+  packingSlip += '<div class="col-4">';
+  if (itemList.invoice === true) {
+    packingSlip += '<p class="packingP">Invoice slip no.: ';
+  } else {
+    packingSlip += '<p class="packingP">Packing slip no.: ';
+  }
+  packingSlip += scope.slipNumber;
+  packingSlip += '</p>';
+  packingSlip += '<p class="packingP">Account no.: ';
+  packingSlip += scope.selectedCustomer.acc;
+  packingSlip += '</p>';
+  packingSlip += '<p class="packingP">Order no.: ';
+  packingSlip += itemList.orderNo;
+  packingSlip += '</p>';
+  packingSlip += '<p class="packingP">Date: ' + date + '</p>';
+  packingSlip += '</div></div>';
 
-      packingSlip = "";
-      packingSlip += '<div class="packingSlips">';
-      // Header
-      packingSlip += '<div class="row">';
-      packingSlip += '<h1 class="col-10 packingTitle"><img class="logo"src="images/logo.png"> FORTUNE ENTERPRISES CO (NZ) LTD</h1>';
-      if (itemList.invoice === true) {
-        packingSlip += '<strong class="col-2 packingName">Invoice Slip</strong>';
-      } else {
-        packingSlip += '<strong class="col-2 packingName">Packing Slip</strong>';
-      }
-      packingSlip += '</div>';
-      // Left column of subheading
-      packingSlip += '<div class="row packingRow"><div class="col-8">';
-      packingSlip += '<p class="packingP">73 Huia Road, Otahuhu, Auckland</p>';
-      packingSlip += '<p class="packingP">PO Box 9511 New Market, Auckland</p>';
-      packingSlip += '<p class="packingP">Email: <a href="#">feltd@xtra.co.nz</a></p></div>';
-      // Right column of subheading
-      packingSlip += '<div class="col-4">';
-      packingSlip += '<p class="packingP">Phone:    (09) 276-8681</p>';
-      packingSlip += '<p class="packingP">Fax:      (09) 276-8682</p>';
-      packingSlip += '<p class="packingP">Website:  <a href="#">www.fortunenz.com </a></p></div>';
-      packingSlip += '</div>';
-      // Left side shop details
-      packingSlip += '<div class="row packingRow"><div class="col-8">';
-      packingSlip += '<p class="packingP">Deliver to:</p>';
-      packingSlip += '<p class="packingP"><strong>';
-      packingSlip += itemList.selectedBranch.name;
-      packingSlip += '</strong></p>';
-      packingSlip += '<p class="packingP">';
-      packingSlip += itemList.selectedBranch.address;
-      packingSlip += '</p>';
-      packingSlip += '<p class="packingP">';
-      packingSlip += itemList.selectedBranch.city;
-      packingSlip += '</p></div>';
-      // Right side date + packing slip number
-      packingSlip += '<div class="col-4">';
-      if (itemList.invoice === true) {
-        packingSlip += '<p class="packingP">Invoice slip no.: ';
-      } else {
-        packingSlip += '<p class="packingP">Packing slip no.: ';
-      }
-      packingSlip += orderNum;
-      packingSlip += '</p>';
-      packingSlip += '<p class="packingP">Account no.: ';
-      packingSlip += itemList.selectedBranch.acc;
-      packingSlip += '</p>';
-      packingSlip += '<p class="packingP">Order no.: ';
-      packingSlip += itemList.orderNo;
-      packingSlip += '</p>';
-      packingSlip += '<p class="packingP">Date: ' + date + '</p>';
-      packingSlip += '</div></div>';
+  // If the order is for a backorder
+  if (itemList.backOrder === true && itemList.invoice === false) {
+    packingSlip += '<div class="center"><strong>Backorder</strong></div>';
+  }
 
-      // If the order is for a backorder
-      if (itemList.backOrder === true && itemList.invoice === false) {
-        packingSlip += '<div class="center"><strong>Backorder</strong></div>';
-      }
+  // Item details with table
+  var table = '';
 
-      // Item details with table
-      var table = '';
+  // Adds the required columns based on whether user is in invoice or
+  // packing slip view as not all are required for either view
+  table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th>';
+  if (itemList.invoice === false) {
+    table += '<th class="packingT">Packaging</th>';
+  }
+  table += '<th class="packingT">Quantity</th><th class="packingT">Carton</th>';
+  if (itemList.invoice === true) {
+    table += '<th class="packingT">Price</th><th class="packingT">Total</th></tr>';
+  }
+  table += buildPackingRow(itemList, filter, scope);
+  table += '</table>';
 
-      // Adds the required columns based on whether user is in invoice or
-      // packing slip view as not all are required for either view
-      table += '<table class="packingTable"><tr><th class="packingT">Code</th><th class="packingT">Description</th>';
-      if (itemList.invoice === false) {
-        table += '<th class="packingT">Packaging</th>';
-      }
-      table += '<th class="packingT">Quantity</th><th class="packingT">Carton</th>';
-      if (itemList.invoice === true) {
-        table += '<th class="packingT">Price</th><th class="packingT">Total</th></tr>';
-      }
-      table += buildPackingRow(itemList, filter);
-      table += '</table>';
+  packingSlip += table;
 
-      packingSlip += table;
-
-      // Displays totals of invoice if user is in invoice view
-      if (itemList.invoice === true) {
-        packingSlip += '<div class="packingTotalTable right">';
-        packingSlip += '<table>';
-        // If the customer has their prices as including GST the sub total price
-        // will be treated as the grand total instead
-        if (itemList.selectedBranch.full.includeGST !== true) {
-          packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
-          packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
-          packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
-        } else {
-          packingSlip += buildTotalRow("Total including GST", filter('currency')(itemList.subTotal));
-        }
-        packingSlip += '</table>';
-        packingSlip += '</div>';
-      }
-
-      // Name and signature only if sending in Auckland meaning will be delivered
-      if (itemList.selectedBranch.city == "Auckland") {
-        var tempLength = 0;
-        for (i = 0, len = itemList.items.length; i < len; i++) {
-          if (itemList.items[i].ordered > 0) {
-            tempLength++;
-          }
-        }
-        if (tempLength < 10) {
-          packingSlip += '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
-        } else {
-          packingSlip += '<br><br>';
-        }
-        packingSlip += '<div class="packingSign">';
-        packingSlip += '<p>Name: _________________________________</p><br>';
-        packingSlip += '<p>Signature: _____________________________</p>';
-        if (itemList.invoice === true && itemList.selectedBranch.acc !== " ") {
-          packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account: Westpac 03-0166-0248508-00</p>';
-        }
-        packingSlip += '</div>';
-      } else {
-        packingSlip += '<br><br>';
-      }
-
-      // Appends notes to the bottom of the page
-      if (itemList.notes.trim().length !== 0) {
-        packingSlip += '<div class="packingNotes"><p class="packingNotesInner">';
-        packingSlip += itemList.notes;
-        packingSlip += '</p></div>';
-      }
-
-      // Christmas time closing message
-      // ----------------------------------------------------------------------
-      /*packingSlip += '<div class="packingChristmasNotes">';
-      packingSlip += '<p class="packingNotesInner">Please be aware that we will be closing on the 23/12/2015 and will re-open on 13/01/2016</p>';
-      packingSlip += '<p class="packingNotesInner">Have a Merry Christmas and a Happy New Year!</p>';
-      packingSlip += '</div>';*/
-
-      // ----------------------------------------------------------------------
-
-      $("#packingSlip").append(packingSlip);
-
-      packingSlip += '<div class="break"></div>';
-      $("#packingSlip").prepend(packingSlip);
-
-      results.set("orderNumber", orderNum);
-      results.save();
-
-      // If the customer is out of Auckland they most likely require shipping
-      // so shipping addresses will be printed automatically if the user requires
-      if (itemList.selectedBranch.city !== "Auckland" && itemList.invoiceNewCustomer === false) {
-        var check = confirm("Would you like to print shipping addresses for your customer?");
-        if (check) {
-          var labelAmount = prompt("How many addresses do you need?", 0);
-          if (isNaN(parseInt(labelAmount))) {
-            alert("No shipping addresses will be printed because you did not enter a valid number");
-          } else {
-            var shippingLabel = '<div class="shippingLabel">';
-            if (itemList.selectedBranch.shippingComment !== "") {
-              shippingLabel += '<br><br>';
-            } else {
-              shippingLabel += '<br><br><br><br><br>';
-            }
-            shippingLabel += '<p>' + itemList.selectedBranch.name + '</p>';
-            shippingLabel += '<p>' + itemList.selectedBranch.address + '</p>';
-            shippingLabel += '<p>' + itemList.selectedBranch.city + '</p>';
-            // If the customer has special needs the program will append a note
-            // in the shipping address label
-            if (itemList.selectedBranch.shippingComment !== "") {
-              shippingLabel += '<br><p>' + itemList.selectedBranch.shippingComment + '</p><br>';
-            }
-            shippingLabel += '</div>';
-            for (i = 0; i < labelAmount; i++) {
-              $("#packingSlip").append(shippingLabel);
-            }
-          }
-        }
-      }
-
-      window.print();
-
-      // Saves the shop data to be reloaded if most recent order needs to be
-      // modified at a later stage
-      if (itemList.invoiceNewCustomer === false) {
-        var orders = new Orders();
-        orders.set("short", itemList.selectedBranch.short);
-        orders.set("notes", itemList.notes);
-        orders.set("backOrder", itemList.backOrder);
-        orders.set("orderNo", itemList.orderNo);
-        for (i = 0, len = itemList.items.length; i < len; i++) {
-          orders.set(itemList.items[i].code, Number(itemList.items[i].ordered));
-        }
-        orders.save(null,{
-          success: function(orders) {
-            console.log('New object created with objectId: ' + orders.id);
-          },
-          error: function(orders, error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and message.
-            console.log('Failed to create new object, with error code: ' + error.message);
-          }
-        });
-      }
-
-      // If customer is being invoiced prices will be checked and if needed
-      // will be saved for next time
-      if (itemList.invoice === true && itemList.invoiceNewCustomer === false) {
-        var customerQuery = new Parse.Query(Customers);
-        customerQuery.equalTo("short", itemList.selectedBranch.short);
-        customerQuery.first({
-          success: function(results) {
-            for (i = 0, len = itemList.items.length; i < len; i++) {
-              if (itemList.items[i].ordered > 0 && itemList.items[i].tempPrice !== results.attributes[itemList.items[i].code]) {
-                results.set(itemList.items[i].code, itemList.items[i].tempPrice);
-                results.save();
-                console.log("New price has been saved for item " + itemList.items[i].code + " with the price of " + itemList.items[i].tempPrice);
-              }
-            }
-            itemList.resetApp();
-          },
-          error: function(error) {
-            console.log("Error: " + error.code + " " + error.message);
-          }
-        });
-      } else {
-       itemList.resetApp();
-      }
-    },
-    error: function(object, error) {
-      // The object was not retrieved successfully.
-      // error is a Parse.Error with an error code and message.
-      console.log("Unable to get the current order number");
+  // Displays totals of invoice if user is in invoice view
+  if (itemList.invoice === true) {
+    packingSlip += '<div class="packingTotalTable right">';
+    packingSlip += '<table>';
+    // If the customer has their prices as including GST the sub total price
+    // will be treated as the grand total instead
+    if (scope.selectedCustomer.includeGST !== true) {
+      packingSlip += buildTotalRow("Sub Total", filter('currency')(itemList.subTotal));
+      packingSlip += buildTotalRow("GST", filter('currency')(itemList.gst));
+      packingSlip += buildTotalRow("Total", filter('currency')(itemList.grandTotal));
+    } else {
+      packingSlip += buildTotalRow("Total including GST", filter('currency')(itemList.subTotal));
     }
-  });
+    packingSlip += '</table>';
+    packingSlip += '</div>';
+  }
+
+  // Name and signature only if sending in Auckland meaning will be delivered
+  if (scope.selectedCustomer.city == "Auckland") {
+    var tempLength = 0;
+    for (i = 0, len = scope.items.length; i < len; i++) {
+      if (scope.items[i].ordered > 0) {
+        tempLength++;
+      }
+    }
+    if (tempLength < 10) {
+      packingSlip += '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+    } else {
+      packingSlip += '<br><br>';
+    }
+    packingSlip += '<div class="packingSign">';
+    packingSlip += '<p>Name: _________________________________</p><br>';
+    packingSlip += '<p>Signature: _____________________________</p>';
+    if (itemList.invoice === true && scope.selectedCustomer.acc !== " ") {
+      packingSlip += '<p class="packingPaymentInfo">Please pay direct to bank account: Westpac 03-0166-0248508-00</p>';
+    }
+    packingSlip += '</div>';
+  } else {
+    packingSlip += '<br><br>';
+  }
+
+  // Appends notes to the bottom of the page
+  if (itemList.notes.trim().length !== 0) {
+    packingSlip += '<div class="packingNotes"><p class="packingNotesInner">';
+    packingSlip += itemList.notes;
+    packingSlip += '</p></div>';
+  }
+
+  // Christmas time closing message
+  // ----------------------------------------------------------------------
+  /*packingSlip += '<div class="packingChristmasNotes">';
+  packingSlip += '<p class="packingNotesInner">Please be aware that we will be closing on the 23/12/2015 and will re-open on 13/01/2016</p>';
+  packingSlip += '<p class="packingNotesInner">Have a Merry Christmas and a Happy New Year!</p>';
+  packingSlip += '</div>';*/
+
+  // ----------------------------------------------------------------------
+
+  $("#packingSlip").append(packingSlip);
+
+  packingSlip += '<div class="break"></div>';
+  $("#packingSlip").prepend(packingSlip);
+
+  // If the customer is out of Auckland they most likely require shipping
+  // so shipping addresses will be printed automatically if the user requires
+  if (scope.selectedCustomer.city !== "Auckland" && itemList.invoiceNewCustomer === false) {
+    var check = confirm("Would you like to print shipping addresses for your customer?");
+    if (check) {
+      var labelAmount = prompt("How many addresses do you need?", 0);
+      if (isNaN(parseInt(labelAmount))) {
+        alert("No shipping addresses will be printed because you did not enter a valid number");
+      } else {
+        var shippingLabel = '<div class="shippingLabel">';
+        if (scope.selectedCustomer.shippingComment !== null) {
+          shippingLabel += '<br><br>';
+        } else {
+          shippingLabel += '<br><br><br><br><br>';
+        }
+        shippingLabel += '<p>' + scope.selectedCustomer.name + '</p>';
+        shippingLabel += '<p>' + scope.selectedCustomer.address + '</p>';
+        shippingLabel += '<p>' + scope.selectedCustomer.city + '</p>';
+        // If the customer has special needs the program will append a note
+        // in the shipping address label
+        if (scope.selectedCustomer.shippingComment !== null) {
+          shippingLabel += '<br><p>' + scope.selectedCustomer.shippingComment + '</p><br>';
+        }
+        shippingLabel += '</div>';
+        for (i = 0; i < labelAmount; i++) {
+          $("#packingSlip").append(shippingLabel);
+        }
+      }
+    }
+  }
+
+  window.print();
+
+  // Saves the shop data to be reloaded if most recent order needs to be
+  // modified at a later stage
+  if (itemList.invoiceNewCustomer === false) {
+    var tempJson = {};
+
+    tempJson.short =  scope.selectedCustomer.short;
+    tempJson.notes = itemList.notes;
+    tempJson.slipNumber = scope.slipNumber;
+
+    for (var i = 0; i < scope.items.length; i++) {
+      tempJson[scope.items[i].code] = scope.items[i].ordered;
+    }
+
+    var ordersRef = new Firebase('https://popping-torch-7294.firebaseio.com/slipOrders');
+    ordersRef.push(tempJson);
+  }
+
+  //
+  var ref = new Firebase('https://popping-torch-7294.firebaseio.com/');
+  ref.child("slipNumber").set(scope.slipNumber);
+
+  // If customer is being invoiced prices will be checked and if needed
+  // will be saved for next time
+  if (itemList.invoice === true && itemList.invoiceNewCustomer === false) {
+    for (i = 0, len = scope.items.length; i < len; i++) {
+      if (scope.items[i].ordered > 0 && scope.items[i].tempPrice !== scope.selectedCustomer[scope.items[i].code]) {
+        /*
+        ref.child("customers").update({
+          scope.items[i].code: scope.items[i].tempPrice
+        });
+        console.log("New price has been saved for item " + scope.items[i].code + " with the price of " + scope.items[i].tempPrice);*/
+      }
+    }
+  }
+
+  itemList.resetApp();
 };
 
-var buildPackingRow = function(itemList, filter) {
+var buildPackingRow = function(itemList, filter, scope) {
   var table = "";
   var quantity = 0;
   var tempItemOrdered;
 
-  for (i = 0; i < itemList.items.length; i++) {
-    var tempItem = itemList.items[i];
+  for (i = 0; i < scope.items.length; i++) {
+    var tempItem = scope.items[i];
     if (tempItem.ordered > 0) {
       table += '<tr><td class="packingT">';
       table += tempItem.code;
