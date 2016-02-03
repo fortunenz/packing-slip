@@ -1,119 +1,100 @@
 (function() {
-  var app = angular.module("app", []);
+  var app = angular.module("app", ["firebase"]);
   Parse.initialize("p45yej86tibQrsfKYCcj6UmNw4o7b6kxtsobZnmA", "fXSkEhDGakCYnVv5OOdAfWDmjAuQvlnFI5KOwIUO");
   // Allows users to access the Orders class
   var Orders = Parse.Object.extend("Orders");
 
-  app.controller("appCtrl", function($scope, $compile, $filter) {
-    var self = this;
+  app.controller("appCtrl", function($scope, $compile, $filter, $firebaseArray) {
+    // Connects to the firebase server
+    var ref = new Firebase('https://popping-torch-7294.firebaseio.com/');
 
-    // Predefine the customer directories for later server loads
-    self.customers = [
-      {
-        "name": "Fruit World",
-        "show": false,
-        "array": []
-      },
-      {
-        "name": "Supa Fruit Mart",
-        "show": false,
-        "array": []
-      },
-      {
-        "name": "Taiping Trading",
-        "show": false,
-        "array": []
-      },
-      {
-        "name": "Delivery",
-        "show": false,
-        "array": []
-      },
-      {
-        "name": "Out of Auckland",
-        "show": false,
-        "array": []
-      },
-      {
-        "name": "Invoice",
-        "show": false,
-        "array": []
-      }
-    ];
-
-    // Pulls data from server for all customers
-    self.loadCustomers = function() {
-      var Customers = Parse.Object.extend("Customers");
-      var query = new Parse.Query(Customers);
-      query.limit(1000);
-      query.find({
-        success: function(results) {
-          var customerJson;
+    // Firebase queries ----------------------------------------------------------
+    ref.onAuth(function(authData) {
+      $scope.access = false;
+      if (authData) {
+        $scope.access = true;
+        $scope.name = getName(authData);
+        $scope.customers = [
+          {
+            "name": "Fruit World",
+            "show": false,
+            "array": []
+          },
+          {
+            "name": "Supa Fruit Mart",
+            "show": false,
+            "array": []
+          },
+          {
+            "name": "Taiping Trading",
+            "show": false,
+            "array": []
+          },
+          {
+            "name": "Delivery",
+            "show": false,
+            "array": []
+          },
+          {
+            "name": "Out of Auckland",
+            "show": false,
+            "array": []
+          },
+          {
+            "name": "Invoice",
+            "show": false,
+            "array": []
+          }
+        ];
+        // Loads customers from server and appends them into the correct array
+        ref.child("customers").on("value", function(snapshot) {
+          var results = snapshot.val();
+          // Predefine the customer directories for later server loads
           for (i = 0, len = results.length; i < len; i++) {
-            customerJson = {
-              "type": results[i].attributes.type,
-              "name": results[i].attributes.name,
-              "short": results[i].attributes.short,
-              "acc": results[i].attributes.acc,
-              "address": results[i].attributes.address,
-              "city": results[i].attributes.city,
-              "shippingComment": results[i].attributes.shippingComment,
-              "full": results[i].attributes
-            };
-            for (j = 0; j < self.customers.length; j++) {
-              if (customerJson.type == self.customers[j].name) {
-                self.customers[j].array.push(customerJson);
+            for (j = 0; j < $scope.customers.length; j++) {
+              if (results[i].type == $scope.customers[j].name) {
+                $scope.customers[j].array.push(results[i]);
               }
             }
           }
-          for (i = 0; i < self.customers.length; i++) {
-            sortByKey(self.customers[i].array, "name");
+          for (i = 0; i < $scope.customers.length; i++) {
+            sortByKey($scope.customers[i].array, "name");
           }
           $scope.$apply();
-        },
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
-      });
-    };
+        });
 
-    // Pulls data from server for all items
-    self.loadItems = function() {
-      self.items = [];
-      $scope.displayedItems = [];
-      var Items = Parse.Object.extend("Items");
-      query = new Parse.Query(Items);
-      query.limit(1000);
-      query.find({
-        success: function(results) {
-          for (i = 0, len = results.length; i < len; i++) {
-            results[i].attributes.ordered = 0;
-            self.items.push(results[i].attributes);
+        ref.child("items").on("value", function(snapshot) {
+          $scope.items = snapshot.val();
+          for (var i = 0, len = $scope.items.length; i < len; i++) {
+            $scope.items[i].ordered = 0;
           }
-          sortByKey(self.items, "code");
-          $scope.displayedItems = self.items;
+          sortByKey($scope.items, "code");
+          $scope.displayedItems = $scope.items;
           $scope.$apply();
           stopScroll();
-        },
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
-      });
-    };
+        });
+      } else {
+        console.log("Client unauthenticated.")
+      }
+    });
+
+    // find a suitable name based on the meta info given by each provider
+    function getName(authData) {
+      switch(authData.provider) {
+         case 'password':
+           return authData.password.email.replace(/@.*/, '');
+         case 'twitter':
+           return authData.twitter.displayName;
+         case 'facebook':
+           return authData.facebook.displayName;
+      }
+    }
+
+    var self = this;
 
     // Login variables
-    self.userName = "";
-    self.password = "";
-    var currentUser = Parse.User.current();
-    if (currentUser) {
-      self.access = true;
-      self.name = currentUser.attributes.firstName;
-      self.loadCustomers();
-      self.loadItems();
-    } else {
-      self.access = false;
-      self.name = "";
-    }
+    $scope.userName = "";
+    $scope.password = "";
 
     // Application variables
     self.selectedBranch = {
@@ -142,35 +123,39 @@
     // Function to log the user in so they can use the program
     self.login = function() {
       $("#loading").show();
-      Parse.User.logIn(self.userName, self.password, {
-        success: function(user) {
+      ref.authWithPassword({
+        email    : $scope.userName,
+        password : self.password
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
           $("#loading").hide();
-          self.name = user.attributes.firstName;
-          self.access = true;
-          self.loadCustomers();
-          self.loadItems();
-        },
-        error: function(user, error) {
-          $("#loading").hide();
-          // The login failed. Check error to see why.
           alert("Sorry the username or password may be wrong, please try again");
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+          $scope.access = true;
+          $("#loading").hide();
+          $scope.$apply();
         }
+      }, {
+        remember: "default"
       });
     };
 
     // Function to log the user out of applciation for security
     self.logout = function() {
-      Parse.User.logOut();
-      self.access = false;
+      ref.unauth();
+      $scope.userName = "";
+      $scope.access = false;
     };
 
     // Displays the list of shops that can be accessed
     self.showList = function(customer) {
       if (customer.show === false) {
         customer.show = true;
-        for (i = 0, len = self.customers.length; i < len; i++) {
-          if (customer !== self.customers[i]) {
-            self.customers[i].show = false;
+        for (i = 0, len = $scope.customers.length; i < len; i++) {
+          if (customer !== $scope.customers[i]) {
+            $scope.customers[i].show = false;
           }
         }
       } else {
@@ -180,8 +165,8 @@
 
     // Loads the selected customer as the selected customer
     self.listClick = function(data) {
-      for (i = 0, len = self.customers.length; i < len; i++) {
-        self.customers[i].show = false;
+      for (i = 0, len = $scope.customers.length; i < len; i++) {
+        $scope.customers[i].show = false;
       }
       self.selectedBranch.name = data.name;
       self.selectedBranch.short = data.short;
@@ -205,14 +190,14 @@
     // Appends data to the checkout list
     self.checkoutList = function() {
       var temp;
-      for (i = 0, len = self.items.length; i < len; i++) {
-        temp = $.inArray(self.items[i], self.checkoutItems);
-        if (self.items[i].ordered > 0) {
+      for (i = 0, len = $scope.items.length; i < len; i++) {
+        temp = $.inArray($scope.items[i], self.checkoutItems);
+        if ($scope.items[i].ordered > 0) {
           if (temp === -1) {
-            self.checkoutItems.push(self.items[i]);
+            self.checkoutItems.push($scope.items[i]);
             // Recalculate the prices and totals if in invoice view
             if (self.invoice === true) {
-              self.definePrices(self.items[i]);
+              self.definePrices($scope.items[i]);
             }
           }
         } else {
@@ -232,8 +217,8 @@
       // Prevents the user from creating packing slips if there are no
       // customer or items selected
       var total = 0;
-      for (i = 0, len = self.items.length; i < len; i++) {
-        total += self.items[i].ordered;
+      for (i = 0, len = $scope.items.length; i < len; i++) {
+        total += $scope.items[i].ordered;
       }
       if (self.selectedBranch.name === "") {
         alert("Please select a customer before you print");
@@ -254,9 +239,9 @@
           self.notes = results.attributes.notes;
           self.backOrder = results.attributes.backOrder;
           self.orderNo = results.attributes.orderNo;
-          for (i = 0, len = self.items.length; i < len; i++) {
-            if (results.attributes.hasOwnProperty(self.items[i].code)) {
-              self.items[i].ordered = results.attributes[self.items[i].code];
+          for (i = 0, len = $scope.items.length; i < len; i++) {
+            if (results.attributes.hasOwnProperty($scope.items[i].code)) {
+              $scope.items[i].ordered = results.attributes[$scope.items[i].code];
             }
           }
           self.checkoutList();
@@ -293,13 +278,13 @@
       self.notes = "";
       self.invoiceNewCustomer = false;
       self.date = new Date();
-      for (i = 0, len = self.items.length; i < len; i++) {
-        self.items[i].ordered = 0;
-        self.items[i].tempPrice = 0;
-        self.items[i].wrongPrice = false;
+      for (i = 0, len = $scope.items.length; i < len; i++) {
+        $scope.items[i].ordered = 0;
+        $scope.items[i].tempPrice = 0;
+        $scope.items[i].wrongPrice = false;
       }
       self.checkoutList();
-      $scope.displayedItems = self.items;
+      $scope.displayedItems = $scope.items;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
 
       // Applies the change to the view
@@ -320,12 +305,12 @@
     // if the user searches for items
     $scope.$watch("searchBox", function() {
       if ($scope.searchBox.trim().length === 0) {
-        $scope.displayedItems = self.items;
+        $scope.displayedItems = $scope.items;
       } else {
         $scope.displayedItems = [];
-        for (i = 0, len = self.items.length; i < len; i++) {
-          if (self.items[i].description.toLowerCase().includes($scope.searchBox.toLowerCase()) || self.items[i].code.toLowerCase().includes($scope.searchBox.toLowerCase())) {
-            $scope.displayedItems.push(self.items[i]);
+        for (i = 0, len = $scope.items.length; i < len; i++) {
+          if ($scope.items[i].description.toLowerCase().includes($scope.searchBox.toLowerCase()) || $scope.items[i].code.toLowerCase().includes($scope.searchBox.toLowerCase())) {
+            $scope.displayedItems.push($scope.items[i]);
           }
         }
       }
@@ -342,8 +327,8 @@
       self.resetCustomer();
       self.backOrder = false;
       // Close all customer tabs
-      for (i = 0, len = self.customers.length; i < len; i++) {
-        self.customers[i].show = false;
+      for (i = 0, len = $scope.customers.length; i < len; i++) {
+        $scope.customers[i].show = false;
       }
 
       // If the view has been changed to invoice view do the following
@@ -410,9 +395,9 @@
     // Adjusts the total price charged to customers responsively
     self.defineTotalPrice = function() {
       self.subTotal = 0;
-      for (i = 0, len = self.items.length; i < len; i++) {
-        if (self.items[i].ordered > 0) {
-          self.subTotal += self.items[i].ordered * self.items[i].tempPrice;
+      for (i = 0, len = $scope.items.length; i < len; i++) {
+        if ($scope.items[i].ordered > 0) {
+          self.subTotal += $scope.items[i].ordered * $scope.items[i].tempPrice;
         }
       }
       self.gst = self.subTotal * 0.15;
