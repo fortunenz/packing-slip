@@ -1,7 +1,8 @@
 (function() {
   var app = angular.module("app", ["firebase"]);
 
-  app.controller("appCtrl", function($scope, $compile, $filter, $firebaseArray) {
+  app.controller("appCtrl", ["$scope", "$compile", "$filter", "$firebaseArray",
+        function($scope, $compile, $filter, $firebaseArray) {
     // Connects to the firebase server
     var ref = new Firebase('https://popping-torch-7294.firebaseio.com/');
 
@@ -44,9 +45,8 @@
           }
         ];
         // Loads customers from server and appends them into the correct array
-        ref.child("customers").on("value", function(snapshot) {
-          var results = snapshot.val();
-          // Predefine the customer directories for later server loads
+        var results = $firebaseArray(ref.child('customers'));
+        results.$loaded().then(function() {
           for (i = 0, len = results.length; i < len; i++) {
             for (j = 0; j < $scope.customers.length; j++) {
               if (results[i].type == $scope.customers[j].name) {
@@ -57,17 +57,19 @@
           for (i = 0; i < $scope.customers.length; i++) {
             sortByKey($scope.customers[i].array, "name");
           }
-          $scope.$apply();
+        })
+        .catch(function(err) {
+          console.error(err);
         });
 
-        ref.child("items").on("value", function(snapshot) {
-          $scope.items = snapshot.val();
+        $scope.items = $firebaseArray(ref.child('items'));
+
+        $scope.items.$loaded().then(function() {
           for (var i = 0, len = $scope.items.length; i < len; i++) {
             $scope.items[i].ordered = 0;
           }
           sortByKey($scope.items, "code");
           $scope.displayedItems = $scope.items;
-          $scope.$apply();
           stopScroll();
         });
 
@@ -265,9 +267,6 @@
       self.checkoutList();
       $scope.displayedItems = $scope.items;
       $('html, body').animate({ scrollTop: 0 }, 'fast');
-
-      // Applies the change to the view
-      $scope.$apply();
     };
 
     // Watches if the displayedItems variable changes based on searches and Resets
@@ -392,5 +391,5 @@
         }
       }
     };
-  });
+  }]);
 })();
