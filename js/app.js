@@ -227,6 +227,8 @@
           for (var j = 0; j < $scope.items.length; j++) {
             if ($scope.slipOrders[i-1].hasOwnProperty($scope.items[j].code)) {
               $scope.items[j].ordered = $scope.slipOrders[i-1][$scope.items[j].code];
+            } else {
+              $scope.items[j].ordered = 0;
             }
           }
           self.checkoutList();
